@@ -10,6 +10,12 @@
 
 ---
 
+## Скриншоты
+
+![Главная](docs/screenshots/home.jpg)
+
+![Каталог](docs/screenshots/catalog.jpg)
+
 ## Что реализовано
 
 | Блок | Статус |
