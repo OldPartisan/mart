@@ -201,6 +201,12 @@ CI-шаблон — `docs/ci.yml` (скопируйте в `.github/workflows/ci
 - [Деплой: Vercel + Neon, Docker, GitHub Pages](docs/DEPLOY.md)
 - [Допущения и расхождения с ТЗ](docs/ASSUMPTIONS.md)
 
+## Если локальный запуск не стартует
+
+- **macOS: `Failed to load SWC binary` / `different Team IDs`** — это конфликт подписи нативного бинарника Node и `@next/swc`, а не ошибка проекта. Используйте официальный Node 22 с [nodejs.org](https://nodejs.org) или переустановите зависимости на чистом Node. В этом окружении сборка выполнялась через ad-hoc-подписанный Node.
+- **`EACCES`/`ENOENT` на `.data/pglite`** — каталог создаётся автоматически; проверьте права на папку проекта.
+- **Порт занят** — `pnpm dev --port 3001`.
+
 ## Лицензия
 
 Код создан для ГК IRBIS. Фотографии — Unsplash (демонстрационные), перед продакшеном заменить на собственные.
