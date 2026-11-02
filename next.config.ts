@@ -21,6 +21,10 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["@electric-sql/pglite"],
   experimental: {
     serverActions: { bodySizeLimit: "2mb" },
+    // PGlite — один файловый инстанс; сериализуем сборку, чтобы страницы
+    // не открывали базу параллельно. В продакшене с PostgreSQL не нужно.
+    cpus: 1,
+    workerThreads: false,
   },
   async headers() {
     return [

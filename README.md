@@ -115,7 +115,6 @@ DATABASE_URL="postgresql://user:password@host:5432/irbis_mart?sslmode=require"
 
 ```
 irbis-mart-site/
-├── prisma/                  # нет: схема в src/db/schema.ts (Drizzle)
 ├── public/images/           # локальные фото (стоковые плейсхолдеры)
 ├── scripts/                 # экспорт каталога и сборка GitHub Pages
 ├── src/
@@ -184,7 +183,7 @@ pnpm test          # 11 тестов: бонусы, доставка, скидк
 pnpm test:e2e      # Playwright: главная, каталог→корзина, вход в кабинет
 ```
 
-CI-пример — `.github/workflows/ci.yml`. Lighthouse-цели: Performance ≥ 90, Accessibility ≥ 90, SEO ≥ 95 (локальные изображения, `next/font`, статические страницы, семантическая разметка).
+CI-шаблон — `docs/ci.yml` (скопируйте в `.github/workflows/ci.yml`, для push нужен scope `workflow`). Lighthouse-цели: Performance ≥ 90, Accessibility ≥ 90, SEO ≥ 95 (локальные изображения, `next/font`, статические страницы, семантическая разметка).
 
 ---
 

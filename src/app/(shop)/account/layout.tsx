@@ -19,7 +19,7 @@ export default async function AccountLayout({ children }: { children: React.Reac
   if (!user) redirect("/login?next=/account");
 
   return (
-    <div className="bg-[#FBF8F1]">
+    <div className="bg-[#F7F8F9]">
       <div className="container-x py-6 md:py-10">
         <div className="grid gap-6 lg:grid-cols-[250px_1fr]">
           <aside>

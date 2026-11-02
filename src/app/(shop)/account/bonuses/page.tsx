@@ -31,7 +31,7 @@ export default async function BonusesPage() {
     <div className="space-y-5">
       <div>
         <p className="eyebrow">Программа лояльности</p>
-        <h1 className="mt-2 text-h1 font-bold text-ink">Бонусы</h1>
+        <h1 className="mt-2 font-display text-[28px] font-normal tracking-[-0.02em] text-ink sm:text-[36px]">Бонусы</h1>
         <p className="mt-1.5 text-[13px] text-muted">1 бонус = 1 ₽. Начисляем после оплаты, списываем до 50% заказа.</p>
       </div>
 

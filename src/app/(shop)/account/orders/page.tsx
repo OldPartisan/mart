@@ -20,7 +20,7 @@ export default async function OrdersPage() {
     <div className="space-y-5">
       <div>
         <p className="eyebrow">История</p>
-        <h1 className="mt-2 text-h1 font-bold text-ink">Мои заказы</h1>
+        <h1 className="mt-2 font-display text-[28px] font-normal tracking-[-0.02em] text-ink sm:text-[36px]">Мои заказы</h1>
         <p className="mt-1.5 text-[13px] text-muted">Статусы, состав и повтор заказа в один клик.</p>
       </div>
 

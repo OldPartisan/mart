@@ -17,7 +17,7 @@ export default async function ProfilePage() {
     <div className="space-y-5">
       <div>
         <p className="eyebrow">Аккаунт</p>
-        <h1 className="mt-2 text-h1 font-bold text-ink">Профиль</h1>
+        <h1 className="mt-2 font-display text-[28px] font-normal tracking-[-0.02em] text-ink sm:text-[36px]">Профиль</h1>
         <p className="mt-1.5 text-[13px] text-muted">Контакты, адреса доставки и настройки рассылки.</p>
       </div>
 

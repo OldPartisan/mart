@@ -165,7 +165,7 @@ git push --force https://github.com/OldPartisan/mart.git HEAD:gh-pages
 
 ## 4. CI
 
-`.github/workflows/ci.yml` запускает на push/PR:
+`docs/ci.yml` — шаблон CI. Скопируйте его в `.github/workflows/ci.yml` (для push файла нужен scope `workflow`) — workflow запускает на push/PR:
 - `pnpm typecheck`
 - `pnpm test`
 - `pnpm build`
