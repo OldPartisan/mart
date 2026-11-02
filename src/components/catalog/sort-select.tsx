@@ -25,7 +25,7 @@ export function SortSelect() {
           query.delete("page");
           router.push(`${pathname}?${query.toString()}`, { scroll: false });
         }}
-        className="h-9 rounded-full border border-line bg-white px-3 text-[12px] font-semibold text-ink outline-none focus:border-brand-700"
+        className="h-8 rounded-md border border-line bg-white px-2 text-[12px] text-ink outline-none focus:border-brand-700"
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>

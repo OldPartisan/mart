@@ -28,13 +28,13 @@ export function PageHero({
 }) {
   const hasImage = Boolean(image) && align === "split";
   return (
-    <section className="border-b border-line/70 bg-cream">
-      <div className="container-x py-6 md:py-10">
+    <section className="border-b border-line bg-white">
+      <div className="container-x py-5 md:py-7">
         <Breadcrumbs items={crumbs ?? []} />
         <div className={cn("mt-5 grid items-center gap-8", hasImage ? "lg:grid-cols-[1.1fr_0.9fr]" : "")}>
           <div className={cn(align === "center" && "mx-auto max-w-3xl text-center")}>
             {eyebrow && <p className={cn("eyebrow", align === "center" && "justify-center")}>{eyebrow}</p>}
-            <h1 className="mt-2.5 text-h1 font-bold text-ink text-balance">{title}</h1>
+            <h1 className="mt-2 font-display text-[28px] font-normal leading-tight tracking-[-0.02em] text-ink text-balance sm:text-[34px] lg:text-[40px]">{title}</h1>
             {description && <p className={cn("mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-soft/80", align === "center" && "mx-auto")}>{description}</p>}
             {children && <div className="mt-6">{children}</div>}
             {cta && (
@@ -44,7 +44,7 @@ export function PageHero({
             )}
           </div>
           {hasImage && (
-            <div className="relative aspect-[16/11] overflow-hidden rounded-[2rem]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[18px]">
               <Image src={image!} alt={imageAlt ?? ""} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
             </div>
           )}

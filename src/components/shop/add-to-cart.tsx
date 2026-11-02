@@ -86,7 +86,7 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
         onClick={handleAdd}
         aria-label={`Добавить ${product.name} в корзину`}
         className={cn(
-          "flex h-10 w-10 items-center justify-center rounded-full bg-brand-800 text-cream transition hover:bg-brand-900 active:scale-95",
+          "flex h-12 w-12 items-center justify-center rounded-[9px] bg-brand-500 text-white transition hover:bg-brand-600 active:scale-95",
           className,
         )}
       >
@@ -98,8 +98,8 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
   return (
     <div
       className={cn(
-        "flex items-center gap-1 rounded-full bg-brand-800 p-1 text-cream",
-        variant === "full" ? "h-12 w-full justify-between px-2" : "h-10",
+        "flex items-center gap-1 rounded-[9px] bg-brand-500 px-1 text-white",
+        variant === "full" ? "h-12 w-full justify-between px-2" : "h-12",
         className,
       )}
       role="group"
@@ -108,7 +108,7 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
       <button
         type="button"
         onClick={() => setQuantity(product.id, quantity - 1)}
-        className="flex h-8 w-8 items-center justify-center rounded-full transition hover:bg-white/15"
+        className="flex h-8 w-8 items-center justify-center rounded-md transition hover:bg-black/10"
         aria-label="Уменьшить количество"
       >
         <Minus className="h-4 w-4" aria-hidden="true" />
@@ -119,7 +119,7 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
       <button
         type="button"
         onClick={() => setQuantity(product.id, quantity + 1)}
-        className="flex h-8 w-8 items-center justify-center rounded-full transition hover:bg-white/15"
+        className="flex h-8 w-8 items-center justify-center rounded-md transition hover:bg-black/10"
         aria-label="Увеличить количество"
       >
         <Plus className="h-4 w-4" aria-hidden="true" />

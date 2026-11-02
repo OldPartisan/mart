@@ -29,6 +29,7 @@ export type ProductCard = {
   isFarm: boolean;
   isNew: boolean;
   isHit: boolean;
+  popularity: number;
   categoryName?: string;
   categorySlug?: string;
 };
@@ -47,6 +48,7 @@ const cardColumns = {
   isFarm: products.isFarm,
   isNew: products.isNew,
   isHit: products.isHit,
+  popularity: products.popularity,
   categoryName: categories.name,
   categorySlug: categories.slug,
 };
@@ -58,6 +60,16 @@ export async function getCategories() {
     .from(categories)
     .where(eq(categories.isActive, true))
     .orderBy(asc(categories.sortOrder), asc(categories.name));
+}
+
+export async function getCategoryCounts() {
+  const db = await getDb();
+  const rows = await db
+    .select({ categoryId: products.categoryId, count: sql<number>`count(*)::int` })
+    .from(products)
+    .where(eq(products.isActive, true))
+    .groupBy(products.categoryId);
+  return new Map(rows.map((row) => [row.categoryId, row.count]));
 }
 
 export async function getCategoryBySlug(slug: string) {

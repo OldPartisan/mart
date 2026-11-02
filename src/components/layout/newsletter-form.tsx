@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 export function NewsletterForm({ compact = false }: { compact?: boolean }) {
@@ -36,7 +37,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
 
   if (status === "done") {
     return (
-      <div className="flex items-center gap-2 rounded-2xl border border-cream/20 bg-cream/10 px-4 py-3 text-[13px] text-cream">
+      <div className="flex items-center gap-2 rounded-lg border border-brand-200 bg-brand-50 px-4 py-3 text-[12px] text-brand-900">
         <Check className="h-4 w-4 text-accent-300" /> Готово — акции и новинки будут приходить на почту.
       </div>
     );
@@ -55,25 +56,25 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Ваш email"
-          className="h-12 flex-1 rounded-full border border-cream/25 bg-cream/10 px-5 text-sm text-cream placeholder:text-cream/50 focus:border-accent-400 focus:outline-none focus:ring-2 focus:ring-accent-400/20"
+          className="h-10 flex-1 rounded-lg border border-line bg-white px-3 text-[12px] text-ink placeholder:text-muted focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/10"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent-500 px-5 text-sm font-bold text-white transition hover:bg-accent-600 disabled:opacity-60 sm:w-auto w-full"
+          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-brand-700 px-4 text-[12px] font-semibold text-white transition hover:bg-brand-800 disabled:opacity-60 sm:w-auto"
         >
           {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
           Подписаться
         </button>
       </div>
-      <p className="mt-2 text-[10px] leading-relaxed text-cream/45">
+      <p className="mt-2 text-[9.5px] leading-relaxed text-muted">
         Нажимая «Подписаться», вы соглашаетесь с{" "}
-        <a href="/legal/privacy" className="underline decoration-cream/30 underline-offset-2 hover:text-cream">
+        <Link href="/legal/privacy" className="underline underline-offset-2 hover:text-ink">
           политикой конфиденциальности
-        </a>
+        </Link>
         . Отписаться можно в один клик.
       </p>
-      {status === "error" && <p className="mt-2 text-[11px] text-accent-300">{error}</p>}
+      {status === "error" && <p className="mt-2 text-[11px] text-accent-600">{error}</p>}
     </form>
   );
 }

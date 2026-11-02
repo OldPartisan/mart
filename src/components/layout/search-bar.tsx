@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -26,6 +26,7 @@ export function SearchBar({ className, autoFocus = false }: { className?: string
   const [active, setActive] = useState(-1);
   const boxRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const resultsId = useId();
   const staticDemo = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
   const [demoIndex, setDemoIndex] = useState<SearchHit[] | null>(null);
 
@@ -130,12 +131,12 @@ export function SearchBar({ className, autoFocus = false }: { className?: string
           }}
           onFocus={() => query.trim().length >= 2 && setOpen(true)}
           onKeyDown={onKeyDown}
-          placeholder="Найти молоко, хлеб или комбо…"
+          placeholder="Найти в Ирбис Март"
           aria-label="Поиск по каталогу"
           aria-expanded={open}
-          aria-controls="search-results"
+          aria-controls={resultsId}
           role="combobox"
-          className="h-11 w-full rounded-full border border-line bg-white pl-11 pr-10 text-sm outline-none transition placeholder:text-muted/80 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15"
+          className="h-11 w-full rounded-lg border border-transparent bg-[#F3F3F3] pl-11 pr-10 text-[14px] outline-none transition placeholder:text-muted focus:border-brand-700 focus:bg-white focus:ring-2 focus:ring-brand-700/10"
         />
         {query ? (
           <button
@@ -159,7 +160,7 @@ export function SearchBar({ className, autoFocus = false }: { className?: string
 
       {open && (
         <div
-          id="search-results"
+          id={resultsId}
           role="listbox"
           className="absolute left-0 right-0 top-[calc(100%+8px)] z-50 overflow-hidden rounded-3xl border border-line bg-white shadow-float"
         >

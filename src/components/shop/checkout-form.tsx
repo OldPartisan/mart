@@ -16,13 +16,13 @@ import {
   MapPin,
   Sparkles,
   Store,
+  ShoppingBasket,
   Tag,
   Truck,
   X,
 } from "lucide-react";
 import { toast } from "sonner";
 import { cartSubtotal, useCartStore } from "@/store/cart";
-import { useCartStore as useStore } from "@/store/cart";
 import { checkoutFormSchema, type CheckoutFormInput } from "@/lib/validation";
 import { formatPrice } from "@/lib/money";
 import { cn } from "@/lib/utils";
@@ -42,7 +42,7 @@ type Promo = { code: string; discount: number; description: string };
 export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props) {
   const router = useRouter();
   const items = useCartStore((s) => s.items);
-  const clear = useStore((s) => s.clear);
+  const clear = useCartStore((s) => s.clear);
   const [mounted, setMounted] = useState(false);
   const [promoInput, setPromoInput] = useState("");
   const [promo, setPromo] = useState<Promo | null>(null);
@@ -228,12 +228,20 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
 
   if (items.length === 0) {
     return (
-      <div className="container-x py-16 text-center">
-        <h1 className="font-display text-2xl font-bold">Корзина пуста</h1>
-        <p className="mt-2 text-sm text-muted">Добавьте товары, чтобы оформить заказ.</p>
-        <Link href="/catalog" className="btn-primary mt-5">
-          В каталог
-        </Link>
+      <div className="container-x py-14 md:py-20">
+        <div className="mx-auto max-w-lg rounded-[2rem] border border-line bg-white px-6 py-14 text-center">
+          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cream text-brand-800">
+            <ShoppingBasket className="h-7 w-7" />
+          </span>
+          <h1 className="mt-5 font-display text-2xl font-bold text-ink">Корзина пуста</h1>
+          <p className="mt-2 text-[13.5px] leading-relaxed text-muted">
+            Добавьте товары — и мы соберём заказ к вашему приезду. Самовывоз бесплатный, через 2 часа.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-2">
+            <Link href="/catalog" className="btn-primary">В каталог <ArrowRight className="h-4 w-4" /></Link>
+            <Link href="/catalog/kombo-nabory" className="btn-secondary">Комбо-наборы</Link>
+          </div>
+        </div>
       </div>
     );
   }

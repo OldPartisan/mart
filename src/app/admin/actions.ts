@@ -16,6 +16,15 @@ async function requireAdmin() {
   return user;
 }
 
+function isRedirectError(error: unknown): boolean {
+  return Boolean(
+    error &&
+      typeof error === "object" &&
+      "digest" in error &&
+      String((error as { digest?: string }).digest).startsWith("NEXT_REDIRECT"),
+  );
+}
+
 function back(path: string, message: string, type: "ok" | "error" = "ok"): never {
   redirect(`${path}?${type}=${encodeURIComponent(message)}`);
 }
@@ -87,7 +96,7 @@ export async function saveProduct(formData: FormData): Promise<void> {
     revalidatePath(`/product/${parsed.slug}`);
     back("/admin/products", isNew ? "Товар создан" : "Товар обновлён");
   } catch (error) {
-    if (error instanceof Error && error.message === "NEXT_REDIRECT") throw error;
+    if (isRedirectError(error)) throw error;
     if (error instanceof Error && "issues" in error) {
       const first = (error as { issues: Array<{ message: string; path: string[] }> }).issues[0];
       back(target, `${first?.path.join(".")}: ${first?.message}`, "error");
@@ -164,6 +173,7 @@ export async function updateOrderStatus(formData: FormData): Promise<void> {
     revalidatePath(`/admin/orders/${id}`);
     back(path, "Статус заказа обновлён");
   } catch (error) {
+    if (isRedirectError(error)) throw error;
     back(path, (error as Error).message, "error");
   }
 }
@@ -196,6 +206,7 @@ export async function savePromo(formData: FormData): Promise<void> {
     revalidatePath("/admin/promos");
     back("/admin/promos", id ? "Промокод обновлён" : "Промокод создан");
   } catch (error) {
+    if (isRedirectError(error)) throw error;
     back("/admin/promos", (error as Error).message.includes("duplicate") ? "Такой код уже есть" : "Проверьте поля промокода", "error");
   }
 }

@@ -1,41 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Category } from "@/db/schema";
-import { SectionHeading } from "@/components/ui/section-heading";
 
-export function CategoryRail({ categories }: { categories: Category[] }) {
+const items = [
+  { image: "cat-watermelon", label: "Сезон арбузов и дынь", href: "/catalog/ovoshchi-i-frukty" },
+  { image: "cat-pizza", label: "Тройная пицца", href: "/catalog/kombo-nabory" },
+  { image: "cat-breakfast", label: "Готовые завтраки", href: "/catalog/vypechka" },
+  { image: "cat-kebab", label: "Сезон шашлыков", href: "/catalog/myaso-i-ptitsa" },
+  { image: "cat-fish", label: "Свежий улов", href: "/catalog/myaso-i-ptitsa" },
+  { image: "cat-coffee", label: "Кофе в зернах", href: "/catalog/napitki" },
+];
+
+export function CategoryRail() {
   return (
-    <section className="border-y border-line/70 bg-white py-12 md:py-14">
+    <section className="bg-white pb-2 pt-4 sm:pt-6" aria-label="Подборки">
       <div className="container-x">
-        <SectionHeading
-          eyebrow="Каталог"
-          title="Что нужно — уже на полке"
-          description="Девять разделов: от молочной полки и фермерских сыров до готового ужина и комбо."
-          href="/catalog"
-          className="mb-7 md:mb-8"
-        />
-        <div className="no-scrollbar -mx-1 flex snap-x gap-2 overflow-x-auto px-1 pb-1 sm:grid sm:grid-cols-4 sm:gap-3 sm:overflow-visible md:grid-cols-5 lg:grid-cols-9">
-          {categories.map((category) => (
-            <Link
-              key={category.id}
-              href={`/catalog/${category.slug}`}
-              className="group flex w-[104px] shrink-0 snap-start flex-col items-center gap-2.5 text-center sm:w-auto"
-            >
-              <span className="relative block aspect-square w-full overflow-hidden rounded-full border border-line/70 bg-cream-dark p-1 transition group-hover:border-brand-700/40">
-                <span className="relative block h-full w-full overflow-hidden rounded-full">
-                  {category.image && (
-                    <Image
-                      src={category.image}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 120px, 100px"
-                      className="object-cover transition duration-500 group-hover:scale-110"
-                    />
-                  )}
-                </span>
+        <div className="grid grid-cols-2 gap-x-3 gap-y-4 sm:grid-cols-3 lg:grid-cols-6">
+          {items.map((item) => (
+            <Link key={item.image} href={item.href} className="group">
+              <span className="relative block aspect-[180/77] overflow-hidden rounded-xl bg-cream">
+                <Image
+                  src={`/images/figma/${item.image}.webp`}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 200px, 45vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
               </span>
-              <span className="text-[11px] font-semibold leading-tight text-ink transition-colors group-hover:text-brand-800">
-                {category.name}
+              <span className="mt-2 block text-[13px] leading-tight text-ink transition-colors group-hover:text-brand-800">
+                {item.label}
               </span>
             </Link>
           ))}

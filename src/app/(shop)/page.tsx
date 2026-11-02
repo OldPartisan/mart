@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/hero";
-import { TrustStrip } from "@/components/home/trust-strip";
-import { PromoGrid } from "@/components/home/promo-grid";
 import { CategoryRail } from "@/components/home/category-rail";
+import { Tiles } from "@/components/home/tiles";
 import { ProductSection } from "@/components/home/product-section";
-import { OwnProduction } from "@/components/home/own-production";
-import { CafeBlock } from "@/components/home/cafe-block";
-import { FarmBlock } from "@/components/home/farm-block";
-import { ComboSection } from "@/components/home/combo-section";
+import { ProductionTrio } from "@/components/home/production-trio";
+import { PizzaBanner } from "@/components/home/pizza-banner";
+import { AboutStrip } from "@/components/home/about-strip";
 import { LoyaltyBlock } from "@/components/home/loyalty-block";
-import { PickupSteps } from "@/components/home/pickup-steps";
 import { ReviewsSection } from "@/components/home/reviews-section";
 import { MapBlock } from "@/components/home/map-block";
-import { getCategories, getHomeProducts, getPromotions, getReviews } from "@/lib/queries";
+import { getCategories, getProducts, getReviews } from "@/lib/queries";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 
@@ -24,7 +21,7 @@ export const metadata: Metadata = {
     "Свежие фермерские продукты и собственная продукция ГК IRBIS прямо от производителя. Готовая еда, кафе, самовывоз через 2 часа и бонусы 1 = 1 ₽.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: { absolute: "Ирбис Март — фермерский супермаркет у Новой Туры" },
+    title: "Ирбис Март — фермерский супермаркет у Новой Туры",
     description: "Молочная, мясная, выпечка и фермерские товары Татарстана. Самовывоз за 2 часа и доставка.",
     url: "/",
     images: ["/images/store.jpg"],
@@ -32,10 +29,11 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [home, categories, promotions, reviews] = await Promise.all([
-    getHomeProducts(),
+  const [categories, sale, ready, farm, reviews] = await Promise.all([
     getCategories(),
-    getPromotions(3),
+    getProducts({ sale: true, perPage: 4, sort: "popular" }),
+    getProducts({ category: "gotovaya-eda", perPage: 4 }),
+    getProducts({ farm: true, perPage: 4 }),
     getReviews(6),
   ]);
 
@@ -93,36 +91,15 @@ export default async function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Hero />
-      <TrustStrip />
-      <PromoGrid promotions={promotions} />
-      <CategoryRail categories={categories} />
-
-      <ProductSection
-        eyebrow="Хиты полки"
-        title="То, что разбирают первым"
-        description="Наш медовик, молоко «Ирбис», бородинский хлеб и фермерский мёд — постоянные участники корзины."
-        href="/catalog?sort=popular"
-        linkLabel="Смотреть каталог"
-        products={home.hits.slice(0, 8)}
-      />
-
-      <OwnProduction />
-      <CafeBlock />
-      <FarmBlock />
-      <ComboSection products={home.combos} />
-
-      <ProductSection
-        eyebrow="Новинки"
-        title="На полке впервые"
-        description="Новые позиции от кухни и фермеров — пробуем вместе."
-        href="/catalog?sort=new"
-        linkLabel="Все новинки"
-        products={home.fresh}
-        tone="white"
-      />
-
+      <CategoryRail />
+      <Tiles />
+      <ProductSection title="Скидки недели" href="/promotions" linkLabel="Все акции" products={sale.items.slice(0, 4)} />
+      <ProductionTrio />
+      <PizzaBanner />
+      <ProductSection title="Готовим каждый день" href="/catalog/gotovaya-eda" linkLabel="Всё меню" products={ready.items.slice(0, 4)} />
+      <ProductSection title="Фермерская полка" href="/catalog/fermerskie-tovary" linkLabel="Все фермеры" products={farm.items.slice(0, 4)} />
+      <AboutStrip />
       <LoyaltyBlock />
-      <PickupSteps />
       <ReviewsSection reviews={reviews} />
       <MapBlock />
     </>

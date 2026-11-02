@@ -27,9 +27,8 @@ export const mainNav = [
   { href: "/catalog?sort=new", label: "Новинки" },
   { href: "/catalog/gotovaya-eda", label: "Готовая еда" },
   { href: "/own-production", label: "Своё производство" },
-  { href: "/cafe", label: "Кафе" },
+  { href: "/cafe#preorder", label: "Кейтеринг" },
   { href: "/catalog/fermerskie-tovary", label: "Фермерские продукты" },
-  { href: "/delivery", label: "Доставка" },
   { href: "/about", label: "О нас" },
 ] as const;
 

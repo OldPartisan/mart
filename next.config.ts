@@ -4,6 +4,7 @@ const isStaticExport = process.env.STATIC_EXPORT === "1";
 const basePath = isStaticExport ? "/mart" : "";
 
 const nextConfig: NextConfig = {
+  ...(process.env.DOCKER_BUILD === "1" ? { output: "standalone" as const } : {}),
   ...(isStaticExport
     ? {
         output: "export" as const,

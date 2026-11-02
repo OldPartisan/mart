@@ -28,30 +28,29 @@ export function Pagination({
   };
 
   const numbers = Array.from({ length: pages }, (_, index) => index + 1).filter(
-    (number) => number === 1 || number === pages || Math.abs(number - page) <= 1,
+    (number) => number === 1 || number === pages || Math.abs(number - page) <= 2,
   );
 
   return (
-    <nav aria-label="Пагинация" className="mt-10 flex items-center justify-center gap-1.5">
+    <nav aria-label="Пагинация" className="mt-6 flex items-center justify-center gap-3 text-[13px]">
       <Link
         href={href(Math.max(1, page - 1))}
-        aria-disabled={page === 1}
-        className={cn("flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white", page === 1 && "pointer-events-none opacity-40")}
         aria-label="Предыдущая страница"
+        className={cn("text-muted hover:text-ink", page === 1 && "pointer-events-none opacity-30")}
       >
         <ChevronLeft className="h-4 w-4" />
       </Link>
       {numbers.map((number, index) => {
         const previous = numbers[index - 1];
         return (
-          <span key={number} className="flex items-center gap-1.5">
-            {previous && number - previous > 1 && <span className="px-1 text-muted">…</span>}
+          <span key={number} className="flex items-center gap-3">
+            {previous && number - previous > 1 && <span className="text-muted">…</span>}
             <Link
               href={href(number)}
               aria-current={number === page ? "page" : undefined}
               className={cn(
-                "flex h-9 min-w-9 items-center justify-center rounded-full px-2 text-[13px] font-semibold transition",
-                number === page ? "bg-brand-800 text-cream" : "border border-line bg-white text-ink hover:border-brand-700/40",
+                "min-w-5 text-center transition",
+                number === page ? "font-semibold text-ink" : "text-muted hover:text-ink",
               )}
             >
               {number}
@@ -61,9 +60,8 @@ export function Pagination({
       })}
       <Link
         href={href(Math.min(pages, page + 1))}
-        aria-disabled={page === pages}
-        className={cn("flex h-9 w-9 items-center justify-center rounded-full border border-line bg-white", page === pages && "pointer-events-none opacity-40")}
         aria-label="Следующая страница"
+        className={cn("text-muted hover:text-ink", page === pages && "pointer-events-none opacity-30")}
       >
         <ChevronRight className="h-4 w-4" />
       </Link>

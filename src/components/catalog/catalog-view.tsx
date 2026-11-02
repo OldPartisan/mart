@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { PackageSearch } from "lucide-react";
 import type { Category } from "@/db/schema";
-import { getCategories, getProducts } from "@/lib/queries";
+import { getCategories, getCategoryCounts, getProducts } from "@/lib/queries";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { ProductCard } from "@/components/shop/product-card";
 import { CatalogFilters } from "./catalog-filters";
@@ -11,7 +11,6 @@ import { Pagination } from "./pagination";
 import { pluralize } from "@/lib/money";
 
 type SearchParams = Record<string, string | string[] | undefined>;
-
 const first = (value: string | string[] | undefined) => (Array.isArray(value) ? value[0] : value);
 
 export async function CatalogView({
@@ -23,7 +22,7 @@ export async function CatalogView({
   searchParams: SearchParams;
   basePath: string;
 }) {
-  const categories = await getCategories();
+  const [categories, counts] = await Promise.all([getCategories(), getCategoryCounts()]);
   const q = first(searchParams.q)?.trim();
   const minPrice = first(searchParams.minPrice) ? Number(first(searchParams.minPrice)) : undefined;
   const maxPrice = first(searchParams.maxPrice) ? Number(first(searchParams.maxPrice)) : undefined;
@@ -45,45 +44,45 @@ export async function CatalogView({
   });
 
   const title = q ? `Поиск: «${q}»` : category?.name ?? "Каталог товаров";
-  const description =
-    category?.description ??
-    "Молочная продукция, мясо, выпечка, фермерские товары и готовые блюда из кухни «Ирбис Март». Заказывайте с самовывозом или доставкой.";
+  const countMap = Object.fromEntries(counts);
+
+  const nextHref = (() => {
+    if (page >= result.pages) return null;
+    const query = new URLSearchParams();
+    for (const [key, value] of Object.entries(searchParams)) {
+      if (!value || key === "page") continue;
+      if (Array.isArray(value)) value.forEach((item) => query.append(key, item));
+      else query.set(key, value);
+    }
+    query.set("page", String(page + 1));
+    return `${basePath}?${query.toString()}`;
+  })();
 
   return (
-    <div className="bg-[#FBF8F1]">
-      <div className="border-b border-line/70 bg-cream">
-        <div className="container-x py-6 md:py-9">
-          <Breadcrumbs items={[{ label: "Каталог", href: category ? "/catalog" : undefined }, ...(category ? [{ label: category.name }] : [])]} />
-          <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <h1 className="text-h1 font-bold text-ink">{title}</h1>
-              <p className="mt-2 max-w-xl text-[13.5px] leading-relaxed text-muted">{description}</p>
-            </div>
-            <p className="text-[12px] font-semibold text-muted">
-              {result.total} {pluralize(result.total, "товар", "товара", "товаров")} · {result.perPage} на странице
-            </p>
-          </div>
-        </div>
+    <div className="bg-white">
+      <div className="container-x py-4">
+        <Breadcrumbs items={[{ label: "Каталог", href: category ? "/catalog" : undefined }, ...(category ? [{ label: category.name }] : [])]} />
       </div>
 
-      <div className="container-x py-8 md:py-10">
-        <div className="flex gap-8">
-          <Suspense fallback={<aside className="hidden w-[236px] shrink-0 lg:block" />}>
-            <CatalogFilters categories={categories} activeCategory={category?.slug} total={result.total} />
+      <div className="container-x pb-12">
+        <div className="flex gap-8 lg:gap-10">
+          <Suspense fallback={<aside className="hidden w-[290px] shrink-0 lg:block" />}>
+            <CatalogFilters categories={categories} counts={countMap} activeCategory={category?.slug} total={result.total} />
           </Suspense>
 
           <div className="min-w-0 flex-1">
-            <div className="mb-5 hidden items-center justify-between gap-3 border-b border-line/70 pb-3 lg:flex">
+            <h1 className="font-display text-[26px] font-normal leading-tight tracking-[-0.02em] text-ink sm:text-[32px] lg:text-[36px]">
+              {title}
+            </h1>
+            <p className="mt-1 text-[12px] text-muted">
+              {result.total} {pluralize(result.total, "товар", "товара", "товаров")}
+            </p>
+
+            <div className="mt-4 flex items-center justify-between gap-3 border-b border-line pb-3">
               <div className="flex flex-wrap items-center gap-1.5">
                 {first(searchParams.own) === "1" && <span className="badge-green">Своё производство</span>}
-                {first(searchParams.farm) === "1" && <span className="badge-orange">Фермерское</span>}
-                {first(searchParams.sale) === "1" && <span className="badge bg-accent-100 text-accent-700">Со скидкой</span>}
-                {q && <span className="badge-outline">«{q}»</span>}
-                {(first(searchParams.minPrice) || first(searchParams.maxPrice)) && (
-                  <span className="badge-outline">
-                    {first(searchParams.minPrice) || "0"} — {first(searchParams.maxPrice) || "∞"} ₽
-                  </span>
-                )}
+                {first(searchParams.farm) === "1" && <span className="badge bg-brand-100 text-brand-900">Фермерское</span>}
+                {first(searchParams.sale) === "1" && <span className="badge bg-accent-100 text-accent-600">Со скидкой</span>}
               </div>
               <Suspense fallback={null}>
                 <SortSelect />
@@ -91,25 +90,30 @@ export async function CatalogView({
             </div>
 
             {result.items.length === 0 ? (
-              <div className="flex flex-col items-center justify-center rounded-3xl border border-dashed border-line bg-white px-6 py-16 text-center">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-cream text-brand-800">
+              <div className="mt-8 flex flex-col items-center justify-center rounded-[18px] bg-[#F7F8F9] px-6 py-16 text-center">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-700">
                   <PackageSearch className="h-6 w-6" />
                 </span>
-                <h2 className="mt-4 font-display text-xl font-bold text-ink">Ничего не нашлось</h2>
-                <p className="mt-2 max-w-sm text-[13px] text-muted">
-                  Попробуйте убрать часть фильтров или поискать по-другому: «молоко», «хлеб», «комбо».
-                </p>
-                <Link href="/catalog" className="btn-primary btn-sm mt-5">
-                  Сбросить фильтры
-                </Link>
+                <h2 className="mt-4 text-xl font-semibold text-ink">Ничего не нашлось</h2>
+                <p className="mt-1.5 max-w-sm text-[13px] text-muted">Попробуйте убрать фильтры или поискать по-другому.</p>
+                <Link href="/catalog" className="btn-primary btn-sm mt-4">Сбросить фильтры</Link>
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-2 gap-x-3.5 gap-y-8 sm:gap-x-5 md:grid-cols-3">
+                <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 md:grid-cols-3 lg:gap-x-6">
                   {result.items.map((product, index) => (
                     <ProductCard key={product.id} product={product} priority={index < 3} />
                   ))}
                 </div>
+
+                {nextHref && (
+                  <div className="mt-8 flex justify-center">
+                    <Link href={nextHref} className="inline-flex h-[51px] items-center rounded-lg bg-[#F3F3F3] px-6 text-[13px] font-medium text-ink transition hover:bg-line">
+                      Показать еще
+                    </Link>
+                  </div>
+                )}
+
                 <Pagination page={result.page} pages={result.pages} params={searchParams} basePath={basePath} />
               </>
             )}

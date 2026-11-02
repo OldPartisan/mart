@@ -27,7 +27,7 @@ export function MobileMenu({ categories, user }: { categories: Category[]; user:
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-ink lg:hidden"
+        className="flex h-10 w-10 flex-col items-center justify-center gap-1 rounded-lg text-ink lg:hidden"
         aria-label="Открыть меню"
         aria-expanded={open}
       >

@@ -6,12 +6,12 @@ const mapSrc = `https://yandex.ru/map-widget/v1/?ll=${site.coords.lng}%2C${site.
 
 export function MapBlock() {
   return (
-    <section className="section bg-cream" id="map">
+    <section className="bg-white py-10 sm:py-12" id="map">
       <div className="container-x grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="flex flex-col justify-between rounded-[2rem] bg-white p-6 sm:p-8">
+        <div className="flex flex-col justify-between rounded-[18px] border border-line bg-white p-6 sm:p-8">
           <div>
             <p className="eyebrow">Как нас найти</p>
-            <h2 className="mt-2.5 text-h2 font-bold text-ink">Новая Тура, трасса М-7</h2>
+            <h2 className="mt-2 font-display text-[26px] font-normal tracking-[-0.02em] text-ink sm:text-[32px]">Новая Тура, трасса М-7</h2>
             <p className="mt-3 text-[13.5px] leading-relaxed text-muted">
               15 минут от Казани и Зеленодольска. Своя парковка, удобный въезд с трассы, отдельный вход в кафе.
             </p>
@@ -57,7 +57,7 @@ export function MapBlock() {
           </div>
         </div>
 
-        <div className="relative min-h-[340px] overflow-hidden rounded-[2rem] bg-brand-100">
+        <div className="relative min-h-[340px] overflow-hidden rounded-[18px] bg-cream">
           <iframe
             src={mapSrc}
             title="Ирбис Март на карте — с. Новая Тура, ул. Совхозная, 1"
@@ -65,7 +65,7 @@ export function MapBlock() {
             loading="lazy"
             allowFullScreen
           />
-          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl bg-white/95 px-4 py-2.5 shadow-card backdrop-blur">
+          <div className="pointer-events-none absolute left-4 top-4 rounded-xl bg-white/95 px-4 py-2.5 shadow-card backdrop-blur">
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Ирбис Март</p>
             <p className="text-[12px] font-semibold text-ink">Совхозная, 1 · Новая Тура</p>
           </div>

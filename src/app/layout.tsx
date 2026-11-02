@@ -1,20 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Golos_Text } from "next/font/google";
 import { Toaster } from "sonner";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { Analytics } from "@/components/layout/analytics";
 import "./globals.css";
 
-const inter = Inter({
+const golos = Golos_Text({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-golos",
   display: "swap",
 });
 
@@ -68,7 +63,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang="ru" className={golos.variable}>
       <body>
         <a
           href="#main"

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Grid2X2 } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import type { Category } from "@/db/schema";
 import { cn } from "@/lib/utils";
 
@@ -34,24 +34,23 @@ export function CatalogMenu({ categories }: { categories: Category[] }) {
         aria-expanded={open}
         aria-haspopup="true"
         className={cn(
-          "flex h-9 items-center gap-2 rounded-full px-4 text-[13px] font-bold transition",
-          open ? "bg-brand-800 text-cream" : "bg-brand-800 text-cream hover:bg-brand-900",
+          "flex h-10 items-center gap-2 rounded-lg px-4 text-[14px] font-semibold text-white transition",
+          open ? "bg-brand-800" : "bg-brand-700 hover:bg-brand-800",
         )}
       >
-        <Grid2X2 className="h-4 w-4" aria-hidden="true" />
+        <Menu className="h-[18px] w-[18px]" aria-hidden="true" />
         Каталог
-        <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", open && "rotate-180")} aria-hidden="true" />
       </button>
 
       {open && (
-        <div className="absolute left-0 top-[calc(100%+10px)] z-50 w-[min(760px,calc(100vw-32px))] overflow-hidden rounded-3xl border border-line bg-white shadow-float">
+        <div className="absolute left-0 top-[calc(100%+10px)] z-50 w-[min(760px,calc(100vw-32px))] overflow-hidden rounded-2xl border border-line bg-white shadow-float">
           <div className="grid gap-1 p-3 sm:grid-cols-2">
             {categories.map((category) => (
               <Link
                 key={category.id}
                 href={`/catalog/${category.slug}`}
                 onClick={() => setOpen(false)}
-                className="group flex items-center gap-3 rounded-2xl p-2 transition hover:bg-cream"
+                className="group flex items-center gap-3 rounded-xl p-2 transition hover:bg-cream"
               >
                 <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-cream-dark">
                   {category.image && (

@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChevronDown, LayoutDashboard, LogOut, Package, Sparkles, User } from "lucide-react";
-import { initials } from "@/lib/utils";
+import { LayoutDashboard, LogOut, Package, Sparkles, User } from "lucide-react";
+
 
 export type HeaderUser = { name: string; email: string; role: "CUSTOMER" | "MANAGER" | "ADMIN" } | null;
 
@@ -25,10 +25,10 @@ export function UserMenu({ user }: { user: HeaderUser }) {
     return (
       <Link
         href="/login"
-        className="flex items-center gap-2 rounded-full px-2 py-2 text-[13px] font-semibold text-ink transition hover:bg-ink/5 sm:px-3"
+        className="flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-800"
       >
-        <User className="h-5 w-5" aria-hidden="true" />
-        <span className="hidden md:inline">Войти</span>
+        <User className="h-[22px] w-[22px]" strokeWidth={1.5} aria-hidden="true" />
+        <span className="text-[11px]">Войти</span>
       </Link>
     );
   }
@@ -45,15 +45,12 @@ export function UserMenu({ user }: { user: HeaderUser }) {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="flex items-center gap-2 rounded-full p-1.5 pr-2 transition hover:bg-ink/5"
+        className="flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-800"
         aria-expanded={open}
         aria-haspopup="menu"
       >
-        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 text-[12px] font-bold text-brand-900">
-          {initials(user.name)}
-        </span>
-        <span className="hidden max-w-24 truncate text-[13px] font-semibold text-ink lg:block">{user.name.split(" ")[0]}</span>
-        <ChevronDown className="hidden h-4 w-4 text-muted lg:block" aria-hidden="true" />
+        <User className="h-[22px] w-[22px]" strokeWidth={1.5} aria-hidden="true" />
+        <span className="max-w-16 truncate text-[11px]">{user.name.split(" ")[0]}</span>
       </button>
 
       {open && (

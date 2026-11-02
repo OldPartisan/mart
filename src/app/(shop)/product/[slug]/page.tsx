@@ -121,14 +121,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             {product.isHit && <span className="badge bg-ink text-cream">Хит</span>}
           </div>
 
-          <h1 className="mt-4 text-h1 font-bold text-ink text-balance">{product.name}</h1>
+          <h1 className="mt-4 font-display text-[28px] font-normal leading-tight tracking-[-0.02em] text-ink sm:text-[36px] text-balance">{product.name}</h1>
           <p className="mt-2 text-[13px] text-muted">
             {product.weight ?? product.unit} · {categoryName}
           </p>
           <p className="mt-4 max-w-lg text-[14.5px] leading-relaxed text-ink-soft">{product.description}</p>
 
           <div className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1">
-            <span className="price text-4xl">{formatPrice(product.price)}</span>
+            <span className="font-display text-[40px] font-extrabold leading-none tracking-tight">{formatPrice(product.price)}</span>
             {product.oldPrice && product.oldPrice > product.price && (
               <span className="price-old text-base">{formatPrice(product.oldPrice)}</span>
             )}
