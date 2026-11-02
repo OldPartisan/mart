@@ -1,0 +1,13 @@
+{
+  "name": "Ирбис Март — фермерский супермаркет",
+  "short_name": "Ирбис Март",
+  "description": "Фермерские продукты, собственное производство и готовая еда у Новой Туры",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF8F1",
+  "theme_color": "#0F2C16",
+  "lang": "ru",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

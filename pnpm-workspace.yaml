@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - esbuild
+minimumReleaseAgeExclude:
+  - jose@6.2.15

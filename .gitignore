@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.env
+.env.local
+.data
+*.log
+test-results
+playwright-report
+.next-env.d.ts
+
+.pages-build
