@@ -70,12 +70,35 @@
 ## Быстрый старт
 
 ```bash
-# Node 20.9+ (проверено на 24), pnpm 11
+# Node 22 LTS + pnpm 11
 pnpm install
 cp .env.example .env.local
-# AUTH_SECRET можно сгенерировать: openssl rand -base64 48
+# AUTH_SECRET: openssl rand -base64 48
+# для локальной демо-оплаты добавьте DEMO_PAYMENTS="true"
 pnpm dev
 ```
+
+В этом окружении Node 22 установлен локально, а системный Node не в PATH.
+Однокомандный запуск:
+
+```bash
+./scripts/dev.sh          # http://localhost:3000
+```
+
+Скрипт сам подхватывает `~/.irbis-mart/runtime/node22/bin` и проверяет `.env.local`.
+Если Node 22 нет — установите его с nodejs.org и выполните `corepack enable && corepack prepare pnpm@11.28.5 --activate`.
+
+### Если база не поднимается
+
+```bash
+# остановить все Next-процессы
+lsof -ti tcp:3000 | xargs kill -9
+# локальная PGlite повреждена/заблокирована — пересоздать (данные затрутся)
+rm -rf .data/pglite
+pnpm dev
+```
+
+При первом запросе база создастся и загрузит 58 товаров, акции и демо-заказы.
 
 Откройте <http://localhost:3000>. При первом запросе автоматически:
 1. создаётся локальная БД в `.data/pglite`;
