@@ -22,6 +22,7 @@ export function CatalogFilters({ categories, counts, activeCategory, total }: Pr
   const [collapsed, setCollapsed] = useState(false);
   const [minPrice, setMinPrice] = useState(params.get("minPrice") ?? "");
   const [maxPrice, setMaxPrice] = useState(params.get("maxPrice") ?? "");
+  const staticDemo = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -94,54 +95,58 @@ export function CatalogFilters({ categories, counts, activeCategory, total }: Pr
             })}
           </ul>
 
-          <div className="mt-5">
-            <h2 className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-muted">Цена, ₽</h2>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                min={0}
-                value={minPrice}
-                onChange={(event) => setMinPrice(event.target.value)}
-                placeholder="от"
-                aria-label="Цена от"
-                className="field h-10 rounded-lg px-3 text-[13px]"
-              />
-              <span className="text-muted">—</span>
-              <input
-                type="number"
-                min={0}
-                value={maxPrice}
-                onChange={(event) => setMaxPrice(event.target.value)}
-                placeholder="до"
-                aria-label="Цена до"
-                className="field h-10 rounded-lg px-3 text-[13px]"
-              />
-            </div>
-            <button type="button" onClick={() => update({ minPrice: minPrice || null, maxPrice: maxPrice || null })} className="btn-secondary btn-sm mt-2 w-full">
-              Применить
-            </button>
-          </div>
+          {!staticDemo && (
+            <>
+              <div className="mt-5">
+                <h2 className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-muted">Цена, ₽</h2>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    min={0}
+                    value={minPrice}
+                    onChange={(event) => setMinPrice(event.target.value)}
+                    placeholder="от"
+                    aria-label="Цена от"
+                    className="field h-10 rounded-lg px-3 text-[13px]"
+                  />
+                  <span className="text-muted">—</span>
+                  <input
+                    type="number"
+                    min={0}
+                    value={maxPrice}
+                    onChange={(event) => setMaxPrice(event.target.value)}
+                    placeholder="до"
+                    aria-label="Цена до"
+                    className="field h-10 rounded-lg px-3 text-[13px]"
+                  />
+                </div>
+                <button type="button" onClick={() => update({ minPrice: minPrice || null, maxPrice: maxPrice || null })} className="btn-secondary btn-sm mt-2 w-full">
+                  Применить
+                </button>
+              </div>
 
-          <div className="mt-5">
-            <h2 className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-muted">Особенности</h2>
-            {[
-              { key: "own", label: "Собственное производство" },
-              { key: "farm", label: "Фермерское" },
-              { key: "sale", label: "Со скидкой" },
-            ].map((option) => (
-              <label key={option.key} className="flex cursor-pointer items-center gap-2.5 py-1.5 text-[13px] text-ink">
-                <input
-                  type="checkbox"
-                  checked={params.get(option.key) === "1"}
-                  onChange={() => toggle(option.key)}
-                  className="h-4 w-4 rounded border-line accent-[#99B415]"
-                />
-                {option.label}
-              </label>
-            ))}
-          </div>
+              <div className="mt-5">
+                <h2 className="mb-2 text-[12px] font-semibold uppercase tracking-wider text-muted">Особенности</h2>
+                {[
+                  { key: "own", label: "Собственное производство" },
+                  { key: "farm", label: "Фермерское" },
+                  { key: "sale", label: "Со скидкой" },
+                ].map((option) => (
+                  <label key={option.key} className="flex cursor-pointer items-center gap-2.5 py-1.5 text-[13px] text-ink">
+                    <input
+                      type="checkbox"
+                      checked={params.get(option.key) === "1"}
+                      onChange={() => toggle(option.key)}
+                      className="h-4 w-4 rounded border-line accent-[#99B415]"
+                    />
+                    {option.label}
+                  </label>
+                ))}
+              </div>
+            </>
+          )}
 
-          {activeCount > 0 && (
+          {!staticDemo && activeCount > 0 && (
             <button type="button" onClick={() => router.push(pathname)} className="mt-4 text-[12px] font-semibold text-accent-500 hover:text-accent-600">
               Сбросить фильтры ({activeCount})
             </button>

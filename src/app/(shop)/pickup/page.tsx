@@ -4,12 +4,13 @@ import { ArrowRight, Check, Clock, MapPin, Phone, ShoppingBasket, Store } from "
 import { PageHero } from "@/components/content/page-hero";
 import { Faq } from "@/components/content/faq";
 import { site as shop } from "@/lib/site";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Самовывоз",
   description: "Самовывоз из «Ирбис Март»: заказ готов через 2 часа, бесплатно, хранение 24 часа. Как оформить и забрать.",
   alternates: { canonical: "/pickup" },
-  openGraph: { title: "Самовывоз — Ирбис Март", description: "Соберите заказ онлайн и заберите в Новой Туре через 2 часа.", url: "/pickup", images: ["/images/figma/tile-market.webp"] },
+  openGraph: { title: "Самовывоз — Ирбис Март", description: "Соберите заказ онлайн и заберите в Новой Туре через 2 часа.", url: "/pickup", images: [absoluteImage("/images/figma/tile-market.webp")] },
 };
 
 const faq = [

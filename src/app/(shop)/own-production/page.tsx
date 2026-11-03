@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check, Croissant, CakeSlice, ChefHat, Milk, Thermometer, Timer, Truck } from "lucide-react";
 import { PageHero } from "@/components/content/page-hero";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Собственное производство",
   description: "Молочная, пекарня, кондитерская и кухня «Ирбис Март»: полный цикл производства, свежесть и честный состав.",
   alternates: { canonical: "/own-production" },
-  openGraph: { title: "Собственное производство — Ирбис Март", description: "От коровы до прилавка — без посредников.", url: "/own-production", images: ["/images/chef.jpg"] },
+  openGraph: { title: "Собственное производство — Ирбис Март", description: "От коровы до прилавка — без посредников.", url: "/own-production", images: [absoluteImage("/images/chef.jpg")] },
 };
 
 const lines = [

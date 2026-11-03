@@ -1,0 +1,10 @@
+import { chromium } from '@playwright/test';
+const b=await chromium.launch({headless:true,executablePath:'/Users/user/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+p.on('pageerror',e=>console.log('PAGEERROR',String(e).slice(0,200)));
+await p.goto('http://127.0.0.1:3201/mart/',{waitUntil:'networkidle'});
+await p.waitForTimeout(1000);
+console.log('title',await p.title());
+console.log('body',(await p.locator('body').innerText()).slice(0,120));
+console.log('og',await p.locator('meta[property="og:image"]').getAttribute('content'));
+await b.close();

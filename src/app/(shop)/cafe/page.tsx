@@ -7,6 +7,7 @@ import { formatPrice } from "@/lib/money";
 import { PageHero } from "@/components/content/page-hero";
 import { CafePreorderForm } from "@/components/content/cafe-preorder-form";
 import { AddToCart } from "@/components/shop/add-to-cart";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   title: "Кафе IRBIS MART",
   description: "Кафе на 102 места в «Ирбис Март»: завтраки до 11:00, бизнес-ланчи, пицца, роллы, десерты и кофе. Предзаказ столика и блюд.",
   alternates: { canonical: "/cafe" },
-  openGraph: { title: "Кафе IRBIS MART", description: "Горячие завтраки, бизнес-ланчи и кофе на трассе М-7.", url: "/cafe", images: ["/images/cafe-interior.jpg"] },
+  openGraph: { title: "Кафе IRBIS MART", description: "Горячие завтраки, бизнес-ланчи и кофе на трассе М-7.", url: "/cafe", images: [absoluteImage("/images/cafe-interior.jpg")] },
 };
 
 const sections: Array<{ title: string; note: string; slugs: string[] }> = [

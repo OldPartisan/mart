@@ -41,8 +41,9 @@ export async function POST(request: Request) {
     return apiOk({
       ok: true,
       message: "Если аккаунт существует, письмо отправлено.",
-      // В демо-режиме (без SMTP) возвращаем ссылку, чтобы сценарий можно было пройти.
-      ...(process.env.SMTP_HOST ? {} : { demoResetUrl: link }),
+      // Ссылку в ответе отдаём только локально/в демо. В production без SMTP
+      // это позволило бы любому запросить сброс чужого пароля.
+      ...(process.env.SMTP_HOST || process.env.NODE_ENV === "production" ? {} : { demoResetUrl: link }),
     });
   } catch (error) {
     return handleApiError(error);

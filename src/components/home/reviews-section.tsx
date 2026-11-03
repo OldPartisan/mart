@@ -12,7 +12,7 @@ export function ReviewsSection({ reviews }: { reviews: Review[] }) {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {reviews.slice(0, 6).map((review) => (
             <figure key={review.id} className="flex flex-col rounded-[18px] bg-[#F7F8F9] p-5">
-              <div className="flex items-center gap-1" aria-label={`Оценка ${review.rating} из 5`}>
+              <div className="flex items-center gap-1" role="img" aria-label={`Оценка ${review.rating} из 5`}>
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star
                     key={index}

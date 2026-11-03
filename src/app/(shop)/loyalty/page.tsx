@@ -6,12 +6,13 @@ import { PageHero } from "@/components/content/page-hero";
 import { Faq } from "@/components/content/faq";
 import { BONUS_RULES, LOYALTY_LEVELS } from "@/lib/bonuses";
 import { formatPrice } from "@/lib/money";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Программа лояльности",
   description: "Бонусная программа «Ирбис Март»: 1 бонус за 100 ₽, 1 бонус = 1 ₽, оплата до 50% заказа, 300 бонусов за регистрацию.",
   alternates: { canonical: "/loyalty" },
-  openGraph: { title: "Программа лояльности — Ирбис Март", description: "1 бонус = 1 ₽. Копите и оплачивайте до 50% заказа.", url: "/loyalty", images: ["/images/coffee.jpg"] },
+  openGraph: { title: "Программа лояльности — Ирбис Март", description: "1 бонус = 1 ₽. Копите и оплачивайте до 50% заказа.", url: "/loyalty", images: [absoluteImage("/images/coffee.jpg")] },
 };
 
 const faq = [

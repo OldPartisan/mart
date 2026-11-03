@@ -4,12 +4,13 @@ import { Car, Clock, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-rea
 import { PageHero } from "@/components/content/page-hero";
 import { ContactForm } from "@/components/content/contact-form";
 import { site } from "@/lib/site";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Контакты",
   description: "Адрес «Ирбис Март»: с. Новая Тура, ул. Совхозная, 1. Телефон, часы работы, карта проезда и форма обратной связи.",
   alternates: { canonical: "/contacts" },
-  openGraph: { title: "Контакты — Ирбис Март", description: "Новая Тура, ул. Совхозная, 1. Ежедневно 08:00–23:00.", url: "/contacts", images: ["/images/store.jpg"] },
+  openGraph: { title: "Контакты — Ирбис Март", description: "Новая Тура, ул. Совхозная, 1. Ежедневно 08:00–23:00.", url: "/contacts", images: [absoluteImage("/images/store.jpg")] },
 };
 
 const mapSrc = `https://yandex.ru/map-widget/v1/?ll=${site.coords.lng}%2C${site.coords.lat}&z=16&pt=${site.coords.lng},${site.coords.lat},pm2rdm`;

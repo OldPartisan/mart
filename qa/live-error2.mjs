@@ -1,0 +1,14 @@
+import { chromium } from '@playwright/test';
+const b=await chromium.launch({headless:true,executablePath:'/Users/user/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+const bad=[]; p.on('response',r=>{if(r.status()>=400) bad.push(`${r.status()} ${r.url()}`)});
+const reqfail=[]; p.on('requestfailed',r=>reqfail.push(`${r.failure()?.errorText} ${r.url()}`));
+p.on('pageerror',e=>console.log('PAGEERROR',e.stack?.slice(0,1000)));
+p.on('console',m=>{if(['error','warning'].includes(m.type())) console.log('CONSOLE',m.type(),m.text().slice(0,400))});
+await p.goto('https://oldpartisan.github.io/mart/',{waitUntil:'load'});
+await p.waitForTimeout(2500);
+console.log('bad',bad.slice(0,10));
+console.log('reqfail',reqfail.slice(0,10));
+console.log('scripts',await p.locator('script[src]').evaluateAll(s=>s.map(x=>x.src)));
+console.log('body',(await p.locator('body').innerText()).slice(0,200));
+await b.close();

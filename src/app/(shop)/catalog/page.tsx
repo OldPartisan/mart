@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CatalogView } from "@/components/catalog/catalog-view";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     title: "Каталог товаров — Ирбис Март",
     description: "Свежие продукты собственного производства и фермерская полка Татарстана.",
     url: "/catalog",
-    images: ["/images/produce.jpg"],
+    images: [absoluteImage("/images/produce.jpg")],
   },
 };
 

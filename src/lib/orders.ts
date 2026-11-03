@@ -10,7 +10,7 @@ import {
   type OrderItem,
 } from "@/db/schema";
 import { getLevel, calculateAccrual, maxBonusSpend, BONUS_RULES } from "./bonuses";
-import { getPickupDays, quoteDelivery } from "./delivery";
+import { getPickupDays, getZone, quoteDelivery } from "./delivery";
 import { validatePromo, usePromo } from "./promo";
 import { createPayment } from "./payments";
 import { sendEmail, sendSms } from "./notifications";
@@ -85,7 +85,7 @@ export async function createOrder(userId: string | null, input: CheckoutInput): 
     const quote = quoteDelivery(subtotal, input.deliveryZoneId);
     if (quote.error) throw new OrderError(quote.error);
     deliveryFee = quote.fee;
-    deliveryZoneName = quote.eta ? (input.deliveryZoneId ?? null) : null;
+    deliveryZoneName = getZone(input.deliveryZoneId)?.name ?? null;
   } else {
     const allowedDates = getPickupDays(7).map((day) => day.date);
     if (!input.pickupDate || !allowedDates.includes(input.pickupDate)) {

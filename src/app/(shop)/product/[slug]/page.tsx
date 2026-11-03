@@ -12,6 +12,7 @@ import { AddToCart } from "@/components/shop/add-to-cart";
 import { ProductDetails } from "@/components/shop/product-details";
 import { ProductCard } from "@/components/shop/product-card";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${product.name} — Ирбис Март`,
       description: product.description.slice(0, 180),
       url: `/product/${product.slug}`,
-      images: product.images.slice(0, 1),
+      images: product.images.slice(0, 1).map(absoluteImage),
     },
   };
 }
@@ -62,7 +63,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       "@type": "Product",
       name: product.name,
       description: product.description,
-      image: product.images.map((image) => absoluteUrl(image)),
+      image: product.images.map((image) => absoluteImage(image)),
       sku: product.id,
       brand: { "@type": "Brand", name: product.isOwnProduction ? "Ирбис Март" : "ГК IRBIS" },
       category: categoryName,

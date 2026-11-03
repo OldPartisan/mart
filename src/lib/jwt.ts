@@ -8,8 +8,14 @@ export type SessionPayload = {
   type: "access" | "refresh";
 };
 
+const secretValue = process.env.AUTH_SECRET;
+
+if (!secretValue && process.env.NODE_ENV === "production" && process.env.NEXT_PUBLIC_STATIC_DEMO !== "1") {
+  throw new Error("AUTH_SECRET must be set in production");
+}
+
 const secret = new TextEncoder().encode(
-  process.env.AUTH_SECRET ?? "dev-only-insecure-secret-change-me-please-32-chars",
+  secretValue ?? "dev-only-insecure-secret-change-me-please-32-chars",
 );
 
 export const ACCESS_COOKIE = "im_access";

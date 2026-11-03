@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Quote, Sprout } from "lucide-react";
 import { PageHero } from "@/components/content/page-hero";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Наши фермеры",
   description: "Фермеры Татарстана, с которыми работает «Ирбис Март»: мёд, яйца, козий сыр, ягоды и овощи. Прямые поставки без посредников.",
   alternates: { canonical: "/farmers" },
-  openGraph: { title: "Наши фермеры — Ирбис Март", description: "12 хозяйств Татарстана: знаем каждого по имени.", url: "/farmers", images: ["/images/farmer.jpg"] },
+  openGraph: { title: "Наши фермеры — Ирбис Март", description: "12 хозяйств Татарстана: знаем каждого по имени.", url: "/farmers", images: [absoluteImage("/images/farmer.jpg")] },
 };
 
 const farmers = [

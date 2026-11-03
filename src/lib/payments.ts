@@ -19,8 +19,18 @@ export function isYooKassaEnabled(): boolean {
   return Boolean(process.env.YOOKASSA_SHOP_ID && process.env.YOOKASSA_SECRET_KEY);
 }
 
+/**
+ * Демо-касса разрешена только локально или при явном DEMO_PAYMENTS=true.
+ * В production без ключей ЮKassa онлайн-оплата отключается, заказ оформляется
+ * с оплатой при получении — иначе покупатель мог бы «оплатить» заказ сам.
+ */
+export function isDemoPaymentEnabled(): boolean {
+  return process.env.DEMO_PAYMENTS === "true" || process.env.NODE_ENV !== "production";
+}
+
 export async function createPayment(input: CreatePaymentInput): Promise<CreatePaymentResult> {
   if (!isYooKassaEnabled()) {
+    if (!isDemoPaymentEnabled()) throw new Error("ЮKassa не настроена");
     return { paymentId: `demo_${input.orderId}`, confirmationUrl: `/checkout/payment/${input.orderId}`, demo: true };
   }
 

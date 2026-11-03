@@ -1,0 +1,12 @@
+import { chromium } from '@playwright/test';
+const b=await chromium.launch({headless:true,executablePath:'/Users/user/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+const logs=[];p.on('console',m=>logs.push(m.type()+': '+m.text().slice(0,200)));p.on('pageerror',e=>logs.push('PAGEERROR: '+String(e).slice(0,300)));
+await p.goto('https://oldpartisan.github.io/mart/',{waitUntil:'networkidle'});
+await p.waitForTimeout(2000);
+console.log('url',p.url(),'title',await p.title());
+console.log('html class',await p.locator('html').getAttribute('class'));
+console.log('body', (await p.locator('body').innerText()).slice(0,300));
+console.log('logs',logs.slice(0,15));
+await p.screenshot({path:'/tmp/live-error.png'});
+await b.close();

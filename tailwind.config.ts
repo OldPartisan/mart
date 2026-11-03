@@ -36,7 +36,7 @@ const config: Config = {
         yellow: { 400: "#FFCF58" },
         cream: { DEFAULT: "#F7F8F9", dark: "#F3F3F3" },
         ink: { DEFAULT: "#1A1A1A", soft: "#3F4448" },
-        muted: "#72777C",
+        muted: "#5F666B",
         line: "#E3E6E9",
       },
       fontFamily: {

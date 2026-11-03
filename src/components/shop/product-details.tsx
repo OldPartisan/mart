@@ -32,7 +32,7 @@ export function ProductDetails({
 
   return (
     <div className="rounded-3xl border border-line/80 bg-white">
-      <div className="no-scrollbar flex gap-1 overflow-x-auto border-b border-line/80 p-2">
+      <div className="no-scrollbar flex gap-1 overflow-x-auto border-b border-line/80 p-2" role="tablist" aria-label="Информация о товаре">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -40,6 +40,8 @@ export function ProductDetails({
             onClick={() => setActive(tab.id)}
             aria-selected={active === tab.id}
             role="tab"
+            aria-controls={`product-panel-${tab.id}`}
+            id={`product-tab-${tab.id}`}
             className={cn(
               "shrink-0 rounded-full px-4 py-2 text-[13px] font-semibold transition",
               active === tab.id ? "bg-brand-800 text-cream" : "text-ink-soft hover:bg-cream",
@@ -49,7 +51,7 @@ export function ProductDetails({
           </button>
         ))}
       </div>
-      <div className="prose-irbis min-h-[120px] p-5 text-[14px] leading-relaxed text-ink-soft sm:p-6">{content}</div>
+      <div id={`product-panel-${active}`} role="tabpanel" aria-labelledby={`product-tab-${active}`} className="prose-irbis min-h-[120px] p-5 text-[14px] leading-relaxed text-ink-soft sm:p-6">{content}</div>
     </div>
   );
 }

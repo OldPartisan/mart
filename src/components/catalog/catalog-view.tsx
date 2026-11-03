@@ -43,6 +43,7 @@ export async function CatalogView({
     perPage,
   });
 
+  const staticDemo = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
   const title = q ? `Поиск: «${q}»` : category?.name ?? "Каталог товаров";
   const countMap = Object.fromEntries(counts);
 
@@ -77,6 +78,11 @@ export async function CatalogView({
             <p className="mt-1 text-[12px] text-muted">
               {result.total} {pluralize(result.total, "товар", "товара", "товаров")}
             </p>
+            {staticDemo && (
+              <p className="mt-2 rounded-lg bg-[#F7F8F9] px-3 py-2 text-[11px] text-muted">
+                Демо-витрина: работают категории и поиск. Сортировка, фильтры по цене и страницы доступны в полной версии.
+              </p>
+            )}
 
             <div className="mt-4 flex items-center justify-between gap-3 border-b border-line pb-3">
               <div className="flex flex-wrap items-center gap-1.5">
@@ -84,9 +90,11 @@ export async function CatalogView({
                 {first(searchParams.farm) === "1" && <span className="badge bg-brand-100 text-brand-900">Фермерское</span>}
                 {first(searchParams.sale) === "1" && <span className="badge bg-accent-100 text-accent-600">Со скидкой</span>}
               </div>
-              <Suspense fallback={null}>
-                <SortSelect />
-              </Suspense>
+              {!staticDemo && (
+                <Suspense fallback={null}>
+                  <SortSelect />
+                </Suspense>
+              )}
             </div>
 
             {result.items.length === 0 ? (
@@ -106,7 +114,7 @@ export async function CatalogView({
                   ))}
                 </div>
 
-                {nextHref && (
+                {!staticDemo && nextHref && (
                   <div className="mt-8 flex justify-center">
                     <Link href={nextHref} className="inline-flex h-[51px] items-center rounded-lg bg-[#F3F3F3] px-6 text-[13px] font-medium text-ink transition hover:bg-line">
                       Показать еще
@@ -114,7 +122,7 @@ export async function CatalogView({
                   </div>
                 )}
 
-                <Pagination page={result.page} pages={result.pages} params={searchParams} basePath={basePath} />
+                {!staticDemo && <Pagination page={result.page} pages={result.pages} params={searchParams} basePath={basePath} />}
               </>
             )}
           </div>

@@ -12,6 +12,7 @@ import { MapBlock } from "@/components/home/map-block";
 import { getCategories, getProducts, getReviews } from "@/lib/queries";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     title: "Ирбис Март — фермерский супермаркет у Новой Туры",
     description: "Молочная, мясная, выпечка и фермерские товары Татарстана. Самовывоз за 2 часа и доставка.",
     url: "/",
-    images: ["/images/store.jpg"],
+    images: [absoluteImage("/images/store.jpg")],
   },
 };
 
@@ -45,7 +46,7 @@ export default async function HomePage() {
       description: site.description,
       url: absoluteUrl("/"),
       telephone: site.phone,
-      image: absoluteUrl("/images/store.jpg"),
+      image: absoluteImage("/images/store.jpg"),
       priceRange: "₽₽",
       address: {
         "@type": "PostalAddress",

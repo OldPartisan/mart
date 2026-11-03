@@ -56,6 +56,10 @@ export function MobileMenu({ categories, user }: { categories: Category[]; user:
               </Link>
 
               <nav className="mt-6 space-y-0.5" aria-label="Мобильная навигация">
+                <Link href="/delivery" className="flex items-center justify-between rounded-xl px-3 py-3 text-[15px] font-semibold text-ink hover:bg-white">
+                  Доставка и самовывоз
+                  <ArrowRight className="h-4 w-4 text-muted" aria-hidden="true" />
+                </Link>
                 {mainNav.map((item) => (
                   <Link
                     key={item.href}

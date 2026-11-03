@@ -6,12 +6,13 @@ import { site as shop } from "@/lib/site";
 import { PageHero } from "@/components/content/page-hero";
 import { Faq } from "@/components/content/faq";
 import { formatPrice } from "@/lib/money";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Доставка и оплата",
   description: "Условия доставки «Ирбис Март»: зоны, стоимость, бесплатная доставка от 1 500 ₽, самовывоз через 2 часа и способы оплаты.",
   alternates: { canonical: "/delivery" },
-  openGraph: { title: "Доставка и оплата — Ирбис Март", description: "Доставка от 149 ₽ по ближним посёлкам, самовывоз бесплатно.", url: "/delivery", images: ["/images/store.jpg"] },
+  openGraph: { title: "Доставка и оплата — Ирбис Март", description: "Доставка от 149 ₽ по ближним посёлкам, самовывоз бесплатно.", url: "/delivery", images: [absoluteImage("/images/store.jpg")] },
 };
 
 const faq = [

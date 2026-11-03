@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { Analytics } from "@/components/layout/analytics";
 import "./globals.css";
+import { absoluteImage } from "@/lib/seo";
 
 const golos = Golos_Text({
   subsets: ["latin", "cyrillic"],
@@ -38,13 +39,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "Ирбис Март — фермерский супермаркет у Новой Туры",
     description: site.description,
-    images: [{ url: "/images/store.jpg", width: 1200, height: 800, alt: "Супермаркет Ирбис Март" }],
+    images: [{ url: absoluteImage("/images/store.jpg"), width: 1200, height: 800, alt: "Супермаркет Ирбис Март" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Ирбис Март — фермерский супермаркет",
     description: site.description,
-    images: ["/images/store.jpg"],
+    images: [absoluteImage("/images/store.jpg")],
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },

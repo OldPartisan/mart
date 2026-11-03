@@ -5,6 +5,7 @@ import { ArrowUpRight, CalendarDays } from "lucide-react";
 import { getPromotions } from "@/lib/queries";
 import { PageHero } from "@/components/content/page-hero";
 import { formatDate } from "@/lib/utils";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   title: "Акции и скидки",
   description: "Действующие акции «Ирбис Март»: скидки на собственную продукцию, фермерскую полку, комбо-наборы и готовую еду.",
   alternates: { canonical: "/promotions" },
-  openGraph: { title: "Акции недели — Ирбис Март", description: "Скидки до 20% на своё производство и фермерские продукты.", url: "/promotions", images: ["/images/honey.jpg"] },
+  openGraph: { title: "Акции недели — Ирбис Март", description: "Скидки до 20% на своё производство и фермерские продукты.", url: "/promotions", images: [absoluteImage("/images/honey.jpg")] },
 };
 
 export default async function PromotionsPage() {

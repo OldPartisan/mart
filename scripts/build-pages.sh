@@ -71,5 +71,16 @@ NEXT_PUBLIC_BASE_PATH=/mart \
 NEXT_PUBLIC_SITE_URL=https://oldpartisan.github.io/mart \
 "$NODE_BIN" node_modules/next/dist/bin/next build
 
+# next/image + metadataBase дублирует basePath в OG-ссылках (/mart/mart/)
+python3 - <<'PYFIX'
+from pathlib import Path
+for path in Path("out").rglob("*.html"):
+    text = path.read_text(encoding="utf8")
+    head, sep, rest = text.partition("</head>")
+    fixed_head = head.replace("/mart/mart/", "/mart/")
+    if fixed_head != head:
+        path.write_text(fixed_head + sep + rest, encoding="utf8")
+PYFIX
+
 touch out/.nojekyll
 echo "→ готово: $BUILD/out"

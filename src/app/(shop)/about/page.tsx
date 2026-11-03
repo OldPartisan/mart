@@ -4,12 +4,13 @@ import Link from "next/link";
 import { ArrowRight, Heart, Leaf, MapPin, ShieldCheck, Store, Users } from "lucide-react";
 import { PageHero } from "@/components/content/page-hero";
 import { site } from "@/lib/site";
+import { absoluteImage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "О магазине",
   description: "История «Ирбис Март»: загородный супермаркет 2 609 м² у Новой Туры с собственным производством, кафе на 102 места и фермерской полкой.",
   alternates: { canonical: "/about" },
-  openGraph: { title: "О магазине — Ирбис Март", description: "Супермаркет с собственным производством и кафе на трассе М-7.", url: "/about", images: ["/images/store.jpg"] },
+  openGraph: { title: "О магазине — Ирбис Март", description: "Супермаркет с собственным производством и кафе на трассе М-7.", url: "/about", images: [absoluteImage("/images/store.jpg")] },
 };
 
 export default function AboutPage() {

@@ -1,0 +1,11 @@
+import { chromium } from '@playwright/test';
+const base='http://127.0.0.1:3100';
+const b=await chromium.launch({headless:true,executablePath:'/Users/user/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+await p.goto(base+'/catalog?sort=price-asc',{waitUntil:'networkidle'});
+console.log('sort first',await p.locator('article').first().innerText());
+await p.goto(base+'/catalog?page=2',{waitUntil:'networkidle'});
+console.log('page2 first',await p.locator('article').first().innerText());
+await p.goto(base+'/catalog?own=1',{waitUntil:'networkidle'});
+console.log('own count',await p.locator('article').count(),'url',p.url());
+await b.close();

@@ -54,7 +54,8 @@ export default function DemoPlaceholder() {
 '''
 
 for rel in ["src/app/(shop)/login", "src/app/(shop)/register", "src/app/(shop)/forgot-password",
-            "src/app/(shop)/reset-password", "src/app/(shop)/account", "src/app/(shop)/account/orders"]:
+            "src/app/(shop)/reset-password", "src/app/(shop)/account", "src/app/(shop)/account/orders",
+            "src/app/(shop)/account/bonuses", "src/app/(shop)/account/profile"]:
     target = root / rel
     target.mkdir(parents=True, exist_ok=True)
     (target / "page.tsx").write_text(placeholder, encoding="utf8")

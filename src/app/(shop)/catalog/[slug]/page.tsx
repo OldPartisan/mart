@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CatalogView } from "@/components/catalog/catalog-view";
 import { getCategoryBySlug, getProducts } from "@/lib/queries";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${category.name} — Ирбис Март`,
       description: category.description ?? undefined,
       url: `/catalog/${category.slug}`,
-      images: category.image ? [category.image] : undefined,
+      images: category.image ? [absoluteImage(category.image)] : undefined,
     },
   };
 }

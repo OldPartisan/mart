@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, Check, Tag } from "lucide-react";
 import { getPromotionBySlug, getPromotions } from "@/lib/queries";
 import { formatDate } from "@/lib/utils";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { absoluteImage } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${promotion.title} — Ирбис Март`,
       description: promotion.subtitle,
       url: `/promotions/${promotion.slug}`,
-      images: [promotion.image],
+      images: [absoluteImage(promotion.image)],
     },
   };
 }

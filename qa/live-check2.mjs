@@ -1,0 +1,11 @@
+import { chromium } from '@playwright/test';
+const b=await chromium.launch({headless:true,executablePath:'/Users/user/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+p.on('pageerror',e=>console.log('PAGEERROR',String(e).slice(0,200)));
+await p.goto('https://oldpartisan.github.io/mart/',{waitUntil:'networkidle'});
+await p.waitForTimeout(800);
+console.log('title',await p.title(),'h1',(await p.locator('h1').first().innerText()).replace(/\n/g,' '));
+console.log('og',await p.locator('meta[property="og:image"]').first().getAttribute('content'));
+await p.goto('https://oldpartisan.github.io/mart/account/bonuses/',{waitUntil:'networkidle'});
+console.log('bonuses',await p.locator('h1').innerText());
+await b.close();
