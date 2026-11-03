@@ -367,7 +367,14 @@ export async function seedDatabase(db: Db): Promise<void> {
         name: u.name,
         phone: u.phone,
         role: u.role,
-        passwordHash: bcrypt.hashSync(u.password, 10),
+        passwordHash: bcrypt.hashSync(
+          (u.role === "ADMIN"
+            ? process.env.SEED_ADMIN_PASSWORD
+            : u.role === "MANAGER"
+              ? process.env.SEED_MANAGER_PASSWORD
+              : process.env.SEED_CLIENT_PASSWORD) ?? u.password,
+          10,
+        ),
         referralCode: u.referralCode,
         bonusBalance: u.bonusBalance ?? 0,
         marketingOptIn: u.marketingOptIn ?? false,

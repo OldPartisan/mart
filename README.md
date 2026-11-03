@@ -224,6 +224,14 @@ CI-шаблон — `docs/ci.yml` (скопируйте в `.github/workflows/ci
 - [Деплой: Vercel + Neon, Docker, GitHub Pages](docs/DEPLOY.md)
 - [Допущения и расхождения с ТЗ](docs/ASSUMPTIONS.md)
 
+## Внешний тестовый сервер
+
+- Быстрый публичный URL без регистрации: `./scripts/tunnel.sh` (пока компьютер включён).
+- Постоянный бесплатный вариант: Vercel Hobby + Neon или Render Free + Neon.
+- Инструкции, переменные и чек-лист безопасности: [docs/FREE-HOSTING.md](docs/FREE-HOSTING.md).
+
+> На публичном тестовом сервере обязательно замените демо-пароли через `SEED_ADMIN_PASSWORD` / `SEED_MANAGER_PASSWORD` и не выкладывайте реальные персональные данные.
+
 ## Если локальный запуск не стартует
 
 - **macOS: `Failed to load SWC binary` / `different Team IDs`** — это конфликт подписи нативного бинарника Node и `@next/swc`, а не ошибка проекта. Используйте официальный Node 22 с [nodejs.org](https://nodejs.org) или переустановите зависимости на чистом Node. В этом окружении сборка выполнялась через ad-hoc-подписанный Node.
