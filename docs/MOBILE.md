@@ -91,3 +91,15 @@ APK установлен и запущен на эмуляторе **Android 15 
 - offline-страница настроена через `server.errorPath`.
 
 Скриншот: [mobile-home.jpg](screenshots/mobile-home.jpg).
+
+## 7. Pull-to-refresh
+
+Реализован на уровне сайта, поэтому работает и в APK, и в мобильном браузере без пересборки приложения.
+
+- компонент: `src/components/layout/pull-to-refresh.tsx`;
+- жест срабатывает только при `scrollY == 0`, одном пальце и вертикальном движении;
+- порог — 64 px, индикатор «Потяните вниз → Отпустите → Обновляем…»;
+- `overscroll-behavior-y: contain` отключает нативный pull-to-refresh браузера;
+- после отпускания — `location.reload()`, корзина и сессия сохраняются (localStorage/cookie).
+
+Если позже понадобится нативный Android-индикатор, можно заменить на `SwipeRefreshLayout` вокруг WebView или использовать Capacitor-плагин; для текущей WebView-сборки JS-вариант достаточно.

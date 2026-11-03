@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { Analytics } from "@/components/layout/analytics";
+import { PullToRefresh } from "@/components/layout/pull-to-refresh";
 import "./globals.css";
 import { absoluteImage } from "@/lib/seo";
 
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Перейти к содержимому
         </a>
         {children}
+        <PullToRefresh />
         <Toaster
           position="bottom-right"
           toastOptions={{
