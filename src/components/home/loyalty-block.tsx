@@ -7,7 +7,7 @@ export function LoyaltyBlock() {
     <section className="bg-white py-8 sm:py-10">
       <div className="container-x">
         <div
-          className="relative overflow-hidden rounded-[18px] bg-brand-700 px-6 py-8 text-white sm:px-10 lg:px-14 lg:py-12"
+          className="relative overflow-hidden rounded-[18px] bg-brand-900 px-6 py-8 text-white sm:px-10 lg:px-14 lg:py-12"
           style={{
             backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.16) 1.6px, transparent 1.7px)",
             backgroundSize: "14px 14px",
@@ -15,11 +15,11 @@ export function LoyaltyBlock() {
         >
           <div className="relative grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
-              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/75">Программа лояльности</p>
+              <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white">Программа лояльности</p>
               <h2 className="mt-2 font-display text-[30px] font-extrabold uppercase leading-none tracking-[-0.02em] sm:text-[40px]">
                 Бонусы 1 = 1 ₽
               </h2>
-              <p className="mt-4 max-w-lg text-[14px] leading-[1.5] text-white/90">
+              <p className="mt-4 max-w-lg text-[14px] leading-[1.5] text-white">
                 1 бонус за каждые 100 ₽ покупки. Оплачивайте бонусами до половины заказа — без купонов и
                 минимальной суммы. 300 бонусов — сразу за регистрацию.
               </p>
@@ -31,9 +31,9 @@ export function LoyaltyBlock() {
                   { icon: Gift, title: "1 год", text: "срок действия" },
                 ].map((item) => (
                   <div key={item.title} className="rounded-xl border border-white/25 bg-white/10 p-3.5">
-                    <item.icon className="h-4 w-4 text-white/80" />
+                    <item.icon className="h-4 w-4 text-white" />
                     <p className="mt-2 font-display text-[18px] font-bold leading-none">{item.title}</p>
-                    <p className="mt-1 text-[11px] text-white/70">{item.text}</p>
+                    <p className="mt-1 text-[11px] text-white">{item.text}</p>
                   </div>
                 ))}
               </div>

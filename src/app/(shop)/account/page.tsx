@@ -42,21 +42,21 @@ export default async function AccountPage() {
         </div>
 
         <div className="rounded-3xl border border-line/80 bg-white p-5">
-          <Package className="h-5 w-5 text-brand-700" />
+          <Package className="h-5 w-5 text-brand-900" />
           <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-muted">Заказов</p>
           <p className="mt-1 font-display text-3xl font-extrabold">{orders.length}</p>
           <p className="mt-1 text-[11px] text-muted">за всё время</p>
-          <Link href="/account/orders" className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-800">
+          <Link href="/account/orders" className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-brand-900">
             Все заказы <ArrowRight className="h-3 w-3" />
           </Link>
         </div>
 
         <div className="rounded-3xl border border-line/80 bg-white p-5">
-          <TrendingUp className="h-5 w-5 text-brand-700" />
+          <TrendingUp className="h-5 w-5 text-brand-900" />
           <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-muted">Уровень</p>
           <p className="mt-1 font-display text-xl font-extrabold">{level.name}</p>
           <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-cream-dark">
-            <div className="h-full rounded-full bg-brand-700" style={{ width: `${progress}%` }} />
+            <div className="h-full rounded-full bg-brand-900" style={{ width: `${progress}%` }} />
           </div>
           <p className="mt-2 text-[11px] text-muted">
             {next ? `До «${next.level.name}» — ${formatPrice(next.remaining)}` : "Максимальный уровень"}
@@ -68,7 +68,7 @@ export default async function AccountPage() {
         <section className="rounded-3xl border border-line/80 bg-white p-5">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-lg font-bold">Последние заказы</h2>
-            <Link href="/account/orders" className="text-[11px] font-semibold text-brand-800">Все</Link>
+            <Link href="/account/orders" className="text-[11px] font-semibold text-brand-900">Все</Link>
           </div>
           {recent.length === 0 ? (
             <div className="py-8 text-center">
@@ -114,7 +114,7 @@ export default async function AccountPage() {
         <section className="rounded-3xl border border-line/80 bg-white p-5">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-lg font-bold">Бонусы в движении</h2>
-            <Link href="/account/bonuses" className="text-[11px] font-semibold text-brand-800">Вся история</Link>
+            <Link href="/account/bonuses" className="text-[11px] font-semibold text-brand-900">Вся история</Link>
           </div>
           <ul className="mt-3 divide-y divide-line/70">
             {bonusHistory.slice(0, 4).map((tx) => (
@@ -123,7 +123,7 @@ export default async function AccountPage() {
                   <p className="text-[12px] font-semibold text-ink">{tx.description}</p>
                   <p className="text-[10px] text-muted">{formatDate(tx.createdAt)}</p>
                 </div>
-                <span className={cn("text-[13px] font-bold", tx.amount > 0 ? "text-brand-800" : "text-accent-600")}>
+                <span className={cn("text-[13px] font-bold", tx.amount > 0 ? "text-brand-900" : "text-accent-600")}>
                   {tx.amount > 0 ? "+" : ""}{tx.amount}
                 </span>
               </li>

@@ -77,13 +77,13 @@ export default function FarmersPage() {
                 <div className="flex flex-wrap items-start justify-between gap-2">
                   <div>
                     <h2 className="font-display text-xl font-bold text-ink">{farmer.name}</h2>
-                    <p className="text-[12px] font-semibold text-brand-800">{farmer.farm}</p>
+                    <p className="text-[12px] font-semibold text-brand-900">{farmer.farm}</p>
                   </div>
                   <span className="badge-outline"><MapPin className="h-3 w-3" /> {farmer.place}</span>
                 </div>
                 <p className="mt-2 text-[11.5px] text-muted">{farmer.products}</p>
                 <div className="mt-3 flex gap-2 rounded-2xl bg-cream p-3">
-                  <Quote className="h-4 w-4 shrink-0 text-brand-700" />
+                  <Quote className="h-4 w-4 shrink-0 text-brand-900" />
                   <p className="text-[12px] italic leading-relaxed text-ink-soft">{farmer.quote}</p>
                 </div>
               </div>
@@ -105,7 +105,7 @@ export default function FarmersPage() {
           <div className="grid gap-3 sm:grid-cols-2">
             {principles.map((principle) => (
               <div key={principle.title} className="rounded-2xl border border-line/80 bg-white p-4">
-                <Sprout className="h-4 w-4 text-brand-700" />
+                <Sprout className="h-4 w-4 text-brand-900" />
                 <p className="mt-2 text-[12.5px] font-bold">{principle.title}</p>
                 <p className="mt-1 text-[11.5px] leading-relaxed text-muted">{principle.text}</p>
               </div>

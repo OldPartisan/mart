@@ -69,7 +69,7 @@ export default async function AdminUsersPage({
                           <option value="MANAGER">Менеджер</option>
                           <option value="ADMIN">Админ</option>
                         </select>
-                        <button type="submit" className="text-[10px] font-semibold text-brand-800">OK</button>
+                        <button type="submit" className="text-[10px] font-semibold text-brand-900">OK</button>
                       </form>
                     ) : (
                       <span className="badge-outline">{user.role}</span>

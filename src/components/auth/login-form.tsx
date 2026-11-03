@@ -56,7 +56,7 @@ export function LoginForm() {
       <div>
         <div className="flex items-center justify-between">
           <label htmlFor="password" className="label">Пароль</label>
-          <Link href="/forgot-password" className="mb-1 text-[11px] font-semibold text-brand-800 hover:text-accent-600">
+          <Link href="/forgot-password" className="mb-1 text-[11px] font-semibold text-brand-900 hover:text-accent-600">
             Забыли?
           </Link>
         </div>
@@ -90,7 +90,7 @@ export function LoginForm() {
 
       <p className="text-center text-[12px] text-muted">
         Нет аккаунта?{" "}
-        <Link href="/register" className="font-semibold text-brand-800 hover:text-accent-600">
+        <Link href="/register" className="font-semibold text-brand-900 hover:text-accent-600">
           Зарегистрироваться
         </Link>
       </p>
@@ -104,7 +104,7 @@ export function LoginForm() {
               setValue("email", "client@irbis-mart.ru");
               setValue("password", "Client123!");
             }}
-            className="mt-1.5 w-full text-left text-[11px] text-ink-soft hover:text-brand-800"
+            className="mt-1.5 w-full text-left text-[11px] text-ink-soft hover:text-brand-900"
           >
             Покупатель: client@irbis-mart.ru · Client123!
           </button>
@@ -114,7 +114,7 @@ export function LoginForm() {
               setValue("email", "admin@irbis-mart.ru");
               setValue("password", "Admin123!");
             }}
-            className="mt-1 w-full text-left text-[11px] text-ink-soft hover:text-brand-800"
+            className="mt-1 w-full text-left text-[11px] text-ink-soft hover:text-brand-900"
           >
             Администратор: admin@irbis-mart.ru · Admin123!
           </button>

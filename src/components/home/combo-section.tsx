@@ -49,13 +49,13 @@ export function ComboSection({ products }: { products: ProductCard[] }) {
                       <span className="price text-2xl">{formatPrice(product.price)}</span>
                       {product.oldPrice && <span className="price-old">{formatPrice(product.oldPrice)}</span>}
                     </div>
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-800 text-cream transition group-hover:bg-accent-500">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-900 text-cream transition group-hover:bg-accent-500">
                       <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
                   <div className="mt-4 flex items-center gap-3 border-t border-line/70 pt-3 text-[11px] text-muted">
                     <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> соберём за 2 часа</span>
-                    <span className="flex items-center gap-1"><Check className="h-3 w-3 text-brand-700" /> свежее</span>
+                    <span className="flex items-center gap-1"><Check className="h-3 w-3 text-brand-900" /> свежее</span>
                   </div>
                 </div>
               </Link>

@@ -52,13 +52,13 @@ export function PromoGrid({ promotions }: { promotions: Promotion[] }) {
               >
                 <div className="relative z-10 max-w-[62%]">
                   {promotion.badge && (
-                    <span className={`badge mb-3 ${promotion.accent === "orange" ? "bg-accent-500 text-white" : "bg-brand-800 text-cream"}`}>
+                    <span className={`badge mb-3 ${promotion.accent === "orange" ? "bg-accent-500 text-white" : "bg-brand-900 text-cream"}`}>
                       {promotion.badge}
                     </span>
                   )}
                   <h3 className="font-display text-xl font-extrabold leading-tight tracking-tight text-ink sm:text-2xl">{promotion.title}</h3>
                   <p className="mt-2 line-clamp-2 text-[12px] leading-snug text-ink-soft/75">{promotion.subtitle}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-bold text-brand-800">
+                  <span className="mt-4 inline-flex items-center gap-1 text-[12px] font-bold text-brand-900">
                     Смотреть <ArrowUpRight className="h-3.5 w-3.5" />
                   </span>
                 </div>

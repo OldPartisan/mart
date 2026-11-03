@@ -82,7 +82,7 @@ export function AddressManager({ addresses }: { addresses: Address[] }) {
           {addresses.map((address) => (
             <li key={address.id} className="flex items-start justify-between gap-3 rounded-2xl border border-line/70 p-3.5">
               <div className="flex gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
                 <div>
                   <p className="text-[12.5px] font-semibold text-ink">
                     {address.label} {address.isDefault && <span className="badge-green ml-1">основной</span>}

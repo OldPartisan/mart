@@ -43,8 +43,8 @@ export default function PickupPage() {
               { icon: Store, title: "Забираете", text: "Стойка у входа. Назовите номер — отдадим собранный заказ." },
             ].map((step, index) => (
               <li key={step.title} className="rounded-3xl border border-line/80 bg-white p-5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">{index + 1}</span>
-                <step.icon className="mt-4 h-4 w-4 text-brand-700" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">{index + 1}</span>
+                <step.icon className="mt-4 h-4 w-4 text-brand-900" />
                 <p className="mt-1.5 text-[13px] font-bold">{step.title}</p>
                 <p className="mt-1 text-[11.5px] leading-relaxed text-muted">{step.text}</p>
               </li>

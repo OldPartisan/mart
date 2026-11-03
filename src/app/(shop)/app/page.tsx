@@ -23,7 +23,7 @@ export default function AppPage() {
 
       <section className="bg-white py-8 sm:py-10">
         <div className="container-x grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[18px] bg-brand-700 p-6 text-white sm:p-8">
+          <div className="rounded-[18px] bg-brand-900 p-6 text-white sm:p-8">
             <Smartphone className="h-6 w-6" />
             <h2 className="mt-4 font-display text-[28px] font-extrabold uppercase leading-none sm:text-[36px]">Android APK</h2>
             <p className="mt-3 text-[14px] leading-relaxed text-white/85">
@@ -62,7 +62,7 @@ export default function AppPage() {
                 "акции, кафе и фермерская полка",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-[13px] text-ink">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" /> {item}
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" /> {item}
                 </li>
               ))}
             </ul>
@@ -78,8 +78,8 @@ export default function AppPage() {
             { icon: Smartphone, title: "Откройте приложение", text: "Найдите «Ирбис Март» на рабочем столе и войдите в аккаунт." },
           ].map((step, index) => (
             <div key={step.title} className="rounded-[18px] border border-line p-5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">{index + 1}</span>
-              <step.icon className="mt-4 h-4 w-4 text-brand-700" />
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-white">{index + 1}</span>
+              <step.icon className="mt-4 h-4 w-4 text-brand-900" />
               <p className="mt-1.5 text-[13px] font-bold">{step.title}</p>
               <p className="mt-1 text-[12px] leading-relaxed text-muted">{step.text}</p>
             </div>

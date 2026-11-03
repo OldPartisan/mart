@@ -12,7 +12,7 @@ export function CafeBlock() {
           </div>
           <div className="absolute -bottom-5 left-5 right-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow-float sm:left-8 sm:right-auto sm:w-[320px]">
             <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-brand-800">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-50 text-brand-900">
                 <Users className="h-5 w-5" />
               </span>
               <div>
@@ -34,15 +34,15 @@ export function CafeBlock() {
 
           <ul className="mt-6 space-y-3">
             <li className="flex items-start gap-3 text-[13.5px] text-ink-soft">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
               <span><strong className="font-semibold text-ink">Завтраки до 11:00.</strong> Круассан и капучино — 249 ₽.</span>
             </li>
             <li className="flex items-start gap-3 text-[13.5px] text-ink-soft">
-              <Coffee className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+              <Coffee className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
               <span><strong className="font-semibold text-ink">Бизнес-ланч 12:00–15:00.</strong> Суп, горячее и напиток — 490 ₽.</span>
             </li>
             <li className="flex items-start gap-3 text-[13.5px] text-ink-soft">
-              <Users className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+              <Users className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
               <span><strong className="font-semibold text-ink">Семейный формат.</strong> Детское меню, комбо на 3–4 человек, праздники.</span>
             </li>
           </ul>

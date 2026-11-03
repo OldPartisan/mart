@@ -38,11 +38,11 @@ export default function ContactsPage() {
               { icon: Car, title: "Парковка", text: "Бесплатная, 80 мест, зарядка для электромобилей. Въезд с трассы." },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-3 rounded-2xl border border-line/80 bg-white p-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-800"><item.icon className="h-4 w-4" /></span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-900"><item.icon className="h-4 w-4" /></span>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-muted">{item.title}</p>
                   {item.href ? (
-                    <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer noopener" className="mt-0.5 block text-[13px] font-semibold text-ink hover:text-brand-800">
+                    <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer noopener" className="mt-0.5 block text-[13px] font-semibold text-ink hover:text-brand-900">
                       {item.text}
                     </a>
                   ) : (
@@ -76,7 +76,7 @@ export default function ContactsPage() {
             </p>
             <div className="mt-5 rounded-2xl bg-white p-4 text-[12px] leading-relaxed text-ink-soft">
               <p className="font-semibold text-ink">Для быстрых вопросов по заказу</p>
-              <p className="mt-1">Позвоните на стойку самовывоза: <a href={site.phoneHref} className="font-semibold text-brand-800">{site.phone}</a>. Номер заказа ускорит ответ.</p>
+              <p className="mt-1">Позвоните на стойку самовывоза: <a href={site.phoneHref} className="font-semibold text-brand-900">{site.phone}</a>. Номер заказа ускорит ответ.</p>
             </div>
           </div>
           <div className="rounded-[2rem] border border-line/80 bg-white p-5 sm:p-6">

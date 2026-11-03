@@ -109,7 +109,7 @@ export default function AboutPage() {
                   </span>
                   <div>
                     <p className="text-[13px] font-bold text-ink">{person.name}</p>
-                    <p className="text-[11px] text-brand-800">{person.role}</p>
+                    <p className="text-[11px] text-brand-900">{person.role}</p>
                     <p className="mt-0.5 text-[11.5px] text-muted">{person.text}</p>
                   </div>
                 </div>
@@ -125,8 +125,8 @@ export default function AboutPage() {
               самовывоза у входа.
             </p>
             <div className="mt-4 space-y-2 text-[12px]">
-              <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-brand-700" /> {site.addressFull}</p>
-              <p className="flex items-center gap-2"><Store className="h-4 w-4 text-brand-700" /> {site.hours}</p>
+              <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-brand-900" /> {site.addressFull}</p>
+              <p className="flex items-center gap-2"><Store className="h-4 w-4 text-brand-900" /> {site.hours}</p>
               <p className="flex items-center gap-2"><Heart className="h-4 w-4 text-accent-500" /> Детская комната и парковка для семей</p>
             </div>
             <Link href="/contacts" className="btn-primary btn-sm mt-5">Контакты и карта <ArrowRight className="h-3.5 w-3.5" /></Link>

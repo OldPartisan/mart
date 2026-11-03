@@ -28,7 +28,7 @@ export default async function AdminOrderPage({
 
   return (
     <div className="p-4 sm:p-6 lg:p-8">
-      <Link href="/admin/orders" className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-muted hover:text-brand-800">
+      <Link href="/admin/orders" className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-muted hover:text-brand-900">
         <ArrowLeft className="h-3.5 w-3.5" /> Заказы
       </Link>
 
@@ -66,7 +66,7 @@ export default async function AdminOrderPage({
             </ul>
             <dl className="mt-3 space-y-1.5 border-t border-line pt-3 text-[12px]">
               <div className="flex justify-between"><dt className="text-muted">Товары</dt><dd>{formatPrice(order.subtotal)}</dd></div>
-              {order.discount > 0 && <div className="flex justify-between"><dt className="text-muted">Скидка {order.promoCode}</dt><dd className="text-brand-800">−{formatPrice(order.discount)}</dd></div>}
+              {order.discount > 0 && <div className="flex justify-between"><dt className="text-muted">Скидка {order.promoCode}</dt><dd className="text-brand-900">−{formatPrice(order.discount)}</dd></div>}
               {order.bonusUsed > 0 && <div className="flex justify-between"><dt className="text-muted">Бонусы</dt><dd className="text-accent-700">−{formatPrice(order.bonusUsed)}</dd></div>}
               <div className="flex justify-between"><dt className="text-muted">{order.deliveryType === "PICKUP" ? "Самовывоз" : "Доставка"}</dt><dd>{order.deliveryFee ? formatPrice(order.deliveryFee) : "бесплатно"}</dd></div>
               <div className="flex justify-between border-t border-line pt-2 text-[14px]"><dt className="font-semibold">Итого</dt><dd className="font-bold">{formatPrice(order.total)}</dd></div>
@@ -107,7 +107,7 @@ export default async function AdminOrderPage({
             <h2 className="font-display text-base font-bold">Клиент</h2>
             <div className="mt-3 space-y-2.5 text-[12px]">
               <p className="flex items-center gap-2"><User className="h-3.5 w-3.5 text-muted" /> {order.customerName}</p>
-              <p className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-muted" /> <a href={`tel:${order.phone}`} className="hover:text-brand-800">{order.phone}</a></p>
+              <p className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-muted" /> <a href={`tel:${order.phone}`} className="hover:text-brand-900">{order.phone}</a></p>
               <p className="flex items-center gap-2"><Mail className="h-3.5 w-3.5 text-muted" /> {order.email}</p>
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-3.5 w-3.5 text-muted" />

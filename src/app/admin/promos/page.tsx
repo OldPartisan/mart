@@ -92,7 +92,7 @@ export default async function AdminPromosPage({
         </div>
 
         <form action={savePromo} className="h-fit rounded-2xl border border-line/70 bg-white p-5">
-          <h2 className="flex items-center gap-2 font-display text-base font-bold"><Ticket className="h-4 w-4 text-brand-700" /> Новый промокод</h2>
+          <h2 className="flex items-center gap-2 font-display text-base font-bold"><Ticket className="h-4 w-4 text-brand-900" /> Новый промокод</h2>
           <div className="mt-3 space-y-2.5">
             <div><label htmlFor="code" className="label">Код</label><input id="code" name="code" required className="field h-9 text-[12px]" placeholder="SPRING15" /></div>
             <div className="grid grid-cols-2 gap-2">

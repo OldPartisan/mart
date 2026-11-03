@@ -25,7 +25,7 @@ export function UserMenu({ user }: { user: HeaderUser }) {
     return (
       <Link
         href="/login"
-        className="flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-800"
+        className="flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-900"
       >
         <User className="h-[22px] w-[22px]" strokeWidth={1.5} aria-hidden="true" />
         <span className="text-[11px]">Войти</span>
@@ -45,7 +45,7 @@ export function UserMenu({ user }: { user: HeaderUser }) {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-800"
+        className="flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-900"
         aria-expanded={open}
         aria-haspopup="menu"
       >

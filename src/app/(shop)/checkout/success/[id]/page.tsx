@@ -36,7 +36,7 @@ export default async function SuccessPage({ params }: { params: Promise<{ id: st
         <div className="rounded-[2rem] border border-line bg-white p-6 sm:p-9">
           <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-800 text-cream">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-900 text-cream">
                 <Check className="h-6 w-6" />
               </span>
               <h1 className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">Спасибо! Заказ принят</h1>
@@ -68,7 +68,7 @@ export default async function SuccessPage({ params }: { params: Promise<{ id: st
                   <span
                     className={cn(
                       "flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold",
-                      index <= currentStep ? "bg-brand-800 text-cream" : "bg-cream text-muted",
+                      index <= currentStep ? "bg-brand-900 text-cream" : "bg-cream text-muted",
                     )}
                   >
                     {index < currentStep ? <Check className="h-3.5 w-3.5" /> : index + 1}
@@ -131,7 +131,7 @@ export default async function SuccessPage({ params }: { params: Promise<{ id: st
               <dd>{formatPrice(order.subtotal)}</dd>
             </div>
             {order.discount > 0 && (
-              <div className="flex justify-between text-brand-800">
+              <div className="flex justify-between text-brand-900">
                 <dt>Скидка {order.promoCode ? `(${order.promoCode})` : ""}</dt>
                 <dd>−{formatPrice(order.discount)}</dd>
               </div>

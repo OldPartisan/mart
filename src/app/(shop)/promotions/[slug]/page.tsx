@@ -71,20 +71,20 @@ export default async function PromotionPage({ params }: { params: Promise<{ slug
           <aside className="space-y-4">
             <div className="rounded-3xl border border-line/80 bg-white p-5 lg:sticky lg:top-[150px]">
               <h2 className="flex items-center gap-2 font-display text-lg font-bold">
-                <Tag className="h-4 w-4 text-brand-700" /> Условия
+                <Tag className="h-4 w-4 text-brand-900" /> Условия
               </h2>
               <p className="mt-2 text-[12.5px] leading-relaxed text-muted">{promotion.terms}</p>
               <ul className="mt-4 space-y-2 border-t border-line/70 pt-4">
                 {["Скидка применяется автоматически в корзине", "Бонусы начисляются после оплаты", "Можно забрать через 2 часа"].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-[11.5px] text-ink-soft">
-                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-700" /> {item}
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-900" /> {item}
                   </li>
                 ))}
               </ul>
               <Link href="/catalog" className="btn-primary mt-5 w-full">
                 К товарам акции <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="/promotions" className="mt-2 flex h-9 items-center justify-center gap-1 text-[11px] font-semibold text-muted hover:text-brand-800">
+              <Link href="/promotions" className="mt-2 flex h-9 items-center justify-center gap-1 text-[11px] font-semibold text-muted hover:text-brand-900">
                 <ArrowLeft className="h-3.5 w-3.5" /> Все акции
               </Link>
             </div>

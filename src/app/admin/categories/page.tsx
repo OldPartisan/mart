@@ -74,7 +74,7 @@ export default async function AdminCategoriesPage({
         </div>
 
         <form action={saveCategory} className="h-fit rounded-2xl border border-line/70 bg-white p-5">
-          <h2 className="flex items-center gap-2 font-display text-base font-bold"><FolderTree className="h-4 w-4 text-brand-700" /> Новая категория</h2>
+          <h2 className="flex items-center gap-2 font-display text-base font-bold"><FolderTree className="h-4 w-4 text-brand-900" /> Новая категория</h2>
           <div className="mt-3 space-y-3">
             <div>
               <label htmlFor="cat-name" className="label">Название</label>

@@ -42,7 +42,7 @@ export function ForgotPasswordForm() {
         {demoUrl && (
           <div className="mt-3 rounded-2xl border border-dashed border-line bg-cream p-3 text-[11px]">
             <p className="font-semibold text-ink">Демо-режим (SMTP не настроен):</p>
-            <Link href={demoUrl} className="mt-1 block break-all text-brand-800 underline underline-offset-2">
+            <Link href={demoUrl} className="mt-1 block break-all text-brand-900 underline underline-offset-2">
               {demoUrl}
             </Link>
           </div>
@@ -74,7 +74,7 @@ export function ForgotPasswordForm() {
         {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
         Отправить ссылку
       </button>
-      <Link href="/login" className="flex items-center justify-center gap-1 text-[12px] font-semibold text-muted hover:text-brand-800">
+      <Link href="/login" className="flex items-center justify-center gap-1 text-[12px] font-semibold text-muted hover:text-brand-900">
         <ArrowLeft className="h-3.5 w-3.5" /> Назад
       </Link>
     </form>

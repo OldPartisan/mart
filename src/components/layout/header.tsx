@@ -48,7 +48,7 @@ export async function Header() {
 
         <div className="hidden h-11 items-center justify-between border-t border-line/70 lg:flex">
           <Link href="/contacts" className="flex items-center gap-1.5 text-[13px] text-muted transition-colors hover:text-ink">
-            <MapPin className="h-3.5 w-3.5 text-brand-700" aria-hidden="true" />
+            <MapPin className="h-3.5 w-3.5 text-brand-900" aria-hidden="true" />
             Новая Тура
           </Link>
           <div className="h-full min-w-0">

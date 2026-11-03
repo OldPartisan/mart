@@ -39,16 +39,16 @@ export default function DeliveryPage() {
       <section className="section">
         <div className="container-x grid gap-4 md:grid-cols-2">
           <div className="rounded-[2rem] border border-line/80 bg-white p-6">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-800 text-cream"><Store className="h-5 w-5" /></span>
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-900 text-cream"><Store className="h-5 w-5" /></span>
             <h2 className="mt-4 font-display text-xl font-bold">Самовывоз</h2>
             <p className="mt-1.5 text-[13px] leading-relaxed text-muted">Соберите корзину, оплатите онлайн или на месте — и заберите без очереди.</p>
             <ul className="mt-4 space-y-2.5 text-[12.5px]">
               {[`Бесплатно, хранение ${PICKUP_INFO.storage}`, "Готовим через 2 часа", "Отдельная стойка у входа", "Можно оплатить бонусами до 50%"].map((item) => (
-                <li key={item} className="flex items-start gap-2"><Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-700" />{item}</li>
+                <li key={item} className="flex items-start gap-2"><Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-900" />{item}</li>
               ))}
             </ul>
             <p className="mt-4 flex items-start gap-2 rounded-2xl bg-cream p-3 text-[11.5px] text-ink-soft">
-              <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-700" /> {shop.address}
+              <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-900" /> {shop.address}
             </p>
             <Link href="/pickup" className="link-underline mt-4">Подробнее о самовывозе <ArrowRight className="h-3.5 w-3.5" /></Link>
           </div>
@@ -118,7 +118,7 @@ export default function DeliveryPage() {
               { icon: Check, title: "Бонусами", text: "До 50% суммы заказа, 1 бонус = 1 ₽" },
             ].map((method) => (
               <div key={method.title} className="rounded-2xl border border-line/80 bg-white p-4">
-                <method.icon className="h-4 w-4 text-brand-700" />
+                <method.icon className="h-4 w-4 text-brand-900" />
                 <p className="mt-2 text-[12.5px] font-bold">{method.title}</p>
                 <p className="mt-0.5 text-[11px] text-muted">{method.text}</p>
               </div>

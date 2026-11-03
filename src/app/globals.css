@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
     @apply inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-brand-700 text-white hover:bg-brand-800 active:scale-[0.98];
+    @apply btn bg-brand-900 text-white hover:bg-brand-950 active:scale-[0.98];
   }
   .btn-accent {
     @apply btn bg-accent-500 text-white hover:bg-accent-600 active:scale-[0.98];
@@ -74,7 +74,7 @@ h1, h2, h3, h4 {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-700;
+    @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-900;
   }
 
   .field {
@@ -97,7 +97,7 @@ h1, h2, h3, h4 {
     @apply border-t border-line/80;
   }
   .link-underline {
-    @apply relative inline-flex items-center gap-1 text-sm font-semibold text-brand-800 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-brand-800 after:transition-all hover:after:w-full;
+    @apply relative inline-flex items-center gap-1 text-sm font-semibold text-brand-900 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-brand-900 after:transition-all hover:after:w-full;
   }
   .price {
     @apply font-display font-bold tracking-tight text-ink;

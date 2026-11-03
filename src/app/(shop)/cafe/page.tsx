@@ -52,7 +52,7 @@ export default async function CafePage() {
             { icon: Users, title: "102 места", text: "Детский стул, парковка, отдельный вход" },
           ].map((item) => (
             <div key={item.title} className="rounded-3xl border border-line/80 bg-white p-5">
-              <item.icon className="h-5 w-5 text-brand-700" />
+              <item.icon className="h-5 w-5 text-brand-900" />
               <p className="mt-3 text-[13px] font-bold">{item.title}</p>
               <p className="mt-1 text-[11.5px] text-muted">{item.text}</p>
             </div>
@@ -87,7 +87,7 @@ export default async function CafePage() {
                           <Image src={product!.images[0] ?? "/images/store.jpg"} alt="" fill sizes="48px" className="object-cover" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <Link href={`/product/${product!.slug}`} className="block truncate text-[12.5px] font-semibold text-ink hover:text-brand-800">
+                          <Link href={`/product/${product!.slug}`} className="block truncate text-[12.5px] font-semibold text-ink hover:text-brand-900">
                             {product!.name}
                           </Link>
                           <p className="text-[10.5px] text-muted">{product!.weight}</p>
@@ -121,9 +121,9 @@ export default async function CafePage() {
               собрать меню. Для больших компаний — отдельный зал.
             </p>
             <div className="mt-5 space-y-3 text-[12.5px]">
-              <p className="flex items-start gap-2"><Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" /> Подтверждаем бронь в течение рабочего дня</p>
-              <p className="flex items-start gap-2"><Users className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" /> Компании до 20 человек, детские праздники</p>
-              <p className="flex items-start gap-2"><UtensilsCrossed className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" /> Можно предзаказать блюда из меню</p>
+              <p className="flex items-start gap-2"><Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" /> Подтверждаем бронь в течение рабочего дня</p>
+              <p className="flex items-start gap-2"><Users className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" /> Компании до 20 человек, детские праздники</p>
+              <p className="flex items-start gap-2"><UtensilsCrossed className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" /> Можно предзаказать блюда из меню</p>
             </div>
             <div className="mt-6 grid grid-cols-3 gap-2">
               {["cafe-interior", "pizza", "cake"].map((image) => (

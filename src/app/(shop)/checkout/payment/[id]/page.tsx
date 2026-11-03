@@ -23,10 +23,10 @@ export default async function PaymentPage({ params }: { params: Promise<{ id: st
   return (
     <div className="container-x flex min-h-[60vh] items-center justify-center py-12">
       <div className="w-full max-w-md rounded-[2rem] border border-line bg-white p-6 sm:p-8">
-        <Link href={`/checkout/success/${order.id}`} className="mb-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted hover:text-brand-800">
+        <Link href={`/checkout/success/${order.id}`} className="mb-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted hover:text-brand-900">
           <ArrowLeft className="h-3.5 w-3.5" /> К заказу
         </Link>
-        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-50 text-brand-800">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-50 text-brand-900">
           <Lock className="h-5 w-5" />
         </span>
         <h1 className="mt-4 font-display text-2xl font-bold">Оплата заказа</h1>
@@ -40,7 +40,7 @@ export default async function PaymentPage({ params }: { params: Promise<{ id: st
           {order.discount > 0 && (
             <div className="flex justify-between">
               <dt className="text-muted">Скидка</dt>
-              <dd className="font-semibold text-brand-800">−{formatPrice(order.discount)}</dd>
+              <dd className="font-semibold text-brand-900">−{formatPrice(order.discount)}</dd>
             </div>
           )}
           {order.bonusUsed > 0 && (

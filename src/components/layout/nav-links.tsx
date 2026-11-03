@@ -22,7 +22,7 @@ export function NavLinks() {
             href={item.href}
             className={cn(
               "relative flex h-full shrink-0 items-center whitespace-nowrap px-[9px] text-[13px] font-normal transition-colors",
-              active ? "text-brand-800" : "text-ink hover:text-brand-800",
+              active ? "text-brand-900" : "text-ink hover:text-brand-900",
               "accent" in item && item.accent && "text-accent-500 hover:text-accent-600",
             )}
           >

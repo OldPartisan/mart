@@ -35,7 +35,7 @@ export function CatalogMenu({ categories }: { categories: Category[] }) {
         aria-haspopup="true"
         className={cn(
           "flex h-10 items-center gap-2 rounded-lg px-4 text-[14px] font-semibold text-white transition",
-          open ? "bg-brand-800" : "bg-brand-700 hover:bg-brand-800",
+          open ? "bg-brand-950" : "bg-brand-900 hover:bg-brand-950",
         )}
       >
         <Menu className="h-[18px] w-[18px]" aria-hidden="true" />
@@ -66,7 +66,7 @@ export function CatalogMenu({ categories }: { categories: Category[] }) {
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line bg-cream/60 px-5 py-3.5">
             <p className="text-[12px] text-muted">
-              <span className="font-semibold text-brand-800">1 бонус = 1 ₽</span> · оплата до 50% заказа
+              <span className="font-semibold text-brand-900">1 бонус = 1 ₽</span> · оплата до 50% заказа
             </p>
             <Link href="/catalog" onClick={() => setOpen(false)} className="link-underline text-[12px]">
               Весь каталог <ArrowRight className="h-3.5 w-3.5" />

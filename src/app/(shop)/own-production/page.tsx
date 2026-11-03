@@ -71,7 +71,7 @@ export default function OwnProductionPage() {
                 <Image src={line.image} alt={line.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </div>
               <div className="p-6 sm:p-8 lg:p-10">
-                <line.icon className="h-5 w-5 text-brand-700" />
+                <line.icon className="h-5 w-5 text-brand-900" />
                 <h2 className="mt-3 font-display text-2xl font-bold text-ink">{line.title}</h2>
                 <p className="mt-2 text-[13.5px] leading-relaxed text-muted">{line.text}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">

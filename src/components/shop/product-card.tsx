@@ -43,7 +43,7 @@ export function ProductCard({
           <FavoriteButton slug={product.slug} name={product.name} />
         </div>
         {product.isOwnProduction && (
-          <span className="absolute left-3 top-3 rounded bg-brand-700 px-1.5 py-1 text-[9px] font-bold uppercase tracking-wide text-white">
+          <span className="absolute left-3 top-3 rounded bg-brand-900 px-1.5 py-1 text-[9px] font-bold uppercase tracking-wide text-white">
             своё
           </span>
         )}
@@ -75,7 +75,7 @@ export function ProductCard({
         )}
         <Link
           href={`/product/${product.slug}`}
-          className="mt-1 line-clamp-2 min-h-[34px] text-[14px] leading-[1.2] text-ink transition-colors hover:text-brand-800"
+          className="mt-1 line-clamp-2 min-h-[34px] text-[14px] leading-[1.2] text-ink transition-colors hover:text-brand-900"
         >
           {product.name}
         </Link>

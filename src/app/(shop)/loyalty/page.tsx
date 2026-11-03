@@ -47,7 +47,7 @@ export default function LoyaltyPage() {
             { icon: CalendarClock, value: "365", label: "дней срок действия" },
           ].map((item) => (
             <div key={item.label} className="rounded-3xl border border-line/80 bg-white p-5">
-              <item.icon className="h-5 w-5 text-brand-700" />
+              <item.icon className="h-5 w-5 text-brand-900" />
               <p className="mt-4 font-display text-3xl font-extrabold tracking-tight text-ink">{item.value}</p>
               <p className="mt-1 text-[11.5px] leading-snug text-muted">{item.label}</p>
             </div>
@@ -77,7 +77,7 @@ export default function LoyaltyPage() {
             <ul className="mt-5 space-y-2.5">
               {["Копите бонусы с каждой покупки", "Оплачивайте до 50% заказа", "Уровни и привилегии без платы за карту"].map((item) => (
                 <li key={item} className="flex items-start gap-2 text-[13px] text-ink-soft">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" /> {item}
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" /> {item}
                 </li>
               ))}
             </ul>
@@ -101,7 +101,7 @@ export default function LoyaltyPage() {
                 { title: "Платите бонусами", text: "На оформлении включите «Списать бонусы» и выберите сумму до 50% заказа." },
               ].map((step, index) => (
                 <li key={step.title} className="flex gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-800 font-display text-sm font-bold text-cream">{index + 1}</span>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-900 font-display text-sm font-bold text-cream">{index + 1}</span>
                   <div>
                     <p className="font-display text-lg font-bold text-ink">{step.title}</p>
                     <p className="mt-1 text-[13px] leading-relaxed text-muted">{step.text}</p>

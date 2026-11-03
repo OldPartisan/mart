@@ -36,9 +36,9 @@ export function ContactForm() {
   if (status === "done") {
     return (
       <div className="rounded-3xl bg-brand-50 p-6 text-center">
-        <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-brand-800 text-cream"><Check className="h-5 w-5" /></span>
+        <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-brand-900 text-cream"><Check className="h-5 w-5" /></span>
         <p className="mt-3 font-display text-lg font-bold text-brand-900">Сообщение отправлено</p>
-        <p className="mt-1 text-[12px] text-brand-800/80">Ответим в течение рабочего дня. Спасибо!</p>
+        <p className="mt-1 text-[12px] text-brand-900/80">Ответим в течение рабочего дня. Спасибо!</p>
       </div>
     );
   }

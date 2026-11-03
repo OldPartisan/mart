@@ -99,7 +99,7 @@ export async function CatalogView({
 
             {result.items.length === 0 ? (
               <div className="mt-8 flex flex-col items-center justify-center rounded-[18px] bg-[#F7F8F9] px-6 py-16 text-center">
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-700">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-brand-900">
                   <PackageSearch className="h-6 w-6" />
                 </span>
                 <h2 className="mt-4 text-xl font-semibold text-ink">Ничего не нашлось</h2>

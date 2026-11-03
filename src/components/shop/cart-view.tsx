@@ -25,7 +25,7 @@ export function CartView() {
     return (
       <div className="container-x py-14 md:py-20">
         <div className="mx-auto max-w-lg rounded-[2rem] border border-line bg-white px-6 py-14 text-center">
-          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cream text-brand-800">
+          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cream text-brand-900">
             <ShoppingBag className="h-7 w-7" />
           </span>
           <h1 className="mt-5 font-display text-2xl font-bold text-ink">Корзина пока пуста</h1>
@@ -73,7 +73,7 @@ export function CartView() {
               <div className="flex min-w-0 flex-1 flex-col">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <Link href={`/product/${item.slug}`} className="line-clamp-2 text-[14px] font-semibold leading-snug text-ink hover:text-brand-800">
+                    <Link href={`/product/${item.slug}`} className="line-clamp-2 text-[14px] font-semibold leading-snug text-ink hover:text-brand-900">
                       {item.name}
                     </Link>
                     <p className="mt-1 text-[11px] text-muted">{item.weight ?? item.unit}</p>
@@ -136,7 +136,7 @@ export function CartView() {
             </div>
             <div className="flex justify-between">
               <dt className="text-muted">Самовывоз</dt>
-              <dd className="font-semibold text-brand-800">бесплатно</dd>
+              <dd className="font-semibold text-brand-900">бесплатно</dd>
             </div>
             <div className="flex justify-between">
               <dt className="text-muted">Промокод</dt>
@@ -151,13 +151,13 @@ export function CartView() {
           <Link href="/checkout" className="btn-primary mt-5 w-full">
             Оформить заказ <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link href="/catalog" className="mt-2 flex h-10 items-center justify-center text-[12px] font-semibold text-muted hover:text-brand-800">
+          <Link href="/catalog" className="mt-2 flex h-10 items-center justify-center text-[12px] font-semibold text-muted hover:text-brand-900">
             Продолжить покупки
           </Link>
 
           <div className="mt-4 space-y-2 border-t border-line pt-4 text-[11px] text-muted">
             <p className="flex items-start gap-2">
-              <Truck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-700" />
+              <Truck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-900" />
               Доставка от 149 ₽, бесплатно от {formatPrice(site.deliveryFreeFrom)}. Зоны — на шаге оформления.
             </p>
             <p>Заказ храним {site.pickupStorage}. Оплата картой онлайн или при получении.</p>

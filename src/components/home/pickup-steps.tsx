@@ -35,11 +35,11 @@ export function PickupSteps() {
           <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <li key={step.title} className="flex gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">
                   {index + 1}
                 </span>
                 <div>
-                  <step.icon className="mb-1.5 h-4 w-4 text-brand-700" aria-hidden="true" />
+                  <step.icon className="mb-1.5 h-4 w-4 text-brand-900" aria-hidden="true" />
                   <p className="text-[13px] font-bold leading-tight text-ink">{step.title}</p>
                   <p className="mt-1 text-[11.5px] leading-snug text-muted">{step.text}</p>
                 </div>

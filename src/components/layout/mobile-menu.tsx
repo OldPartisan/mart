@@ -98,7 +98,7 @@ export function MobileMenu({ categories, user }: { categories: Category[]; user:
 
             <div className="border-t border-line bg-white px-5 py-4">
               <a href={site.phoneHref} className="flex items-center gap-2 text-[14px] font-bold text-ink">
-                <Phone className="h-4 w-4 text-brand-700" /> {site.phone}
+                <Phone className="h-4 w-4 text-brand-900" /> {site.phone}
               </a>
               <p className="mt-1 text-[11px] text-muted">{site.hours} · {site.address}</p>
               <div className="mt-3 flex gap-2">

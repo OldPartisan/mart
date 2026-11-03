@@ -55,7 +55,7 @@ export default function VacanciesPage() {
             { icon: MapPin, title: "Рядом", text: "Новая Тура, удобный въезд с М-7, парковка." },
           ].map((item) => (
             <div key={item.title} className="rounded-2xl bg-cream p-4">
-              <item.icon className="h-4 w-4 text-brand-700" />
+              <item.icon className="h-4 w-4 text-brand-900" />
               <p className="mt-2 text-[12.5px] font-bold">{item.title}</p>
               <p className="mt-0.5 text-[11.5px] text-muted">{item.text}</p>
             </div>

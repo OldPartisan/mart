@@ -19,7 +19,7 @@ export function SectionTitle({
         {title}
       </h2>
       {href && (
-        <Link href={href} className="hidden shrink-0 items-center gap-1 text-[13px] text-muted transition hover:text-brand-800 sm:flex">
+        <Link href={href} className="hidden shrink-0 items-center gap-1 text-[13px] text-muted transition hover:text-brand-900 sm:flex">
           {linkLabel ?? "Смотреть все"} <ArrowRight className="h-3.5 w-3.5" />
         </Link>
       )}

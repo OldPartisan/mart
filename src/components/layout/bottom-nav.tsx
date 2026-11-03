@@ -80,7 +80,7 @@ export function BottomNav() {
             if (pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
             else router.push("/");
           }}
-          className={cn(itemClass, pathname === "/" && "text-brand-800")}
+          className={cn(itemClass, pathname === "/" && "text-brand-900")}
           aria-label="Главная"
           aria-current={pathname === "/" ? "page" : undefined}
         >

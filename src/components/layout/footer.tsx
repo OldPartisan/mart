@@ -11,7 +11,7 @@ function Column({ title, links }: { title: string; links: Array<{ href: string; 
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-[13px] text-muted transition-colors hover:text-brand-800">
+            <Link href={link.href} className="text-[13px] text-muted transition-colors hover:text-brand-900">
               {link.label}
             </Link>
           </li>
@@ -33,14 +33,14 @@ export function Footer() {
               на трассе М-7 у Новой Туры.
             </p>
             <div className="mt-4 space-y-2 text-[12.5px]">
-              <a href={site.phoneHref} className="flex items-center gap-2 font-semibold text-ink hover:text-brand-800">
-                <Phone className="h-3.5 w-3.5 text-brand-700" /> {site.phone}
+              <a href={site.phoneHref} className="flex items-center gap-2 font-semibold text-ink hover:text-brand-900">
+                <Phone className="h-3.5 w-3.5 text-brand-900" /> {site.phone}
               </a>
               <a href={`mailto:${site.email}`} className="flex items-center gap-2 text-muted hover:text-ink">
-                <Mail className="h-3.5 w-3.5 text-brand-700" /> {site.email}
+                <Mail className="h-3.5 w-3.5 text-brand-900" /> {site.email}
               </a>
               <p className="flex items-start gap-2 text-muted">
-                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-700" /> {site.address}
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-900" /> {site.address}
               </p>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function Footer() {
               </a>
               <Link
                 href="/contacts"
-                className="mt-3 inline-flex h-10 items-center rounded-lg bg-brand-700 px-4 text-[12px] font-semibold text-white transition hover:bg-brand-800"
+                className="mt-3 inline-flex h-10 items-center rounded-lg bg-brand-900 px-4 text-[12px] font-semibold text-white transition hover:bg-brand-950"
               >
                 Написать нам
               </Link>

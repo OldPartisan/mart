@@ -31,7 +31,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
 
   return (
     <div className="space-y-5">
-      <Link href="/account/orders" className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted hover:text-brand-800">
+      <Link href="/account/orders" className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted hover:text-brand-900">
         <ArrowLeft className="h-3.5 w-3.5" /> Все заказы
       </Link>
 
@@ -51,7 +51,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
           <div className="mt-6 flex items-center justify-between gap-1">
             {steps.map((step, index) => (
               <div key={step} className="flex flex-1 flex-col items-center text-center">
-                <span className={cn("flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold", index <= currentStep ? "bg-brand-800 text-cream" : "bg-cream text-muted")}>
+                <span className={cn("flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold", index <= currentStep ? "bg-brand-900 text-cream" : "bg-cream text-muted")}>
                   {index < currentStep ? <Check className="h-3.5 w-3.5" /> : index + 1}
                 </span>
                 <span className={cn("mt-1.5 text-[10px] font-semibold", index <= currentStep ? "text-ink" : "text-muted")}>{step}</span>
@@ -104,7 +104,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
                 <Image src={item.image ?? "/images/store.jpg"} alt="" fill sizes="48px" className="object-cover" />
               </div>
               <div className="min-w-0 flex-1">
-                <Link href={`/product/${item.slug}`} className="truncate text-[12.5px] font-semibold text-ink hover:text-brand-800">{item.name}</Link>
+                <Link href={`/product/${item.slug}`} className="truncate text-[12.5px] font-semibold text-ink hover:text-brand-900">{item.name}</Link>
                 <p className="text-[10.5px] text-muted">{item.quantity} × {formatPrice(item.price)}</p>
               </div>
               <span className="text-[12.5px] font-bold">{formatPrice(item.lineTotal)}</span>
@@ -114,7 +114,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
 
         <dl className="mt-3 space-y-1.5 border-t border-line pt-4 text-[12.5px]">
           <div className="flex justify-between"><dt className="text-muted">Товары</dt><dd>{formatPrice(order.subtotal)}</dd></div>
-          {order.discount > 0 && <div className="flex justify-between text-brand-800"><dt>Скидка</dt><dd>−{formatPrice(order.discount)}</dd></div>}
+          {order.discount > 0 && <div className="flex justify-between text-brand-900"><dt>Скидка</dt><dd>−{formatPrice(order.discount)}</dd></div>}
           {order.bonusUsed > 0 && <div className="flex justify-between text-accent-700"><dt>Бонусы</dt><dd>−{formatPrice(order.bonusUsed)}</dd></div>}
           <div className="flex justify-between"><dt className="text-muted">{order.deliveryType === "PICKUP" ? "Самовывоз" : "Доставка"}</dt><dd>{order.deliveryFee ? formatPrice(order.deliveryFee) : "бесплатно"}</dd></div>
           <div className="flex justify-between border-t border-line pt-2 text-[15px]"><dt className="font-semibold">Итого</dt><dd className="price">{formatPrice(order.total)}</dd></div>

@@ -26,7 +26,7 @@ export function CategoryRail() {
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
               </span>
-              <span className="mt-2 block text-[13px] leading-tight text-ink transition-colors group-hover:text-brand-800">
+              <span className="mt-2 block text-[13px] leading-tight text-ink transition-colors group-hover:text-brand-900">
                 {item.label}
               </span>
             </Link>

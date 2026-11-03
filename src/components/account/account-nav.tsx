@@ -24,7 +24,7 @@ export function AccountNav() {
             href={link.href}
             className={cn(
               "flex shrink-0 items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-[13px] font-semibold transition",
-              active ? "bg-brand-800 text-cream" : "text-ink-soft hover:bg-white",
+              active ? "bg-brand-900 text-cream" : "text-ink-soft hover:bg-white",
             )}
           >
             <link.icon className="h-4 w-4" aria-hidden="true" />

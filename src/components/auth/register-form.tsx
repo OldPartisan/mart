@@ -132,7 +132,7 @@ export function RegisterForm() {
 
       <p className="text-center text-[12px] text-muted">
         Уже с нами?{" "}
-        <Link href="/login" className="font-semibold text-brand-800 hover:text-accent-600">
+        <Link href="/login" className="font-semibold text-brand-900 hover:text-accent-600">
           Войти
         </Link>
       </p>

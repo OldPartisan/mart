@@ -230,7 +230,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
     return (
       <div className="container-x py-14 md:py-20">
         <div className="mx-auto max-w-lg rounded-[2rem] border border-line bg-white px-6 py-14 text-center">
-          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cream text-brand-800">
+          <span className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cream text-brand-900">
             <ShoppingBasket className="h-7 w-7" />
           </span>
           <h1 className="mt-5 font-display text-2xl font-bold text-ink">Корзина пуста</h1>
@@ -248,7 +248,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
 
   return (
     <form onSubmit={onSubmit} className="container-x py-8 md:py-12" noValidate>
-      <Link href="/cart" className="mb-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted hover:text-brand-800">
+      <Link href="/cart" className="mb-5 inline-flex items-center gap-1.5 text-[12px] font-semibold text-muted hover:text-brand-900">
         <ArrowLeft className="h-3.5 w-3.5" /> Вернуться в корзину
       </Link>
 
@@ -264,7 +264,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
             <Sparkles className="h-3 w-3" /> Баланс: {user.bonusBalance} бонусов
           </span>
         ) : (
-          <Link href="/login?next=/checkout" className="text-[12px] font-semibold text-brand-800 underline underline-offset-4">
+          <Link href="/login?next=/checkout" className="text-[12px] font-semibold text-brand-900 underline underline-offset-4">
             Войдите, чтобы списать бонусы
           </Link>
         )}
@@ -275,7 +275,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Контакты */}
           <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">1</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">1</span>
               <h2 className="font-display text-lg font-bold">Контакты</h2>
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -301,7 +301,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Получение */}
           <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">2</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">2</span>
               <h2 className="font-display text-lg font-bold">Как получить</h2>
             </div>
 
@@ -314,7 +314,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                   deliveryType === "PICKUP" ? "border-brand-700 bg-brand-50" : "border-line hover:border-brand-700/40",
                 )}
               >
-                <Store className="mt-0.5 h-5 w-5 shrink-0 text-brand-700" />
+                <Store className="mt-0.5 h-5 w-5 shrink-0 text-brand-900" />
                 <span>
                   <span className="block text-[13px] font-bold">Самовывоз</span>
                   <span className="mt-0.5 block text-[11px] text-muted">бесплатно · через 2 часа</span>
@@ -329,7 +329,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                   deliveryType === "DELIVERY" ? "border-brand-700 bg-brand-50" : "border-line hover:border-brand-700/40",
                 )}
               >
-                <Truck className="mt-0.5 h-5 w-5 shrink-0 text-brand-700" />
+                <Truck className="mt-0.5 h-5 w-5 shrink-0 text-brand-900" />
                 <span>
                   <span className="block text-[13px] font-bold">Доставка</span>
                   <span className="mt-0.5 block text-[11px] text-muted">от 149 ₽ · 2–5 часов</span>
@@ -348,7 +348,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                       onClick={() => setValue("pickupDate", day.date, { shouldValidate: true })}
                       className={cn(
                         "shrink-0 rounded-2xl border px-3 py-2 text-left transition",
-                        pickupDate === day.date ? "border-brand-700 bg-brand-800 text-cream" : "border-line bg-white text-ink hover:border-brand-700/40",
+                        pickupDate === day.date ? "border-brand-700 bg-brand-900 text-cream" : "border-line bg-white text-ink hover:border-brand-700/40",
                       )}
                     >
                       <span className="block text-[12px] font-bold">{day.label.split(",")[0]}</span>
@@ -367,7 +367,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                       onClick={() => setValue("pickupSlot", slot, { shouldValidate: true })}
                       className={cn(
                         "rounded-xl border px-3 py-2 text-[12px] font-semibold transition",
-                        pickupSlot === slot ? "border-brand-700 bg-brand-800 text-cream" : "border-line bg-white text-ink hover:border-brand-700/40",
+                        pickupSlot === slot ? "border-brand-700 bg-brand-900 text-cream" : "border-line bg-white text-ink hover:border-brand-700/40",
                       )}
                     >
                       {slot}
@@ -377,7 +377,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                 {errors.pickupSlot && <p className="mt-1 text-[11px] text-red-600">{errors.pickupSlot.message}</p>}
 
                 <div className="mt-4 flex items-start gap-2.5 rounded-2xl bg-cream p-3.5 text-[11.5px] text-ink-soft">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
                   <p>
                     <strong className="font-semibold">{site.address}</strong>
                     <br />
@@ -417,7 +417,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Оплата */}
           <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">3</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">3</span>
               <h2 className="font-display text-lg font-bold">Оплата</h2>
             </div>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -434,7 +434,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                     paymentMethod === method.value ? "border-brand-700 bg-brand-50" : "border-line hover:border-brand-700/40",
                   )}
                 >
-                  <method.icon className="mt-0.5 h-5 w-5 shrink-0 text-brand-700" />
+                  <method.icon className="mt-0.5 h-5 w-5 shrink-0 text-brand-900" />
                   <span>
                     <span className="block text-[13px] font-bold">{method.title}</span>
                     <span className="mt-0.5 block text-[11px] text-muted">{method.text}</span>
@@ -452,7 +452,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Промокод и бонусы */}
           <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">4</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">4</span>
               <h2 className="font-display text-lg font-bold">Скидки и бонусы</h2>
             </div>
 
@@ -464,7 +464,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                     <p className="flex items-center gap-2 text-[13px] font-bold text-brand-900">
                       <Tag className="h-4 w-4" /> {promo.code}
                     </p>
-                    <p className="text-[11px] text-brand-800">{promo.description} · −{formatPrice(promo.discount)}</p>
+                    <p className="text-[11px] text-brand-900">{promo.description} · −{formatPrice(promo.discount)}</p>
                   </div>
                   <button
                     type="button"
@@ -472,7 +472,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                       setPromo(null);
                       setPromoInput("");
                     }}
-                    className="flex h-8 w-8 items-center justify-center rounded-full text-brand-800 hover:bg-brand-100"
+                    className="flex h-8 w-8 items-center justify-center rounded-full text-brand-900 hover:bg-brand-100"
                     aria-label="Убрать промокод"
                   >
                     <X className="h-4 w-4" />
@@ -544,7 +544,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                 </>
               ) : (
                 <p className="text-[12px] text-muted">
-                  <Link href="/login?next=/checkout" className="font-semibold text-brand-800 underline underline-offset-2">
+                  <Link href="/login?next=/checkout" className="font-semibold text-brand-900 underline underline-offset-2">
                     Войдите
                   </Link>{" "}
                   или зарегистрируйтесь — начислим 300 бонусов и дадим списать до 50% заказа.
@@ -578,7 +578,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
               <dd className="font-semibold">{formatPrice(subtotal)}</dd>
             </div>
             {discount > 0 && (
-              <div className="flex justify-between text-brand-800">
+              <div className="flex justify-between text-brand-900">
                 <dt>Промокод</dt>
                 <dd className="font-semibold">−{formatPrice(discount)}</dd>
               </div>

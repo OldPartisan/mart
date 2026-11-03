@@ -32,7 +32,7 @@ export function LegalPage({
             <ol className="space-y-1.5">
               {sections.map((section, index) => (
                 <li key={section.id}>
-                  <a href={`#${section.id}`} className="text-[11.5px] leading-snug text-ink-soft hover:text-brand-800">
+                  <a href={`#${section.id}`} className="text-[11.5px] leading-snug text-ink-soft hover:text-brand-900">
                     {index + 1}. {section.title}
                   </a>
                 </li>
@@ -65,8 +65,8 @@ export function LegalPage({
           <div className="rounded-2xl border border-line bg-white p-5 text-[12px] leading-relaxed text-muted">
             <p>
               По вопросам обработки персональных данных и работы сайта:{" "}
-              <Link href="/contacts" className="font-semibold text-brand-800">форма обратной связи</Link> или{" "}
-              <a href="mailto:hello@irbis-mart.ru" className="font-semibold text-brand-800">hello@irbis-mart.ru</a>.
+              <Link href="/contacts" className="font-semibold text-brand-900">форма обратной связи</Link> или{" "}
+              <a href="mailto:hello@irbis-mart.ru" className="font-semibold text-brand-900">hello@irbis-mart.ru</a>.
             </p>
             <p className="mt-2">Документ является шаблоном и перед публикацией требует проверки юристом.</p>
           </div>

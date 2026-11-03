@@ -45,7 +45,7 @@ export default async function AdminOrdersPage({
               href={`/admin/orders${tab.value === "ALL" ? "" : `?status=${tab.value}`}`}
               className={cn(
                 "shrink-0 rounded-full px-3 py-1.5 text-[11px] font-semibold transition",
-                status === tab.value ? "bg-brand-800 text-cream" : "bg-white text-ink-soft hover:bg-cream",
+                status === tab.value ? "bg-brand-900 text-cream" : "bg-white text-ink-soft hover:bg-cream",
               )}
             >
               {tab.label}
@@ -80,7 +80,7 @@ export default async function AdminOrdersPage({
               {orders.map((order) => (
                 <tr key={order.id} className="hover:bg-cream/30">
                   <td className="px-4 py-2.5">
-                    <Link href={`/admin/orders/${order.id}`} className="font-semibold text-brand-800 hover:underline">{order.number}</Link>
+                    <Link href={`/admin/orders/${order.id}`} className="font-semibold text-brand-900 hover:underline">{order.number}</Link>
                   </td>
                   <td className="px-4 py-2.5">
                     <p className="font-medium">{order.customerName}</p>

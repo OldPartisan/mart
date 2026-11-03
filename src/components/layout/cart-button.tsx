@@ -16,7 +16,7 @@ export function CartButton({ className }: { className?: string }) {
     <Link
       href="/cart"
       className={cn(
-        "relative flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-800",
+        "relative flex flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-ink transition hover:text-brand-900",
         className,
       )}
       aria-label={count ? `Корзина, товаров: ${count}` : "Корзина"}

@@ -50,11 +50,11 @@ export function CafePreorderForm() {
   if (status === "done") {
     return (
       <div className="rounded-3xl bg-brand-50 p-6 text-center">
-        <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-brand-800 text-cream">
+        <span className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-brand-900 text-cream">
           <Check className="h-5 w-5" />
         </span>
         <p className="mt-3 font-display text-lg font-bold text-brand-900">Заявка отправлена</p>
-        <p className="mt-1 text-[12px] text-brand-800/80">Менеджер позвонит, чтобы подтвердить дату и время.</p>
+        <p className="mt-1 text-[12px] text-brand-900/80">Менеджер позвонит, чтобы подтвердить дату и время.</p>
       </div>
     );
   }

@@ -32,7 +32,7 @@ export default async function AdminDashboardPage() {
         ].map((card) => (
           <div key={card.label} className={cn("rounded-2xl border border-line/70 p-5", card.tone)}>
             <div className="flex items-center justify-between">
-              <card.icon className={cn("h-4 w-4", card.tone.includes("brand-900") ? "text-accent-300" : "text-brand-700")} />
+              <card.icon className={cn("h-4 w-4", card.tone.includes("brand-900") ? "text-accent-300" : "text-brand-900")} />
               {card.label === "Выручка (оплачено)" ? <ArrowUpRight className="h-4 w-4 text-accent-300" /> : <ArrowDownRight className="h-4 w-4 text-muted" />}
             </div>
             <p className={cn("mt-4 text-[10px] font-bold uppercase tracking-wider", card.tone.includes("brand-900") ? "text-cream/50" : "text-muted")}>{card.label}</p>
@@ -57,7 +57,7 @@ export default async function AdminDashboardPage() {
               <div key={day.day} className="flex flex-1 flex-col items-center gap-2">
                 <span className="text-[10px] font-semibold text-muted">{day.total ? formatPrice(day.total) : ""}</span>
                 <div className="flex w-full items-end justify-center" style={{ height: "110px" }}>
-                  <div className="w-full max-w-10 rounded-t-lg bg-brand-700 transition-all" style={{ height: `${Math.max(4, Math.round((day.total / maxDay) * 100))}%` }} />
+                  <div className="w-full max-w-10 rounded-t-lg bg-brand-900 transition-all" style={{ height: `${Math.max(4, Math.round((day.total / maxDay) * 100))}%` }} />
                 </div>
                 <span className="text-[10px] text-muted">{day.day}</span>
               </div>
@@ -85,7 +85,7 @@ export default async function AdminDashboardPage() {
       <section className="mt-4 rounded-2xl border border-line/70 bg-white p-5">
         <div className="flex items-center justify-between">
           <h2 className="font-display text-lg font-bold">Последние заказы</h2>
-          <Link href="/admin/orders" className="text-[11px] font-semibold text-brand-800">Все заказы</Link>
+          <Link href="/admin/orders" className="text-[11px] font-semibold text-brand-900">Все заказы</Link>
         </div>
         <div className="mt-3 overflow-x-auto">
           <table className="w-full min-w-[640px] text-left text-[12px]">
@@ -102,7 +102,7 @@ export default async function AdminDashboardPage() {
               {stats.recentOrders.map((order) => (
                 <tr key={order.id}>
                   <td className="py-2.5">
-                    <Link href={`/admin/orders/${order.id}`} className="font-semibold text-brand-800 hover:underline">{order.number}</Link>
+                    <Link href={`/admin/orders/${order.id}`} className="font-semibold text-brand-900 hover:underline">{order.number}</Link>
                   </td>
                   <td className="py-2.5">{order.customerName}</td>
                   <td className="py-2.5 text-muted">{formatDateTime(order.createdAt)}</td>

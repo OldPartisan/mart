@@ -18,11 +18,11 @@ export function MapBlock() {
 
             <div className="mt-6 space-y-4 text-[13px]">
               <p className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
                 <span className="font-semibold text-ink">{site.addressFull}</span>
               </p>
               <p className="flex items-start gap-3">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
                 <span>
                   Магазин: {site.hours}
                   <br />
@@ -30,13 +30,13 @@ export function MapBlock() {
                 </span>
               </p>
               <p className="flex items-start gap-3">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
-                <a href={site.phoneHref} className="font-semibold text-ink hover:text-brand-800">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
+                <a href={site.phoneHref} className="font-semibold text-ink hover:text-brand-900">
                   {site.phone}
                 </a>
               </p>
               <p className="flex items-start gap-3">
-                <Car className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                <Car className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
                 <span>Бесплатная парковка на 80 мест, зарядка для электромобилей</span>
               </p>
             </div>

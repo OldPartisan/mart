@@ -15,9 +15,16 @@ const nextConfig: NextConfig = {
     : {}),
   reactStrictMode: true,
   poweredByHeader: false,
-  // Изображения лежат локально и уже сжаты. Оптимизатор отключён,
-  // чтобы сборка не зависела от нативной библиотеки sharp (см. README).
-  images: { unoptimized: true },
+  // Static export на GitHub Pages не умеет оптимизировать изображения.
+  // На Vercel/Node включаем responsive srcset + AVIF/WebP через sharp.
+  images: isStaticExport
+    ? { unoptimized: true }
+    : {
+        formats: ["image/avif", "image/webp"],
+        minimumCacheTTL: 31536000,
+        deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+        imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+      },
   serverExternalPackages: ["@electric-sql/pglite"],
   experimental: {
     serverActions: { bodySizeLimit: "2mb" },

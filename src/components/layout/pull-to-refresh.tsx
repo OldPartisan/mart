@@ -98,10 +98,10 @@ export function PullToRefresh() {
         style={{ transform: "translateY(0px)" }}
       >
         {refreshing ? (
-          <Loader2 className="h-4 w-4 animate-spin text-brand-700" />
+          <Loader2 className="h-4 w-4 animate-spin text-brand-900" />
         ) : (
           <ArrowDown
-            className={cn("h-4 w-4 text-brand-700 transition-transform", ready && "rotate-180")}
+            className={cn("h-4 w-4 text-brand-900 transition-transform", ready && "rotate-180")}
           />
         )}
         <span>{refreshing ? "Обновляем…" : ready ? "Отпустите" : "Потяните вниз"}</span>

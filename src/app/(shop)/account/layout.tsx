@@ -50,7 +50,7 @@ export default async function AccountLayout({ children }: { children: React.Reac
               <p className="text-[11px] leading-relaxed text-muted">
                 Нужна помощь с заказом? Позвоните на стойку самовывоза — ответим в рабочие часы.
               </p>
-              <Link href="/contacts" className="mt-2 inline-block text-[11px] font-semibold text-brand-800">
+              <Link href="/contacts" className="mt-2 inline-block text-[11px] font-semibold text-brand-900">
                 Контакты →
               </Link>
             </div>

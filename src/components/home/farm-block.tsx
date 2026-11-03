@@ -22,7 +22,7 @@ export function FarmBlock() {
           </p>
 
           <div className="mt-6 rounded-2xl border border-line bg-cream/60 p-4">
-            <Quote className="h-5 w-5 text-brand-700" aria-hidden="true" />
+            <Quote className="h-5 w-5 text-brand-900" aria-hidden="true" />
             <blockquote className="mt-2 text-[14px] italic leading-relaxed text-ink-soft">
               «Мы привозим мёд в магазин через день после откачки. Всё, что не продаётся, забираем обратно — нам важно,
               чтобы на полке стоял мёд, а не прошлогодний запас».

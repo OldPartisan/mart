@@ -23,7 +23,7 @@ export function ReviewsSection({ reviews }: { reviews: Review[] }) {
               </div>
               <blockquote className="mt-3 flex-1 text-[14px] leading-[1.45] text-ink">{review.text}</blockquote>
               <figcaption className="mt-4 flex items-center gap-2.5 border-t border-line pt-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-[11px] font-bold text-brand-800">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-100 text-[11px] font-bold text-brand-900">
                   {initials(review.authorName)}
                 </span>
                 <div>

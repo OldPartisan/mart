@@ -27,7 +27,7 @@ export default function QualityPage() {
             { icon: Thermometer, title: "Держим холод", text: "Холодильные витрины, камеры и транспорт с контролем температуры. Журнал проверок — ежедневно." },
           ].map((item) => (
             <div key={item.title} className="rounded-3xl border border-line/80 bg-white p-5">
-              <item.icon className="h-5 w-5 text-brand-700" />
+              <item.icon className="h-5 w-5 text-brand-900" />
               <p className="mt-3 font-display text-lg font-bold">{item.title}</p>
               <p className="mt-1.5 text-[12.5px] leading-relaxed text-muted">{item.text}</p>
             </div>
@@ -47,7 +47,7 @@ export default function QualityPage() {
                 { title: "Получите замену или возврат", text: "Возврат на карту — до 3 рабочих дней, наличными — сразу на кассе." },
               ].map((step, index) => (
                 <li key={step.title} className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-800 text-[12px] font-bold text-cream">{index + 1}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">{index + 1}</span>
                   <div>
                     <p className="text-[13px] font-bold">{step.title}</p>
                     <p className="mt-0.5 text-[12px] text-muted">{step.text}</p>
@@ -69,7 +69,7 @@ export default function QualityPage() {
                 { icon: Check, title: "Фермерское", text: "Каждая поставка — с документами. Яйца и молоко проверяем на месте." },
               ].map((item) => (
                 <li key={item.title} className="flex items-start gap-3">
-                  <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+                  <item.icon className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
                   <div>
                     <p className="text-[12.5px] font-semibold">{item.title}</p>
                     <p className="text-[11.5px] text-muted">{item.text}</p>

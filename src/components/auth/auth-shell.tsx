@@ -24,7 +24,7 @@ export function AuthShell({
         <div className="p-6 sm:p-10 lg:p-12">
           <div className="flex items-center justify-between gap-3">
             <Logo />
-            <Link href="/" className="flex items-center gap-1 text-[11px] font-semibold text-muted hover:text-brand-800">
+            <Link href="/" className="flex items-center gap-1 text-[11px] font-semibold text-muted hover:text-brand-900">
               <ArrowLeft className="h-3.5 w-3.5" /> На главную
             </Link>
           </div>

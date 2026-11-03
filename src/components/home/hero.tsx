@@ -58,7 +58,7 @@ export function Hero() {
       aria-label="Главные предложения"
     >
       <div className="container-x">
-        <div className="relative grid overflow-hidden rounded-[18px] bg-brand-700 lg:grid-cols-2">
+        <div className="relative grid overflow-hidden rounded-[18px] bg-brand-900 lg:grid-cols-2">
           <div
             className="relative flex min-h-[300px] flex-col justify-center px-6 py-9 sm:px-10 lg:min-h-[565px] lg:px-[70px]"
             style={{
@@ -90,11 +90,15 @@ export function Hero() {
                   onClick={() => go(itemIndex)}
                   aria-label={`Слайд ${itemIndex + 1}`}
                   aria-current={itemIndex === index}
-                  className={cn(
-                    "h-1.5 rounded-full transition-all",
-                    itemIndex === index ? "w-8 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70",
-                  )}
-                />
+                  className="flex h-6 min-w-6 items-center justify-center"
+                >
+                  <span
+                    className={cn(
+                      "block h-1.5 rounded-full transition-all",
+                      itemIndex === index ? "w-8 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70",
+                    )}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -106,6 +110,7 @@ export function Hero() {
               alt={slide.alt}
               fill
               priority={index === 0}
+              fetchPriority={index === 0 ? "high" : "auto"}
               sizes="(min-width: 1024px) 640px, 100vw"
               className={cn("animate-fade-up", index === 2 ? "object-contain p-6" : "object-cover")}
             />

@@ -116,7 +116,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="flex flex-wrap gap-1.5">
             {discount && <span className="badge bg-accent-500 text-white">−{discount}%</span>}
-            {product.isOwnProduction && <span className="badge bg-brand-800 text-cream">Собственное производство</span>}
+            {product.isOwnProduction && <span className="badge bg-brand-900 text-cream">Собственное производство</span>}
             {product.isFarm && <span className="badge bg-accent-100 text-accent-700">Фермерское</span>}
             {product.isNew && <span className="badge-outline">Новинка</span>}
             {product.isHit && <span className="badge bg-ink text-cream">Хит</span>}
@@ -142,7 +142,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
           <div className="mt-2 flex items-center gap-2 text-[12px]">
             <span className={`flex h-2 w-2 rounded-full ${inStock ? "bg-brand-600" : "bg-accent-500"}`} />
-            <span className={inStock ? "font-semibold text-brand-800" : "font-semibold text-accent-600"}>
+            <span className={inStock ? "font-semibold text-brand-900" : "font-semibold text-accent-600"}>
               {inStock ? `В наличии · ${product.stock} шт.` : "Нет в наличии"}
             </span>
             <span className="text-muted">· можно забрать сегодня</span>
@@ -154,14 +154,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
             <div className="flex items-start gap-2.5 rounded-2xl border border-line/80 bg-white p-3.5">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
               <div>
                 <p className="text-[12px] font-bold text-ink">Самовывоз через 2 часа</p>
                 <p className="mt-0.5 text-[11px] text-muted">бесплатно, хранение 24 часа</p>
               </div>
             </div>
             <div className="flex items-start gap-2.5 rounded-2xl border border-line/80 bg-white p-3.5">
-              <Truck className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" />
+              <Truck className="mt-0.5 h-4 w-4 shrink-0 text-brand-900" />
               <div>
                 <p className="text-[12px] font-bold text-ink">Доставка от 149 ₽</p>
                 <p className="mt-0.5 text-[11px] text-muted">бесплатно от 1 500 ₽</p>
@@ -170,9 +170,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[11.5px] text-muted">
-            <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-brand-700" /> Проверено магазином</span>
-            <span className="flex items-center gap-1.5"><Leaf className="h-3.5 w-3.5 text-brand-700" /> Свежая партия</span>
-            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-brand-700" /> Можно оплатить бонусами</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck className="h-3.5 w-3.5 text-brand-900" /> Проверено магазином</span>
+            <span className="flex items-center gap-1.5"><Leaf className="h-3.5 w-3.5 text-brand-900" /> Свежая партия</span>
+            <span className="flex items-center gap-1.5"><Check className="h-3.5 w-3.5 text-brand-900" /> Можно оплатить бонусами</span>
           </div>
 
           {product.isFarm && (

@@ -26,7 +26,7 @@ export function AboutStrip() {
               на себе, прежде чем предложить вам.
             </p>
           </div>
-          <Link href="/about" className="mt-3 inline-block text-[14px] text-muted underline decoration-line underline-offset-4 transition hover:text-brand-800">
+          <Link href="/about" className="mt-3 inline-block text-[14px] text-muted underline decoration-line underline-offset-4 transition hover:text-brand-900">
             Читать далее
           </Link>
         </div>

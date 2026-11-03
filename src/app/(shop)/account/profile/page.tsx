@@ -25,11 +25,11 @@ export default async function ProfilePage() {
       <AddressManager addresses={addresses.map((address) => ({ ...address }))} />
 
       <div className="rounded-3xl border border-line/80 bg-brand-50 p-5">
-        <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-brand-800">
+        <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-brand-900">
           <Gift className="h-3.5 w-3.5" /> Код друга
         </p>
         <p className="mt-2 font-display text-lg font-extrabold tracking-wider text-brand-900">{user.referralCode}</p>
-        <p className="mt-1 text-[11.5px] leading-relaxed text-brand-800/80">
+        <p className="mt-1 text-[11.5px] leading-relaxed text-brand-900/80">
           Поделитесь кодом: другу — 300 бонусов за регистрацию, вам — 300 бонусов за приглашение.
         </p>
       </div>
