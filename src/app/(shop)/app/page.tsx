@@ -47,7 +47,7 @@ export default function AppPage() {
             >
               <Download className="h-4 w-4" /> Скачать APK
             </a>
-            <p className="mt-2 text-[10px] text-white/50">SHA-256: 60b35b7d…93252bae · debug-подпись</p>
+            <p className="mt-2 text-[10px] text-white/50">SHA-256: 86ad6104…5d94844 · debug-подпись</p>
           </div>
 
           <div className="rounded-[18px] border border-line bg-[#F7F8F9] p-6">

@@ -51,9 +51,9 @@ export function ProductCard({
 
       <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
         <div className="flex items-center justify-between gap-2 text-[13px] text-muted">
-          <span className="truncate">{product.weight ?? product.unit}</span>
+          <span className="min-w-0 flex-1 pr-1 leading-tight">{product.weight ?? product.unit}</span>
           <span className="flex shrink-0 items-center gap-1">
-            <span className="flex items-center gap-[1px]">
+            <span className="hidden items-center gap-[1px] sm:flex">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star
                   key={index}
@@ -62,7 +62,11 @@ export function ProductCard({
                 />
               ))}
             </span>
-            <span className="text-[12px] text-muted">({reviews})</span>
+            <span className="flex items-center gap-0.5 sm:hidden">
+              <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" aria-hidden="true" />
+              <span className="text-[11px] text-muted">{rating.toFixed(1)}</span>
+            </span>
+            <span className="text-[11px] text-muted sm:text-[12px]">({reviews})</span>
           </span>
         </div>
 

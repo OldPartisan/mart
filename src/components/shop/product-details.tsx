@@ -31,7 +31,7 @@ export function ProductDetails({
   }[active];
 
   return (
-    <div className="rounded-3xl border border-line/80 bg-white">
+    <div className="min-w-0 rounded-3xl border border-line/80 bg-white">
       <div className="no-scrollbar flex gap-1 overflow-x-auto border-b border-line/80 p-2" role="tablist" aria-label="Информация о товаре">
         {tabs.map((tab) => (
           <button

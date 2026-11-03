@@ -199,7 +199,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           storage={product.storageInfo}
           producer={product.producer}
         />
-        <div className="rounded-3xl bg-brand-900 p-6 text-cream">
+        <div className="min-w-0 rounded-3xl bg-brand-900 p-6 text-cream">
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-accent-300">Хранение и качество</p>
           <p className="mt-3 font-display text-xl font-bold">Не понравится — вернём деньги</p>
           <p className="mt-2 text-[13px] leading-relaxed text-cream/65">

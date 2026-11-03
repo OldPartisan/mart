@@ -66,7 +66,7 @@ export async function CatalogView({
       </div>
 
       <div className="container-x pb-12">
-        <div className="flex gap-8 lg:gap-10">
+        <div className="flex flex-col gap-4 lg:flex-row lg:gap-10">
           <Suspense fallback={<aside className="hidden w-[290px] shrink-0 lg:block" />}>
             <CatalogFilters categories={categories} counts={countMap} activeCategory={category?.slug} total={result.total} />
           </Suspense>

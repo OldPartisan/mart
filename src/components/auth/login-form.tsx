@@ -95,29 +95,31 @@ export function LoginForm() {
         </Link>
       </p>
 
+      {process.env.NODE_ENV !== "production" && (
       <div className="rounded-2xl border border-dashed border-line bg-cream/60 p-3">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Демо-доступ</p>
-        <button
-          type="button"
-          onClick={() => {
-            setValue("email", "client@irbis-mart.ru");
-            setValue("password", "Client123!");
-          }}
-          className="mt-1.5 w-full text-left text-[11px] text-ink-soft hover:text-brand-800"
-        >
-          Покупатель: client@irbis-mart.ru · Client123!
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setValue("email", "admin@irbis-mart.ru");
-            setValue("password", "Admin123!");
-          }}
-          className="mt-1 w-full text-left text-[11px] text-ink-soft hover:text-brand-800"
-        >
-          Администратор: admin@irbis-mart.ru · Admin123!
-        </button>
-      </div>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Демо-доступ</p>
+          <button
+            type="button"
+            onClick={() => {
+              setValue("email", "client@irbis-mart.ru");
+              setValue("password", "Client123!");
+            }}
+            className="mt-1.5 w-full text-left text-[11px] text-ink-soft hover:text-brand-800"
+          >
+            Покупатель: client@irbis-mart.ru · Client123!
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setValue("email", "admin@irbis-mart.ru");
+              setValue("password", "Admin123!");
+            }}
+            className="mt-1 w-full text-left text-[11px] text-ink-soft hover:text-brand-800"
+          >
+            Администратор: admin@irbis-mart.ru · Admin123!
+          </button>
+        </div>
+        )}
     </form>
   );
 }
