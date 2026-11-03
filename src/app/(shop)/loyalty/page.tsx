@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarClock, Check, Gift, Sparkles, Star, Wallet } from "lucide-react";
 import { PageHero } from "@/components/content/page-hero";
@@ -50,6 +51,40 @@ export default function LoyaltyPage() {
               <p className="mt-1 text-[11.5px] leading-snug text-muted">{item.label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-10 sm:py-12">
+        <div className="container-x grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+          <div className="relative mx-auto w-full max-w-[560px]">
+            <Image
+              src="/images/figma/loyalty-card.webp"
+              width={1600}
+              height={998}
+              alt="Карта постоянного покупателя «Ирбис Март»"
+              sizes="(min-width: 1024px) 560px, 90vw"
+              className="h-auto w-full drop-shadow-2xl"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">Ваша карта</p>
+            <h2 className="mt-2.5 text-h2 font-bold text-ink text-balance">Одна карта — все покупки</h2>
+            <p className="mt-3 max-w-lg text-[14px] leading-relaxed text-muted">
+              Карта постоянного покупателя действует в супермаркете и кафе «Ирбис Март». Покажите её на кассе
+              или привяжите к аккаунту — бонусы начислятся автоматически.
+            </p>
+            <ul className="mt-5 space-y-2.5">
+              {["Копите бонусы с каждой покупки", "Оплачивайте до 50% заказа", "Уровни и привилегии без платы за карту"].map((item) => (
+                <li key={item} className="flex items-start gap-2 text-[13px] text-ink-soft">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-700" /> {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              <Link href="/register" className="btn-primary">Получить карту <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/account/bonuses" className="btn-secondary">Мой баланс</Link>
+            </div>
+          </div>
         </div>
       </section>
 

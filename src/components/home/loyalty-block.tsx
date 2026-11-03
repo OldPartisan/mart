@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Gift, Sparkles, Wallet } from "lucide-react";
 
@@ -47,31 +48,15 @@ export function LoyaltyBlock() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[340px]">
-              <div className="rotate-[-3deg] rounded-[18px] bg-white p-5 text-ink shadow-float">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-muted">Карта лояльности</p>
-                    <p className="mt-1 font-display text-lg font-extrabold text-brand-800">ИРБИС МАРТ</p>
-                  </div>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-700 text-white">
-                    <Sparkles className="h-4 w-4" />
-                  </span>
-                </div>
-                <p className="mt-6 text-[10px] font-semibold uppercase tracking-wider text-muted">Ваш баланс</p>
-                <p className="font-display text-4xl font-extrabold tracking-tight text-ink">
-                  480 <span className="text-lg font-bold text-brand-700">бонусов</span>
-                </p>
-                <div className="mt-4 flex items-center justify-between border-t border-line pt-3 text-[10px] text-muted">
-                  <span>Алия Г.</span>
-                  <span>Уровень: Серебряный</span>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-4 -right-2 rotate-[4deg] rounded-xl bg-accent-500 px-4 py-3 text-white shadow-float">
-                <p className="text-[9px] font-semibold uppercase tracking-wider text-white/80">Заказ на 1 240 ₽</p>
-                <p className="mt-0.5 text-[13px] font-bold">+12 бонусов</p>
-              </div>
+            <div className="relative mx-auto w-full max-w-[520px]">
+              <Image
+                src="/images/figma/loyalty-card.webp"
+                width={1600}
+                height={998}
+                alt="Карта постоянного покупателя «Ирбис Март»"
+                sizes="(min-width: 1024px) 520px, 90vw"
+                className="h-auto w-full drop-shadow-2xl"
+              />
             </div>
           </div>
         </div>

@@ -30,7 +30,7 @@ export default function DeliveryPage() {
         title="Привезём за 2–5 часов или соберём к вашему приезду"
         description="Доставка по ближним посёлкам от 149 ₽, бесплатно от 1 500 ₽. Самовывоз в Новой Туре — бесплатный, заказ ждёт 24 часа."
         crumbs={[{ label: "Доставка и оплата" }]}
-        image="/images/store-3.jpg"
+        image="/images/figma/tile-market.webp"
         imageAlt="Супермаркет Ирбис Март"
         cta={{ href: "/catalog", label: "Собрать заказ" }}
       />

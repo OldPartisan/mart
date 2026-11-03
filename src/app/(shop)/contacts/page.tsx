@@ -22,7 +22,7 @@ export default function ContactsPage() {
         title="Мы в Новой Туре, на трассе М-7"
         description="15 минут от Казани и Зеленодольска. Своя парковка, отдельный вход в кафе и стойка самовывоза."
         crumbs={[{ label: "Контакты" }]}
-        image="/images/store-3.jpg"
+        image="/images/figma/tile-market.webp"
         imageAlt="Торговый зал Ирбис Март"
       />
 

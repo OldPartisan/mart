@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Самовывоз",
   description: "Самовывоз из «Ирбис Март»: заказ готов через 2 часа, бесплатно, хранение 24 часа. Как оформить и забрать.",
   alternates: { canonical: "/pickup" },
-  openGraph: { title: "Самовывоз — Ирбис Март", description: "Соберите заказ онлайн и заберите в Новой Туре через 2 часа.", url: "/pickup", images: ["/images/store-2.jpg"] },
+  openGraph: { title: "Самовывоз — Ирбис Март", description: "Соберите заказ онлайн и заберите в Новой Туре через 2 часа.", url: "/pickup", images: ["/images/figma/tile-market.webp"] },
 };
 
 const faq = [
@@ -27,7 +27,7 @@ export default function PickupPage() {
         title="Заказ готов через 2 часа. Без очереди и доставки"
         description="Соберите корзину на сайте, выберите удобный интервал — и заберите в Новой Туре. Бесплатно, хранение 24 часа."
         crumbs={[{ label: "Самовывоз" }]}
-        image="/images/store-2.jpg"
+        image="/images/figma/tile-market.webp"
         imageAlt="Торговый зал Ирбис Март"
         cta={{ href: "/catalog", label: "Собрать заказ" }}
       />
