@@ -41,6 +41,10 @@ URL после перезапуска будет новый.
 
 ### 2. Vercel
 
+Быстрый старт: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FOldPartisan%2Fmart&env=DATABASE_URL,AUTH_SECRET,NEXT_PUBLIC_SITE_URL,SEED_ADMIN_PASSWORD,SEED_MANAGER_PASSWORD,SEED_CLIENT_PASSWORD&envDescription=Postgres%20URL%20from%20Neon%20and%20strong%20seed%20passwords)
+
+Кнопка создаст проект в вашем аккаунте Vercel и попросит переменные. Либо вручную:
+
 1. <https://vercel.com> → **Add New Project** → импортируйте `OldPartisan/mart`.
 2. Framework: **Next.js**; Build: `pnpm build`; Install: `pnpm install --frozen-lockfile`.
 3. Environment Variables:
@@ -73,6 +77,8 @@ UPDATE users SET password_hash = '<bcrypt-хеш>' WHERE email = 'admin@irbis-ma
 ```
 
 ## Вариант 2 — Render Free + Neon
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/OldPartisan/mart)
 
 1. <https://render.com> → **New → Web Service** → подключите GitHub-репозиторий.
 2. Runtime: Node; Build: `pnpm install --frozen-lockfile && pnpm build`; Start: `pnpm start`.
