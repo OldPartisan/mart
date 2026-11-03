@@ -1,0 +1,463 @@
+{
+  "base": "https://oldpartisan.github.io/mart",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Заезжайте\nза свежей\nвыпечкой"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS прямо от производителя. Готовая еда, кафе, самовывоз через 2 часа и бонусы 1 = 1 ₽.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 30,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/catalog",
+      "status": 200,
+      "title": "Каталог товаров — Ирбис Март",
+      "h1": [
+        "Каталог товаров"
+      ],
+      "desc": "Каталог «Ирбис Март»: молочная продукция, мясо и птица, выпечка, фермерские товары, бакалея, напитки, готовая еда и комбо-наборы.",
+      "canonical": "https://oldpartisan.github.io/mart/catalog/",
+      "imgs": 14,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/catalog/molochnaya-produktsiya",
+      "status": 200,
+      "title": "Молочная продукция — Ирбис Март",
+      "h1": [
+        "Молочная продукция"
+      ],
+      "desc": "Молоко, кефир, творог, сыры и масло — своё производство и фермерская полка.",
+      "canonical": "https://oldpartisan.github.io/mart/catalog/molochnaya-produktsiya/",
+      "imgs": 8,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/catalog/kombo-nabory",
+      "status": 200,
+      "title": "Комбо-наборы — Ирбис Март",
+      "h1": [
+        "Комбо-наборы"
+      ],
+      "desc": "Готовые наборы на семью, обед и пикник — дешевле, чем покупать по отдельности.",
+      "canonical": "https://oldpartisan.github.io/mart/catalog/kombo-nabory/",
+      "imgs": 8,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/product/tort-medovik",
+      "status": 200,
+      "title": "Торт «Медовик» — Ирбис Март",
+      "h1": [
+        "Торт «Медовик»"
+      ],
+      "desc": "Восемь тонких медовых коржей и крем на сметане. Тот самый, который заказывают на семейные праздники.",
+      "canonical": "https://oldpartisan.github.io/mart/product/tort-medovik/",
+      "imgs": 8,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/product/moloko-irbis-3-2",
+      "status": 200,
+      "title": "Молоко «Ирбис» 3,2% — Ирбис Март",
+      "h1": [
+        "Молоко «Ирбис» 3,2%"
+      ],
+      "desc": "Цельное молоко с фермы в Новой Туре. Пастеризация щадящая — вкус остаётся сливочным, без привкуса кипячения.",
+      "canonical": "https://oldpartisan.github.io/mart/product/moloko-irbis-3-2/",
+      "imgs": 9,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/promotions",
+      "status": 200,
+      "title": "Акции и скидки — Ирбис Март",
+      "h1": [
+        "Скидки, которые не прячутся в мелком шрифте"
+      ],
+      "desc": "Действующие акции «Ирбис Март»: скидки на собственную продукцию, фермерскую полку, комбо-наборы и готовую еду.",
+      "canonical": "https://oldpartisan.github.io/mart/promotions/",
+      "imgs": 8,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/promotions/svoe-znachit-svegee",
+      "status": 200,
+      "title": "Своё — значит свежее — Ирбис Март",
+      "h1": [
+        "Своё — значит свежее"
+      ],
+      "desc": "−20% на молочную полку собственного производства",
+      "canonical": "https://oldpartisan.github.io/mart/promotions/svoe-znachit-svegee/",
+      "imgs": 6,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/delivery",
+      "status": 200,
+      "title": "Доставка и оплата — Ирбис Март",
+      "h1": [
+        "Привезём за 2–5 часов или соберём к вашему приезду"
+      ],
+      "desc": "Условия доставки «Ирбис Март»: зоны, стоимость, бесплатная доставка от 1 500 ₽, самовывоз через 2 часа и способы оплаты.",
+      "canonical": "https://oldpartisan.github.io/mart/delivery/",
+      "imgs": 3,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/pickup",
+      "status": 200,
+      "title": "Самовывоз — Ирбис Март",
+      "h1": [
+        "Заказ готов через 2 часа. Без очереди и доставки"
+      ],
+      "desc": "Самовывоз из «Ирбис Март»: заказ готов через 2 часа, бесплатно, хранение 24 часа. Как оформить и забрать.",
+      "canonical": "https://oldpartisan.github.io/mart/pickup/",
+      "imgs": 3,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/loyalty",
+      "status": 200,
+      "title": "Программа лояльности — Ирбис Март",
+      "h1": [
+        "1 бонус = 1 ₽. Без сложных условий"
+      ],
+      "desc": "Бонусная программа «Ирбис Март»: 1 бонус за 100 ₽, 1 бонус = 1 ₽, оплата до 50% заказа, 300 бонусов за регистрацию.",
+      "canonical": "https://oldpartisan.github.io/mart/loyalty/",
+      "imgs": 3,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "О магазине — Ирбис Март",
+      "h1": [
+        "Загородный супермаркет, в который хочется заехать"
+      ],
+      "desc": "История «Ирбис Март»: загородный супермаркет 2 609 м² у Новой Туры с собственным производством, кафе на 102 места и фермерской полкой.",
+      "canonical": "https://oldpartisan.github.io/mart/about/",
+      "imgs": 4,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/farmers",
+      "status": 200,
+      "title": "Наши фермеры — Ирбис Март",
+      "h1": [
+        "Люди, которые растят то, что вы едите"
+      ],
+      "desc": "Фермеры Татарстана, с которыми работает «Ирбис Март»: мёд, яйца, козий сыр, ягоды и овощи. Прямые поставки без посредников.",
+      "canonical": "https://oldpartisan.github.io/mart/farmers/",
+      "imgs": 7,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/own-production",
+      "status": 200,
+      "title": "Собственное производство — Ирбис Март",
+      "h1": [
+        "Мы производим сами — и поэтому отвечаем"
+      ],
+      "desc": "Молочная, пекарня, кондитерская и кухня «Ирбис Март»: полный цикл производства, свежесть и честный состав.",
+      "canonical": "https://oldpartisan.github.io/mart/own-production/",
+      "imgs": 7,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/cafe",
+      "status": 200,
+      "title": "Кафе IRBIS MART — Ирбис Март",
+      "h1": [
+        "Место, где можно поесть по пути или посидеть с семьёй"
+      ],
+      "desc": "Кафе на 102 места в «Ирбис Март»: завтраки до 11:00, бизнес-ланчи, пицца, роллы, десерты и кофе. Предзаказ столика и блюд.",
+      "canonical": "https://oldpartisan.github.io/mart/cafe/",
+      "imgs": 24,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/contacts",
+      "status": 0,
+      "title": "",
+      "h1": [],
+      "desc": "",
+      "canonical": "",
+      "imgs": 0,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": [
+        "400 https://prebid.admatic.com.tr/setuid?bidder=yandex_ortb&gdpr=0&gdpr_consent=&f=b&uid=1D15DCD27ADC8B1",
+        "404 https://yandex.ru/an/mapuid/onetargetis/821219cc-3fcd-4b50-804b-96aaf9984aad",
+        "NAV TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://oldpartisan.github.io/mart/contacts\", waiting until \"networkidle\"\n"
+      ]
+    },
+    {
+      "path": "/quality",
+      "status": 200,
+      "title": "Гарантия качества — Ирбис Март",
+      "h1": [
+        "Если продукт не понравился — заменим или вернём деньги"
+      ],
+      "desc": "Как «Ирбис Март» проверяет продукты и что делать, если покупка не понравилась. Заменим или вернём деньги.",
+      "canonical": "https://oldpartisan.github.io/mart/quality/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/vacancies",
+      "status": 200,
+      "title": "Вакансии — Ирбис Март",
+      "h1": [
+        "Работа рядом с домом — в Новой Туре"
+      ],
+      "desc": "Работа в «Ирбис Март» в Новой Туре: продавцы, пекари, повара, курьеры. Официальное трудоустройство, смены рядом с домом.",
+      "canonical": "https://oldpartisan.github.io/mart/vacancies/",
+      "imgs": 3,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/legal/privacy",
+      "status": 200,
+      "title": "Политика конфиденциальности — Ирбис Март",
+      "h1": [
+        "Политика конфиденциальности"
+      ],
+      "desc": "Политика обработки персональных данных сайта «Ирбис Март»: какие данные собираем, зачем и как защищаем.",
+      "canonical": "https://oldpartisan.github.io/mart/legal/privacy/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/legal/terms",
+      "status": 200,
+      "title": "Пользовательское соглашение — Ирбис Март",
+      "h1": [
+        "Пользовательское соглашение"
+      ],
+      "desc": "Условия использования сайта «Ирбис Март», оформления заказов, самовывоза, доставки и программы лояльности.",
+      "canonical": "https://oldpartisan.github.io/mart/legal/terms/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/legal/offer",
+      "status": 200,
+      "title": "Публичная оферта — Ирбис Март",
+      "h1": [
+        "Публичная оферта"
+      ],
+      "desc": "Договор дистанционной купли-продажи товаров «Ирбис Март»: предмет, порядок заказа, оплата, доставка и возврат.",
+      "canonical": "https://oldpartisan.github.io/mart/legal/offer/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/login",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Раздел работает в полной версии"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/register",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Раздел работает в полной версии"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/forgot-password",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Раздел работает в полной версии"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/reset-password",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Раздел работает в полной версии"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/cart",
+      "status": 200,
+      "title": "Корзина — Ирбис Март",
+      "h1": [
+        "Корзина пока пуста"
+      ],
+      "desc": "Ваша корзина в супермаркете «Ирбис Март». Самовывоз через 2 часа или доставка по ближним посёлкам.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/checkout",
+      "status": 200,
+      "title": "Оформление заказа — Ирбис Март",
+      "h1": [
+        "Корзина пуста"
+      ],
+      "desc": "Оформите заказ в «Ирбис Март»: самовывоз через 2 часа или доставка, оплата картой или при получении.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/account",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Раздел работает в полной версии"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 2,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/admin",
+      "status": 200,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Админ-панель — в полной версии"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 1,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "title": "",
+      "h1": [],
+      "desc": "",
+      "canonical": "",
+      "imgs": 0,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "title": "",
+      "h1": [],
+      "desc": "",
+      "canonical": "",
+      "imgs": 0,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": []
+    },
+    {
+      "path": "/nonexistent-page-qa",
+      "status": 404,
+      "title": "Ирбис Март — фермерский супермаркет у Новой Туры",
+      "h1": [
+        "Такой полки у нас нет"
+      ],
+      "desc": "Свежие фермерские продукты и собственная продукция ГК IRBIS, готовая еда, кафе и быстрый самовывоз на трассе М-7 у Новой Туры.",
+      "canonical": "https://oldpartisan.github.io/mart/",
+      "imgs": 1,
+      "brokenImgs": 0,
+      "overflow": 0,
+      "failed": [
+        "404 https://oldpartisan.github.io/mart/nonexistent-page-qa"
+      ]
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 400 ()",
+    "Failed to load resource: net::ERR_NAME_NOT_RESOLVED",
+    "Failed to load resource: net::ERR_NAME_NOT_RESOLVED",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: net::ERR_TOO_MANY_REDIRECTS",
+    "Failed to load resource: net::ERR_CONNECTION_CLOSED",
+    "Failed to load resource: the server responded with a status of 404 ()"
+  ],
+  "pageErrors": []
+}

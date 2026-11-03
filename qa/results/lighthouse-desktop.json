@@ -1,0 +1,17 @@
+{
+  "url": "https://oldpartisan.github.io/mart/",
+  "scores": {
+    "performance": 95,
+    "accessibility": 93,
+    "best-practices": 96,
+    "seo": 100
+  },
+  "metrics": {
+    "first-contentful-paint": "0.5 s",
+    "largest-contentful-paint": "1.4 s",
+    "speed-index": "1.0 s",
+    "total-blocking-time": "0 ms",
+    "cumulative-layout-shift": "0",
+    "total-byte-weight": "Total size was 3,144 KiB"
+  }
+}

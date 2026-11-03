@@ -13,7 +13,7 @@
     "h1PerPage": 1
   },
   "functional": {
-    "apiChecks": 25,
+    "apiChecks": 26,
     "apiFailures": 0,
     "unitTests": 11,
     "typecheck": "pass",

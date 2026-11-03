@@ -1,0 +1,16 @@
+import { chromium } from '@playwright/test';
+const b=await chromium.launch({headless:true,executablePath:'/Users/user/Library/Caches/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-mac-arm64/chrome-headless-shell'});
+const p=await b.newPage({viewport:{width:1440,height:1000}});
+const bad=[]; p.on('response',r=>{if(r.status()>=400&&!r.url().includes('yandex')) bad.push(`${r.status()} ${r.url()}`)});
+p.on('pageerror',e=>bad.push('ERR '+String(e).slice(0,120)));
+await p.goto('https://oldpartisan.github.io/mart/',{waitUntil:'networkidle'});
+console.log('title',await p.title(),'h1',(await p.locator('h1').first().innerText()).replace(/\n/g,' '));
+console.log('og',await p.locator('meta[property="og:image"]').first().getAttribute('content'));
+await p.goto('https://oldpartisan.github.io/mart/catalog/',{waitUntil:'networkidle'});
+console.log('sort visible',await p.locator('select').count(),'notice',(await p.locator('body').innerText()).includes('Демо-витрина'));
+await p.goto('https://oldpartisan.github.io/mart/delivery/',{waitUntil:'domcontentloaded'}); await p.waitForTimeout(600);
+console.log('broken imgs',await p.locator('img').evaluateAll(es=>es.filter(e=>e.complete&&e.naturalWidth===0).length));
+await p.goto('https://oldpartisan.github.io/mart/account/bonuses/',{waitUntil:'networkidle'});
+console.log('bonuses',await p.locator('h1').innerText());
+console.log('bad',bad.slice(0,10));
+await b.close();
