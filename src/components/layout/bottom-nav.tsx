@@ -54,7 +54,7 @@ export function BottomNav() {
   };
 
   const itemClass =
-    "flex h-14 flex-1 flex-col items-center justify-center gap-0.5 text-[10px] font-medium text-muted transition active:bg-cream disabled:opacity-40";
+    "flex h-12 flex-1 flex-col items-center justify-center gap-0 text-[9.5px] font-medium leading-none text-muted transition active:bg-cream disabled:opacity-40";
 
   return (
     <nav
@@ -63,15 +63,15 @@ export function BottomNav() {
     >
       <div className="mx-auto grid max-w-lg grid-cols-4">
         <button type="button" onClick={goBack} className={itemClass} aria-label="Назад">
-          <ArrowLeft className="h-[21px] w-[21px]" />
+          <ArrowLeft className="h-5 w-5" />
           Назад
         </button>
         <button type="button" onClick={() => router.forward()} className={itemClass} aria-label="Вперёд">
-          <ArrowRight className="h-[21px] w-[21px]" />
+          <ArrowRight className="h-5 w-5" />
           Вперёд
         </button>
         <button type="button" onClick={focusSearch} className={itemClass} aria-label="Поиск">
-          <Search className="h-[21px] w-[21px]" />
+          <Search className="h-5 w-5" />
           Поиск
         </button>
         <button
@@ -84,7 +84,7 @@ export function BottomNav() {
           aria-label="Главная"
           aria-current={pathname === "/" ? "page" : undefined}
         >
-          <Home className="h-[21px] w-[21px]" />
+          <Home className="h-5 w-5" />
           Главная
         </button>
       </div>

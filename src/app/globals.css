@@ -155,5 +155,5 @@ h1, h2, h3, h4 {
 
 /* Нижняя навигация в приложении: не перекрывать последний контент */
 body.has-bottom-nav {
-  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
 }

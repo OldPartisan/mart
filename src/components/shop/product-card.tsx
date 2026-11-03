@@ -80,7 +80,7 @@ export function ProductCard({
           {product.name}
         </Link>
 
-        <div className="mt-auto flex items-end justify-between gap-2 pt-3">
+        <div className="mt-auto flex flex-wrap items-end justify-between gap-2 pt-3">
           <div className="min-w-0">
             {discount ? (
               <div className="mb-1.5 flex items-center gap-2">
@@ -94,7 +94,9 @@ export function ProductCard({
             ) : null}
             <PriceTag value={product.price} className="text-[26px] sm:text-[30px]" />
           </div>
-          <AddToCart product={{ ...product, stock: product.stock }} />
+          <div className="ml-auto shrink-0">
+            <AddToCart product={{ ...product, stock: product.stock }} />
+          </div>
         </div>
       </div>
     </article>
