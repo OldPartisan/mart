@@ -1,4 +1,7 @@
 onlyBuiltDependencies:
   - esbuild
+  - sharp
+  - "@tailwindcss/oxide"
+strictDepBuilds: false
 minimumReleaseAgeExclude:
   - jose@6.2.15

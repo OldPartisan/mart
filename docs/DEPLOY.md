@@ -198,3 +198,38 @@ git push --force https://github.com/OldPartisan/mart.git HEAD:gh-pages
 - [ ] Rate limit вынесен в Redis при нескольких инстансах.
 - [ ] Lighthouse ≥ 90/90/95, LCP < 2,5 с.
 - [ ] Резервный сценарий при недоступности ЮKassa (оплата при получении).
+
+---
+
+## 7. Текущий тестовый деплой (Vercel + Neon)
+
+- **URL:** <https://irbis-mart.vercel.app>
+- **Vercel project:** `irbis-mart` (аккаунт OldPartisan)
+- **База:** Neon `my-first-project`, ветка `production`, регион AWS Europe West 2 (London), Free plan
+- **Домен:** `irbis-mart.vercel.app` (алиас production-деплоя)
+- **Env:** `DATABASE_URL`, `AUTH_SECRET`, `NEXT_PUBLIC_SITE_URL`, `DEMO_PAYMENTS=true`, `NEXT_PUBLIC_DELIVERY_ENABLED=true`
+- **Данные:** 58 товаров, 9 категорий, 3 пользователя; применены миграции.
+
+Обновление:
+
+```bash
+cd irbis-mart-site
+export PATH="$HOME/.irbis-mart/runtime/node22/bin:$PATH"
+pnpm dlx vercel@latest deploy --prod --yes
+```
+
+Проверка:
+
+```bash
+curl -I https://irbis-mart.vercel.app/
+curl https://irbis-mart.vercel.app/api/products | head -c 200
+```
+
+Пароли администратора и менеджера на этом деплое изменены и не публикуются в git. Для локальной версии остаются демо-пароли из README.
+
+Ограничения текущего теста:
+
+- Vercel Hobby — некоммерческий тестовый план;
+- Neon Free — 0,5 ГБ и автосон compute;
+- `DEMO_PAYMENTS=true` — не использовать для боевых заказов;
+- GitHub-интеграция Vercel не подключена (деплой через CLI), автодеплой по push нужно включить в Dashboard.
