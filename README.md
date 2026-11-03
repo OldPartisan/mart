@@ -224,6 +224,7 @@ CI-шаблон — `docs/ci.yml` (скопируйте в `.github/workflows/ci
 - [Архитектура и схема БД](docs/ARCHITECTURE.md)
 - [API](docs/API.md)
 - [Маркетинговая стратегия и контент-план](docs/MARKETING.md)
+- [Мобильное приложение и APK](docs/MOBILE.md)
 - [Деплой: Vercel + Neon, Docker, GitHub Pages](docs/DEPLOY.md)
 - [Допущения и расхождения с ТЗ](docs/ASSUMPTIONS.md)
 

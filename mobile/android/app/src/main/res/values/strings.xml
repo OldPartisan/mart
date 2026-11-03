@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ирбис Март</string>
+    <string name="title_activity_main">Ирбис Март</string>
+    <string name="package_name">ru.irbis.mart</string>
+    <string name="custom_url_scheme">ru.irbis.mart</string>
+</resources>

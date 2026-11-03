@@ -1,0 +1,25 @@
+{
+  "name": "irbis-mart-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IRBIS MART Android app (Capacitor shell)",
+  "scripts": {
+    "sync": "cap sync android",
+    "add:android": "cap add android",
+    "build:debug": "cd android && ./gradlew assembleDebug",
+    "build:release": "cd android && ./gradlew assembleRelease",
+    "assets": "capacitor-assets generate --android"
+  },
+  "dependencies": {
+    "@capacitor/android": "7.6.10",
+    "@capacitor/app": "7.1.2",
+    "@capacitor/core": "7.6.10",
+    "@capacitor/network": "7.0.4",
+    "@capacitor/splash-screen": "7.0.5",
+    "@capacitor/status-bar": "7.0.6"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "4.0.0",
+    "@capacitor/cli": "7.6.10"
+  }
+}
