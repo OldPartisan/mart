@@ -56,7 +56,7 @@ export default async function AccountPage() {
           <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-muted">Уровень</p>
           <p className="mt-1 font-display text-xl font-extrabold">{level.name}</p>
           <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-cream-dark">
-            <div className="h-full rounded-full bg-brand-900" style={{ width: `${progress}%` }} />
+            <div className="h-full rounded-full bg-brand-700" style={{ width: `${progress}%` }} />
           </div>
           <p className="mt-2 text-[11px] text-muted">
             {next ? `До «${next.level.name}» — ${formatPrice(next.remaining)}` : "Максимальный уровень"}

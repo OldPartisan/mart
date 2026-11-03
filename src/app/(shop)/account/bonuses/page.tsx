@@ -64,7 +64,7 @@ export default async function BonusesPage() {
           <ul className="mt-3 space-y-2">
             {level.perks.map((perk) => (
               <li key={perk} className="flex items-start gap-2 text-[12px] text-ink-soft">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-900" />
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700" />
                 {perk}
               </li>
             ))}

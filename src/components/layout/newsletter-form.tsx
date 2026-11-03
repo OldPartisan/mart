@@ -61,7 +61,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-brand-900 px-4 text-[12px] font-semibold text-white transition hover:bg-brand-950 disabled:opacity-60 sm:w-auto"
+          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-brand-700 px-4 text-[12px] font-semibold text-brand-950 transition hover:bg-brand-600 disabled:opacity-60 sm:w-auto"
         >
           {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
           Подписаться

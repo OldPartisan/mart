@@ -57,7 +57,7 @@ export default async function AdminDashboardPage() {
               <div key={day.day} className="flex flex-1 flex-col items-center gap-2">
                 <span className="text-[10px] font-semibold text-muted">{day.total ? formatPrice(day.total) : ""}</span>
                 <div className="flex w-full items-end justify-center" style={{ height: "110px" }}>
-                  <div className="w-full max-w-10 rounded-t-lg bg-brand-900 transition-all" style={{ height: `${Math.max(4, Math.round((day.total / maxDay) * 100))}%` }} />
+                  <div className="w-full max-w-10 rounded-t-lg bg-brand-700 transition-all" style={{ height: `${Math.max(4, Math.round((day.total / maxDay) * 100))}%` }} />
                 </div>
                 <span className="text-[10px] text-muted">{day.day}</span>
               </div>

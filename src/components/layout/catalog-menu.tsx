@@ -34,8 +34,8 @@ export function CatalogMenu({ categories }: { categories: Category[] }) {
         aria-expanded={open}
         aria-haspopup="true"
         className={cn(
-          "flex h-10 items-center gap-2 rounded-lg px-4 text-[14px] font-semibold text-white transition",
-          open ? "bg-brand-950" : "bg-brand-900 hover:bg-brand-950",
+          "flex h-10 items-center gap-2 rounded-lg px-4 text-[14px] font-semibold text-brand-950 transition",
+          open ? "bg-brand-600" : "bg-brand-700 hover:bg-brand-600",
         )}
       >
         <Menu className="h-[18px] w-[18px]" aria-hidden="true" />

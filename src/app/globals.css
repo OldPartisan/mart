@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
     @apply inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-brand-900 text-white hover:bg-brand-950 active:scale-[0.98];
+    @apply btn bg-brand-700 text-brand-950 hover:bg-brand-600 active:scale-[0.98];
   }
   .btn-accent {
     @apply btn bg-accent-500 text-white hover:bg-accent-600 active:scale-[0.98];
