@@ -123,6 +123,7 @@ export function SearchBar({ className, autoFocus = false }: { className?: string
         <Search className="pointer-events-none absolute left-4 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-muted" aria-hidden="true" />
         <input
           ref={inputRef}
+          data-search-input
           type="search"
           value={query}
           onChange={(event) => {

@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { Analytics } from "@/components/layout/analytics";
 import { PullToRefresh } from "@/components/layout/pull-to-refresh";
+import { BottomNav } from "@/components/layout/bottom-nav";
 import "./globals.css";
 import { absoluteImage } from "@/lib/seo";
 
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         {children}
         <PullToRefresh />
+        <BottomNav />
         <Toaster
           position="bottom-right"
           toastOptions={{
