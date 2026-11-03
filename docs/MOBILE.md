@@ -114,3 +114,5 @@ APK установлен и запущен на эмуляторе **Android 15 
 - **Главная** — переход на `/`, повторное нажатие скроллит наверх.
 
 Панель показывается только в нативном WebView (`Capacitor.isNativePlatform()` или Android `; wv`), чтобы не дублировать браузерные кнопки на сайте. Для QA в браузере: `?app=1` (флаг хранится в `sessionStorage`). Компонент: `src/components/layout/bottom-nav.tsx`.
+
+Скриншот нижней панели: [mobile-bottom-nav.jpg](screenshots/mobile-bottom-nav.jpg).
