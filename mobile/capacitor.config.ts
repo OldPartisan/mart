@@ -7,6 +7,7 @@ const config: CapacitorConfig = {
   server: {
     url: "https://irbis-mart.vercel.app",
     androidScheme: "https",
+    errorPath: "index.html",
     allowNavigation: [
       "irbis-mart.vercel.app",
       "yookassa.ru",

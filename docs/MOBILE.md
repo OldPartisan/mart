@@ -20,6 +20,7 @@
 - WebView открывает `https://irbis-mart.vercel.app`
 - Иконка и splash сгенерированы из брендбука
 - Debug-подпись, 4,5 МБ
+- SHA-256: `60b35b7deada704f6bcff80b7fdd5b106841c3c78f6f31d11c12d34893252bae`
 - Файл: `public/downloads/irbis-mart-1.0.0-debug.apk`
 - Скачать: `https://irbis-mart.vercel.app/downloads/irbis-mart-1.0.0-debug.apk`
 
@@ -79,3 +80,14 @@ keyPassword=...
 - `allowNavigation` ограничен доменом приложения и платёжными/картографическими доменами.
 - Не логировать токены и персональные данные.
 - Для production — certificate pinning и запрет произвольных URL.
+
+## 6. Результат проверки
+
+APK установлен и запущен на эмуляторе **Android 15 (API 35, arm64)**:
+
+- установка через `adb install` — Success;
+- приложение открывает главную Vercel-сайта, каталог и мобильное меню;
+- splash и иконка отображаются;
+- offline-страница настроена через `server.errorPath`.
+
+Скриншот: [mobile-home.jpg](screenshots/mobile-home.jpg).
