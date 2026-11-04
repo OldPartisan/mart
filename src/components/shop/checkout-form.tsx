@@ -495,6 +495,9 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
               <label htmlFor="comment" className="label">Комментарий к заказу</label>
               <textarea id="comment" {...register("comment")} className="field-area min-h-[80px]" placeholder="Например: позвонить за 10 минут, нарезать хлеб" />
             </div>
+            <div className="mt-5">
+              <button type="button" onClick={() => goToStep(2)} className="btn-secondary"><ArrowLeft className="h-4 w-4" /> Назад</button>
+            </div>
           </section>
 
           {/* Промокод и бонусы */}
