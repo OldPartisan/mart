@@ -301,11 +301,11 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
             <button
               type="button"
               onClick={() => goToStep(item.n)}
-              className={cn("flex min-h-11 w-full items-center gap-2 rounded-xl border px-3 text-[12px] font-semibold transition", step === item.n ? "border-brand-700 bg-brand-50 text-brand-900" : "border-line bg-white text-ink")}
+              className={cn("flex min-h-11 w-full min-w-0 items-center gap-1.5 rounded-xl border px-2.5 text-[11.5px] font-semibold transition", step === item.n ? "border-brand-700 bg-brand-700 text-white" : "border-line bg-white text-ink")}
               aria-current={step === item.n ? "step" : undefined}
             >
-              <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px]", step === item.n ? "bg-brand-700 text-white" : "bg-brand-100 text-brand-900")}>{item.n}</span>
-              {item.label}
+              <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px]", step === item.n ? "bg-white text-brand-900" : "bg-brand-700 text-white")}>{item.n}</span>
+              <span className="min-w-0 truncate">{item.label}</span>
             </button>
           </li>
         ))}
@@ -316,7 +316,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Контакты */}
           <section id="checkout-contacts" className={cn("scroll-mt-24 rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 1 && "hidden")}>
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">1</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">1</span>
               <h2 className="font-display text-lg font-bold">Контакты</h2>
             </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -345,7 +345,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Получение */}
           <section id="checkout-delivery" className={cn("scroll-mt-24 rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 2 && "hidden")}>
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">2</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">2</span>
               <h2 className="font-display text-lg font-bold">Как получить</h2>
             </div>
 
@@ -392,11 +392,11 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                       onClick={() => setValue("pickupDate", day.date, { shouldValidate: true })}
                       className={cn(
                         "shrink-0 rounded-2xl border px-3 py-2 text-left transition",
-                        pickupDate === day.date ? "border-brand-700 bg-brand-900 text-cream" : "border-line bg-white text-ink hover:border-brand-700/40",
+                        pickupDate === day.date ? "border-brand-700 bg-brand-700 text-white" : "border-line bg-white text-ink hover:border-brand-700/40",
                       )}
                     >
                       <span className="block text-[12px] font-bold">{day.label.split(",")[0]}</span>
-                      <span className={cn("text-[10px]", pickupDate === day.date ? "text-cream/70" : "text-muted")}>{day.label.split(",")[1]}</span>
+                      <span className={cn("text-[10px]", pickupDate === day.date ? "text-white/90" : "text-muted")}>{day.label.split(",")[1]}</span>
                     </button>
                   ))}
                 </div>
@@ -411,7 +411,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                       onClick={() => setValue("pickupSlot", slot, { shouldValidate: true })}
                       className={cn(
                         "rounded-xl border px-3 py-2 text-[12px] font-semibold transition",
-                        pickupSlot === slot ? "border-brand-700 bg-brand-900 text-cream" : "border-line bg-white text-ink hover:border-brand-700/40",
+                        pickupSlot === slot ? "border-brand-700 bg-brand-700 text-white" : "border-line bg-white text-ink hover:border-brand-700/40",
                       )}
                     >
                       {slot}
@@ -465,7 +465,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Оплата */}
           <section id="checkout-payment" className={cn("scroll-mt-24 rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 3 && "hidden")}>
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">3</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">3</span>
               <h2 className="font-display text-lg font-bold">Оплата</h2>
             </div>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
@@ -503,7 +503,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           {/* Промокод и бонусы */}
           <section className={cn("rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 3 && "hidden")}>
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-50 text-brand-900"><Tag className="h-4 w-4" /></span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-white"><Tag className="h-4 w-4" /></span>
               <h2 className="font-display text-lg font-bold">Скидки и бонусы</h2>
             </div>
 

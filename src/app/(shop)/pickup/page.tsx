@@ -43,7 +43,7 @@ export default function PickupPage() {
               { icon: Store, title: "Забираете", text: "Стойка у входа. Назовите номер — отдадим собранный заказ." },
             ].map((step, index) => (
               <li key={step.title} className="rounded-3xl border border-line/80 bg-white p-5">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">{index + 1}</span>
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">{index + 1}</span>
                 <step.icon className="mt-4 h-4 w-4 text-brand-900" />
                 <p className="mt-1.5 text-[13px] font-bold">{step.title}</p>
                 <p className="mt-1 text-[11.5px] leading-relaxed text-muted">{step.text}</p>
@@ -51,28 +51,28 @@ export default function PickupPage() {
             ))}
           </ol>
 
-          <div className="mt-6 grid gap-4 rounded-[2rem] bg-brand-900 p-6 text-cream sm:p-8 lg:grid-cols-2 lg:items-center">
+          <div className="mt-6 grid gap-4 rounded-[2rem] bg-brand-700 p-6 text-white sm:p-8 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent-300">Адрес</p>
               <p className="mt-2 font-display text-2xl font-bold">{shop.address}</p>
-              <p className="mt-1 text-[13px] text-cream/60">{shop.hours} · стойка самовывоза у входа</p>
+              <p className="mt-1 text-[13px] text-white/80">{shop.hours} · стойка самовывоза у входа</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <a href={shop.phoneHref} className="inline-flex h-10 items-center gap-2 rounded-full bg-cream px-4 text-[12px] font-bold text-brand-900">
                   <Phone className="h-3.5 w-3.5" /> {shop.phone}
                 </a>
-                <a href={`https://yandex.ru/maps/?pt=${shop.coords.lng},${shop.coords.lat}&z=16`} target="_blank" rel="noreferrer noopener" className="inline-flex h-10 items-center gap-2 rounded-full border border-cream/25 px-4 text-[12px] font-semibold text-cream/85">
+                <a href={`https://yandex.ru/maps/?pt=${shop.coords.lng},${shop.coords.lat}&z=16`} target="_blank" rel="noreferrer noopener" className="inline-flex h-10 items-center gap-2 rounded-full border border-cream/25 px-4 text-[12px] font-semibold text-white/85">
                   <MapPin className="h-3.5 w-3.5" /> На карте
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl bg-cream/10 p-4 text-[12px] leading-relaxed text-cream/75">
-              <p className="font-semibold text-cream">Что взять с собой</p>
+            <div className="rounded-2xl bg-white/15 p-4 text-[12px] leading-relaxed text-white/75">
+              <p className="font-semibold text-white">Что взять с собой</p>
               <ul className="mt-2 space-y-1.5">
                 <li>· Номер заказа (придёт в SMS и на email)</li>
                 <li>· Телефон для подтверждения</li>
                 <li>· Если оплачиваете на месте — карту или наличные</li>
               </ul>
-              <p className="mt-3 text-[11px] text-cream/50">Заказ хранится 24 часа. Скоропортящиеся продукты — в холодильнике стойки.</p>
+              <p className="mt-3 text-[11px] text-white/75">Заказ хранится 24 часа. Скоропортящиеся продукты — в холодильнике стойки.</p>
             </div>
           </div>
 

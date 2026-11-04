@@ -69,20 +69,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section bg-brand-950 text-cream">
+      <section className="section bg-brand-950 text-white">
         <div className="container-x">
           <p className="eyebrow text-accent-300">Принципы</p>
-          <h2 className="mt-2.5 max-w-2xl text-h2 font-bold text-cream">Три вещи, которые мы делаем иначе</h2>
+          <h2 className="mt-2.5 max-w-2xl text-h2 font-bold text-white">Три вещи, которые мы делаем иначе</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               { icon: Leaf, title: "Свежесть без компромиссов", text: "Печём пять раз в день, кухня обновляет витрину каждые три часа, молочная работает с утра. Если срок подходит — продукт убираем, а не уцениваем до последнего." },
               { icon: Users, title: "Локальность по-настоящему", text: "Двенадцать хозяйств Татарстана, прямые договоры, имена фермеров на карточках. Деньги остаются в районе, а не уходят в федеральную сеть." },
               { icon: ShieldCheck, title: "Честный состав", text: "Никаких «усилителей вкуса» без указания. Пишем полный состав, производителя и срок хранения. Если не можем объяснить ингредиент — не берём." },
             ].map((value) => (
-              <div key={value.title} className="rounded-3xl border border-cream/15 bg-cream/5 p-6">
+              <div key={value.title} className="rounded-3xl border border-white/25 bg-white/10 p-6">
                 <value.icon className="h-5 w-5 text-accent-300" />
                 <h3 className="mt-4 font-display text-xl font-bold">{value.title}</h3>
-                <p className="mt-2 text-[13px] leading-relaxed text-cream/60">{value.text}</p>
+                <p className="mt-2 text-[13px] leading-relaxed text-white/80">{value.text}</p>
               </div>
             ))}
           </div>

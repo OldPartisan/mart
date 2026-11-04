@@ -11,7 +11,7 @@ export default function DemoSuccessPage() {
   return (
     <div className="container-x py-12">
       <div className="mx-auto max-w-lg rounded-[2rem] border border-line bg-white p-7 text-center">
-        <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-900 text-cream">
+        <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-700 text-white">
           <Check className="h-6 w-6" />
         </span>
         <h1 className="mt-4 font-display text-2xl font-bold">Заказ оформлен — в демо-режиме</h1>

@@ -42,7 +42,7 @@ export function ResetPasswordForm({ token }: { token: string }) {
   if (done) {
     return (
       <div className="rounded-2xl bg-brand-50 p-5 text-center">
-        <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-brand-900 text-cream">
+        <span className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-brand-700 text-white">
           <Check className="h-5 w-5" />
         </span>
         <p className="mt-3 text-[13px] font-semibold text-brand-900">Пароль обновлён</p>

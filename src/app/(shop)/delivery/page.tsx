@@ -39,7 +39,7 @@ export default function DeliveryPage() {
       <section className="section">
         <div className="container-x grid gap-4 md:grid-cols-2">
           <div className="rounded-[2rem] border border-line/80 bg-white p-6">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-900 text-cream"><Store className="h-5 w-5" /></span>
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-700 text-white"><Store className="h-5 w-5" /></span>
             <h2 className="mt-4 font-display text-xl font-bold">Самовывоз</h2>
             <p className="mt-1.5 text-[13px] leading-relaxed text-muted">Соберите корзину, оплатите онлайн или на месте — и заберите без очереди.</p>
             <ul className="mt-4 space-y-2.5 text-[12.5px]">
@@ -53,16 +53,16 @@ export default function DeliveryPage() {
             <Link href="/pickup" className="link-underline mt-4">Подробнее о самовывозе <ArrowRight className="h-3.5 w-3.5" /></Link>
           </div>
 
-          <div className="rounded-[2rem] border border-line/80 bg-brand-900 p-6 text-cream">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cream/10 text-accent-300"><Truck className="h-5 w-5" /></span>
+          <div className="rounded-[2rem] border border-line/80 bg-brand-700 p-6 text-white">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-accent-300"><Truck className="h-5 w-5" /></span>
             <h2 className="mt-4 font-display text-xl font-bold">Доставка</h2>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-cream/65">Привезём до двери по Новой Туре, ТураНове и ближним посёлкам. Курьер позвонит за 15 минут.</p>
-            <ul className="mt-4 space-y-2.5 text-[12.5px] text-cream/85">
+            <p className="mt-1.5 text-[13px] leading-relaxed text-white/85">Привезём до двери по Новой Туре, ТураНове и ближним посёлкам. Курьер позвонит за 15 минут.</p>
+            <ul className="mt-4 space-y-2.5 text-[12.5px] text-white/85">
               {["От 149 ₽, бесплатно от 1 500 ₽", "Интервалы 2–3 часа", "Оплата картой онлайн или курьеру", "Можно попросить оставить у двери"].map((item) => (
                 <li key={item} className="flex items-start gap-2"><Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent-300" />{item}</li>
               ))}
             </ul>
-            <p className="mt-4 flex items-start gap-2 rounded-2xl bg-cream/10 p-3 text-[11.5px] text-cream/70">
+            <p className="mt-4 flex items-start gap-2 rounded-2xl bg-white/15 p-3 text-[11.5px] text-white/90">
               <Clock className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent-300" /> Минимальный заказ — от 800 ₽. Зоны и стоимость — ниже.
             </p>
           </div>

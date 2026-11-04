@@ -31,11 +31,11 @@ export default async function AccountPage() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <div className="rounded-3xl bg-brand-900 p-5 text-cream">
+        <div className="rounded-3xl bg-brand-700 p-5 text-white">
           <Sparkles className="h-5 w-5 text-accent-300" />
-          <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-cream/55">Бонусный баланс</p>
+          <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-white/80">Бонусный баланс</p>
           <p className="mt-1 font-display text-3xl font-extrabold">{user.bonusBalance}</p>
-          <p className="mt-1 text-[11px] text-cream/55">1 бонус = 1 ₽ · до 50% заказа</p>
+          <p className="mt-1 text-[11px] text-white/80">1 бонус = 1 ₽ · до 50% заказа</p>
           <Link href="/account/bonuses" className="mt-3 inline-flex items-center gap-1 text-[11px] font-semibold text-accent-300">
             История начислений <ArrowRight className="h-3 w-3" />
           </Link>

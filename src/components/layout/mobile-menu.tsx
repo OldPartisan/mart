@@ -86,10 +86,10 @@ export function MobileMenu({ categories, user }: { categories: Category[]; user:
                 ))}
               </div>
 
-              <div className="mt-7 rounded-2xl bg-brand-900 p-4 text-cream">
-                <p className="text-[11px] uppercase tracking-wider text-cream/60">Программа лояльности</p>
+              <div className="mt-7 rounded-2xl bg-brand-700 p-4 text-white">
+                <p className="text-[11px] uppercase tracking-wider text-white/80">Программа лояльности</p>
                 <p className="mt-1 font-display text-lg font-bold">1 бонус = 1 ₽</p>
-                <p className="mt-1 text-[12px] text-cream/75">Оплачивайте бонусами до 50% заказа</p>
+                <p className="mt-1 text-[12px] text-white/75">Оплачивайте бонусами до 50% заказа</p>
                 <Link href="/loyalty" className="mt-3 inline-flex items-center gap-1 text-[12px] font-semibold text-accent-300">
                   Как это работает <ArrowRight className="h-3.5 w-3.5" />
                 </Link>

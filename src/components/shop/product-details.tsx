@@ -44,7 +44,7 @@ export function ProductDetails({
             id={`product-tab-${tab.id}`}
             className={cn(
               "shrink-0 rounded-full px-4 py-2 text-[13px] font-semibold transition",
-              active === tab.id ? "bg-brand-900 text-cream" : "text-ink-soft hover:bg-cream",
+              active === tab.id ? "bg-brand-700 text-white" : "text-ink-soft hover:bg-cream",
             )}
           >
             {tab.label}

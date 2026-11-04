@@ -23,7 +23,7 @@ export function PromoGrid({ promotions }: { promotions: Promotion[] }) {
         <div className="grid gap-3.5 lg:grid-cols-2">
           <Link
             href={`/promotions/${lead.slug}`}
-            className="group relative flex min-h-[380px] overflow-hidden rounded-[2rem] bg-brand-900 p-6 text-cream sm:min-h-[440px] sm:p-8"
+            className="group relative flex min-h-[380px] overflow-hidden rounded-[2rem] bg-brand-700 p-6 text-white sm:min-h-[440px] sm:p-8"
           >
             <Image
               src={lead.image}
@@ -36,7 +36,7 @@ export function PromoGrid({ promotions }: { promotions: Promotion[] }) {
             <div className="relative z-10 mt-auto max-w-md">
               {lead.badge && <span className="badge mb-4 bg-accent-500 text-white">{lead.badge}</span>}
               <h3 className="font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-4xl">{lead.title}</h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-cream/80">{lead.subtitle}</p>
+              <p className="mt-3 text-[14px] leading-relaxed text-white/80">{lead.subtitle}</p>
               <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-cream px-5 py-2.5 text-[13px] font-bold text-brand-900 transition group-hover:bg-white">
                 Подробнее <ArrowUpRight className="h-4 w-4" />
               </span>
@@ -52,7 +52,7 @@ export function PromoGrid({ promotions }: { promotions: Promotion[] }) {
               >
                 <div className="relative z-10 max-w-[62%]">
                   {promotion.badge && (
-                    <span className={`badge mb-3 ${promotion.accent === "orange" ? "bg-accent-500 text-white" : "bg-brand-900 text-cream"}`}>
+                    <span className={`badge mb-3 ${promotion.accent === "orange" ? "bg-accent-500 text-white" : "bg-brand-700 text-white"}`}>
                       {promotion.badge}
                     </span>
                   )}

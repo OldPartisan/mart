@@ -85,17 +85,17 @@ export default function OwnProductionPage() {
         </div>
       </section>
 
-      <section className="section bg-brand-950 text-cream">
+      <section className="section bg-brand-950 text-white">
         <div className="container-x">
           <p className="eyebrow text-accent-300">Контроль качества</p>
-          <h2 className="mt-2.5 max-w-2xl text-h2 font-bold text-cream">Четыре барьера до вашей корзины</h2>
+          <h2 className="mt-2.5 max-w-2xl text-h2 font-bold text-white">Четыре барьера до вашей корзины</h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {control.map((step, index) => (
               <div key={step.title} className="border-t border-cream/20 pt-4">
                 <span className="text-[11px] font-bold text-accent-300">0{index + 1}</span>
-                <step.icon className="mt-3 h-5 w-5 text-cream/70" />
+                <step.icon className="mt-3 h-5 w-5 text-white/90" />
                 <h3 className="mt-2 font-display text-lg font-bold">{step.title}</h3>
-                <p className="mt-1.5 text-[12px] leading-relaxed text-cream/55">{step.text}</p>
+                <p className="mt-1.5 text-[12px] leading-relaxed text-white/80">{step.text}</p>
               </div>
             ))}
           </div>
@@ -103,7 +103,7 @@ export default function OwnProductionPage() {
             <Link href="/quality" className="inline-flex h-11 items-center gap-2 rounded-full bg-cream px-5 text-[13px] font-bold text-brand-900">
               Гарантия качества <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link href="/cafe" className="inline-flex h-11 items-center rounded-full border border-cream/25 px-5 text-[13px] font-semibold text-cream/80">
+            <Link href="/cafe" className="inline-flex h-11 items-center rounded-full border border-cream/25 px-5 text-[13px] font-semibold text-white/80">
               Кафе и кухня
             </Link>
           </div>

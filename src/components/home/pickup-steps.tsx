@@ -35,7 +35,7 @@ export function PickupSteps() {
           <ol className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <li key={step.title} className="flex gap-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">
                   {index + 1}
                 </span>
                 <div>

@@ -62,7 +62,7 @@ export default function VacanciesPage() {
           ))}
         </div>
 
-        <div className="container-x mt-6 rounded-2xl bg-brand-900 p-5 text-cream sm:flex sm:items-center sm:justify-between">
+        <div className="container-x mt-6 rounded-2xl bg-brand-700 p-5 text-white sm:flex sm:items-center sm:justify-between">
           <p className="text-[13px]">Не нашли подходящую вакансию? Присылайте резюме — вернёмся, когда появится место.</p>
           <a href="mailto:hr@irbis-mart.ru" className="mt-3 inline-flex items-center gap-2 rounded-full bg-cream px-4 py-2 text-[12px] font-bold text-brand-900 sm:mt-0">
             hr@irbis-mart.ru <ArrowRight className="h-3.5 w-3.5" />

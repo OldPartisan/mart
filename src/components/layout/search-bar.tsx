@@ -205,7 +205,7 @@ export function SearchBar({ className, autoFocus = false }: { className?: string
               <button
                 type="button"
                 onClick={() => submit()}
-                className="flex w-full items-center justify-center gap-1 border-t border-line bg-cream/50 px-4 py-3 text-[12px] font-semibold text-brand-900 hover:bg-cream"
+                className="flex w-full items-center justify-center gap-1 border-t border-line bg-white/100 px-4 py-3 text-[12px] font-semibold text-brand-900 hover:bg-cream"
               >
                 Все результаты по запросу «{query.trim()}»
               </button>

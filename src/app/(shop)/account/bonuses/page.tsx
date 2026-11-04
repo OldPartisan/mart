@@ -36,26 +36,26 @@ export default async function BonusesPage() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr]">
-        <div className="rounded-3xl bg-brand-900 p-6 text-cream">
+        <div className="rounded-3xl bg-brand-700 p-6 text-white">
           <div className="flex items-start justify-between">
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-cream/50">Доступно бонусов</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/75">Доступно бонусов</p>
               <p className="mt-1 font-display text-5xl font-extrabold tracking-tight">{user.bonusBalance}</p>
-              <p className="mt-1 text-[12px] text-cream/55">≈ {formatPrice(user.bonusBalance)} скидки</p>
+              <p className="mt-1 text-[12px] text-white/80">≈ {formatPrice(user.bonusBalance)} скидки</p>
             </div>
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cream/10 text-accent-300">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-accent-300">
               <Sparkles className="h-5 w-5" />
             </span>
           </div>
           <div className="mt-8">
             <div className="flex items-center justify-between text-[11px]">
-              <span className="text-cream/60">Уровень «{level.name}»</span>
-              <span className="text-cream/60">{next ? `до «${next.level.name}» ${formatPrice(next.remaining)}` : "максимум"}</span>
+              <span className="text-white/80">Уровень «{level.name}»</span>
+              <span className="text-white/80">{next ? `до «${next.level.name}» ${formatPrice(next.remaining)}` : "максимум"}</span>
             </div>
             <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-cream/15">
               <div className="h-full rounded-full bg-accent-400" style={{ width: `${progress}%` }} />
             </div>
-            <p className="mt-2 text-[10px] text-cream/45">Потрачено за 12 месяцев: {formatPrice(spent)}</p>
+            <p className="mt-2 text-[10px] text-white/45">Потрачено за 12 месяцев: {formatPrice(spent)}</p>
           </div>
         </div>
 

@@ -2,9 +2,33 @@ import Image from "next/image";
 import Link from "next/link";
 
 const tiles = [
-  { image: "tile-market", alt: "Супермаркет Ирбис Март", href: "/catalog", className: "lg:col-span-2" },
-  { image: "tile-cafe", alt: "Кафе Ирбис Март", href: "/cafe", className: "" },
-  { image: "tile-made", alt: "Сделано у нас", href: "/own-production", className: "" },
+  {
+    image: "tile-market",
+    alt: "Супермаркет Ирбис Март",
+    href: "/catalog",
+    className: "lg:col-span-2 sm:col-span-2",
+    aspect: "aspect-[1000/474] sm:aspect-[620/294] lg:aspect-auto lg:h-[294px]",
+    sizes: "(min-width: 1024px) 620px, 100vw",
+    position: "object-center",
+  },
+  {
+    image: "tile-cafe",
+    alt: "Кафе Ирбис Март",
+    href: "/cafe",
+    className: "",
+    aspect: "aspect-square sm:aspect-[310/294] lg:aspect-auto lg:h-[294px]",
+    sizes: "(min-width: 1024px) 310px, (min-width: 640px) 50vw, 100vw",
+    position: "object-bottom",
+  },
+  {
+    image: "tile-made",
+    alt: "Сделано у нас",
+    href: "/own-production",
+    className: "",
+    aspect: "aspect-square sm:aspect-[310/294] lg:aspect-auto lg:h-[294px]",
+    sizes: "(min-width: 1024px) 310px, (min-width: 640px) 50vw, 100vw",
+    position: "object-bottom",
+  },
 ];
 
 export function Tiles() {
@@ -15,15 +39,15 @@ export function Tiles() {
           <Link
             key={tile.image}
             href={tile.href}
-            className={`group relative overflow-hidden rounded-[18px] ${tile.className} ${tile.image === "tile-market" ? "sm:col-span-2" : ""}`}
+            className={`group relative overflow-hidden rounded-[18px] ${tile.className}`}
           >
-            <span className="relative block aspect-[2/1] sm:aspect-[310/294] lg:aspect-auto lg:h-[294px]">
+            <span className={`relative block ${tile.aspect}`}>
               <Image
                 src={`/images/figma/${tile.image}.webp`}
                 alt={tile.alt}
                 fill
-                sizes="(min-width: 1024px) 620px, 100vw"
-                className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                sizes={tile.sizes}
+                className={`object-cover ${tile.position} transition duration-500 group-hover:scale-[1.03]`}
               />
             </span>
           </Link>

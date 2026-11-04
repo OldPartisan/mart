@@ -47,7 +47,7 @@ export default function QualityPage() {
                 { title: "Получите замену или возврат", text: "Возврат на карту — до 3 рабочих дней, наличными — сразу на кассе." },
               ].map((step, index) => (
                 <li key={step.title} className="flex gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">{index + 1}</span>
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">{index + 1}</span>
                   <div>
                     <p className="text-[13px] font-bold">{step.title}</p>
                     <p className="mt-0.5 text-[12px] text-muted">{step.text}</p>

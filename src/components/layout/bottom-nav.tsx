@@ -78,7 +78,7 @@ export function BottomNav() {
               aria-label={tab.label}
               aria-current={tab.active ? "page" : undefined}
             >
-              <span className={cn("mb-0.5 flex h-6 min-w-10 items-center justify-center rounded-full px-2", tab.active && "bg-brand-100")}>
+              <span className={cn("mb-0.5 flex h-6 min-w-10 items-center justify-center rounded-full px-2", tab.active && "bg-brand-700 text-white")}>
                 <Icon className="h-[20px] w-[20px]" />
                 {tab.badge ? (
                   <span className="absolute right-[22%] top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent-500 px-1 text-[9px] font-bold text-white">

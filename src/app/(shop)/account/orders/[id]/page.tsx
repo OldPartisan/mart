@@ -51,7 +51,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
           <div className="mt-6 flex items-center justify-between gap-1">
             {steps.map((step, index) => (
               <div key={step} className="flex flex-1 flex-col items-center text-center">
-                <span className={cn("flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold", index <= currentStep ? "bg-brand-900 text-cream" : "bg-cream text-muted")}>
+                <span className={cn("flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold", index <= currentStep ? "bg-brand-700 text-white" : "bg-cream text-muted")}>
                   {index < currentStep ? <Check className="h-3.5 w-3.5" /> : index + 1}
                 </span>
                 <span className={cn("mt-1.5 text-[10px] font-semibold", index <= currentStep ? "text-ink" : "text-muted")}>{step}</span>

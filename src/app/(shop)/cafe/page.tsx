@@ -102,7 +102,7 @@ export default async function CafePage() {
             })}
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-brand-900 px-5 py-4 text-cream">
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-brand-700 px-5 py-4 text-white">
             <p className="text-[12.5px]"><Coffee className="mr-1.5 inline h-4 w-4 text-accent-300" /> Кофе собственной обжарки · десерты из кондитерской · детское меню</p>
             <Link href="/catalog/gotovaya-eda" className="inline-flex items-center gap-1 text-[12px] font-semibold text-accent-300">
               Заказать с собой <ArrowRight className="h-3.5 w-3.5" />

@@ -45,7 +45,7 @@ export default async function PromotionsPage() {
                   className="object-cover transition duration-700 group-hover:scale-105"
                 />
                 {promotion.badge && (
-                  <span className={`badge absolute left-4 top-4 ${promotion.accent === "orange" ? "bg-accent-500 text-white" : "bg-brand-900 text-cream"}`}>
+                  <span className={`badge absolute left-4 top-4 ${promotion.accent === "orange" ? "bg-accent-500 text-white" : "bg-brand-700 text-white"}`}>
                     {promotion.badge}
                   </span>
                 )}
@@ -56,7 +56,7 @@ export default async function PromotionsPage() {
                     <h2 className="font-display text-xl font-bold leading-tight text-ink">{promotion.title}</h2>
                     <p className="mt-1.5 text-[13px] leading-relaxed text-muted">{promotion.subtitle}</p>
                   </div>
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream text-brand-900 transition group-hover:bg-brand-900 group-hover:text-cream">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream text-brand-900 transition group-hover:bg-brand-700 group-hover:text-white">
                     <ArrowUpRight className="h-4 w-4" />
                   </span>
                 </div>

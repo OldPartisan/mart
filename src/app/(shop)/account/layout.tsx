@@ -33,8 +33,8 @@ export default async function AccountLayout({ children }: { children: React.Reac
                   <p className="truncate text-[11px] text-muted">{user.email}</p>
                 </div>
               </div>
-              <Link href="/account/bonuses" className="mt-3 flex items-center justify-between rounded-2xl bg-brand-900 px-3.5 py-3 text-cream">
-                <span className="flex items-center gap-1.5 text-[11px] text-cream/70">
+              <Link href="/account/bonuses" className="mt-3 flex items-center justify-between rounded-2xl bg-brand-700 px-3.5 py-3 text-white">
+                <span className="flex items-center gap-1.5 text-[11px] text-white/90">
                   <Sparkles className="h-3.5 w-3.5 text-accent-300" /> Бонусы
                 </span>
                 <span className="font-display text-lg font-bold">{user.bonusBalance}</span>

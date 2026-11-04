@@ -107,10 +107,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="flex flex-wrap gap-1.5">
             {discount && <span className="badge bg-accent-500 text-white">−{discount}%</span>}
-            {product.isOwnProduction && <span className="badge bg-brand-900 text-cream">Собственное производство</span>}
+            {product.isOwnProduction && <span className="badge bg-brand-700 text-white">Собственное производство</span>}
             {product.isFarm && <span className="badge bg-accent-100 text-accent-700">Фермерское</span>}
             {product.isNew && <span className="badge-outline">Новинка</span>}
-            {product.isHit && <span className="badge bg-ink text-cream">Хит</span>}
+            {product.isHit && <span className="badge bg-ink text-white">Хит</span>}
           </div>
 
           <h1 className="mt-4 font-display text-[28px] font-normal leading-tight tracking-[-0.02em] text-ink sm:text-[36px] text-balance">{product.name}</h1>
@@ -190,24 +190,24 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           storage={product.storageInfo}
           producer={product.producer}
         />
-        <div className="min-w-0 rounded-3xl bg-brand-900 p-6 text-cream">
+        <div className="min-w-0 rounded-3xl bg-brand-700 p-6 text-white">
           <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-accent-300">Хранение и качество</p>
           <p className="mt-3 font-display text-xl font-bold">Не понравится — вернём деньги</p>
-          <p className="mt-2 text-[13px] leading-relaxed text-cream/65">
+          <p className="mt-2 text-[13px] leading-relaxed text-white/85">
             Если продукт оказался не свежим, покажите чек на кассе или напишите нам. Заменим или вернём стоимость —
             без споров и анкет.
           </p>
-          <dl className="mt-5 space-y-3 border-t border-cream/15 pt-4 text-[12px]">
+          <dl className="mt-5 space-y-3 border-t border-white/25 pt-4 text-[12px]">
             <div className="flex justify-between gap-4">
-              <dt className="text-cream/55">Производитель</dt>
+              <dt className="text-white/80">Производитель</dt>
               <dd className="text-right font-semibold">{product.producer ?? "Ирбис Март"}</dd>
             </div>
             <div className="flex justify-between gap-4">
-              <dt className="text-cream/55">Срок годности</dt>
+              <dt className="text-white/80">Срок годности</dt>
               <dd className="text-right font-semibold">{product.storageInfo?.split(".")[0] ?? "см. упаковку"}</dd>
             </div>
             <div className="flex justify-between gap-4">
-              <dt className="text-cream/55">Категория</dt>
+              <dt className="text-white/80">Категория</dt>
               <dd className="text-right font-semibold">{categoryName}</dd>
             </div>
           </dl>
