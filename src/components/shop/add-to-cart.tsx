@@ -86,7 +86,7 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
         onClick={handleAdd}
         aria-label={`Добавить ${product.name} в корзину`}
         className={cn(
-          "flex h-12 w-12 items-center justify-center rounded-[9px] bg-brand-500 text-brand-950 transition hover:bg-brand-400 active:scale-95",
+          "flex h-12 w-12 items-center justify-center rounded-[9px] bg-brand-500 text-white transition hover:bg-brand-400 active:scale-95",
           className,
         )}
       >
@@ -98,7 +98,7 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
   return (
     <div
       className={cn(
-        "flex items-center gap-1 rounded-[9px] bg-brand-500 px-1 text-brand-950",
+        "flex items-center gap-1 rounded-[9px] bg-brand-500 px-1 text-white",
         variant === "full" ? "h-12 w-full justify-between px-2" : "h-12",
         className,
       )}

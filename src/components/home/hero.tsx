@@ -68,10 +68,10 @@ export function Hero() {
             }}
           >
             <div key={`text-${index}`} className="animate-fade-up">
-              <h1 className="whitespace-pre-line font-display text-[38px] font-extrabold uppercase leading-[0.95] tracking-[-0.03em] text-brand-950 sm:text-[52px] lg:text-[68px] xl:text-[72px]">
+              <h1 className="whitespace-pre-line font-display text-[38px] font-extrabold uppercase leading-[0.95] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[68px] xl:text-[72px]">
                 {slide.title}
               </h1>
-              <p className="mt-4 whitespace-pre-line text-[20px] font-normal leading-[1.15] text-brand-950 sm:text-[26px] lg:mt-8 lg:text-[34px]">
+              <p className="mt-4 whitespace-pre-line text-[20px] font-normal leading-[1.15] text-white sm:text-[26px] lg:mt-8 lg:text-[34px]">
                 {slide.text}
               </p>
               <Link
@@ -95,7 +95,7 @@ export function Hero() {
                   <span
                     className={cn(
                       "block h-1.5 rounded-full transition-all",
-                      itemIndex === index ? "w-8 bg-brand-950" : "w-1.5 bg-brand-950/50 hover:bg-brand-950/80",
+                      itemIndex === index ? "w-8 bg-white" : "w-1.5 bg-white/40 hover:bg-white/70",
                     )}
                   />
                 </button>

@@ -80,7 +80,7 @@ export function Footer() {
               </a>
               <Link
                 href="/contacts"
-                className="mt-3 inline-flex h-10 items-center rounded-lg bg-brand-700 px-4 text-[12px] font-semibold text-brand-950 transition hover:bg-brand-600"
+                className="mt-3 inline-flex h-10 items-center rounded-lg bg-brand-700 px-4 text-[12px] font-semibold text-white transition hover:bg-brand-600"
               >
                 Написать нам
               </Link>

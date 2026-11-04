@@ -43,7 +43,7 @@ export function ProductCard({
           <FavoriteButton slug={product.slug} name={product.name} />
         </div>
         {product.isOwnProduction && (
-          <span className="absolute left-3 top-3 rounded bg-brand-700 px-1.5 py-1 text-[9px] font-bold uppercase tracking-wide text-brand-950">
+          <span className="absolute left-3 top-3 rounded bg-brand-700 px-1.5 py-1 text-[9px] font-bold uppercase tracking-wide text-white">
             своё
           </span>
         )}

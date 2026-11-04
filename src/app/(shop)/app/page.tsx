@@ -23,21 +23,21 @@ export default function AppPage() {
 
       <section className="bg-white py-8 sm:py-10">
         <div className="container-x grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="rounded-[18px] bg-brand-700 p-6 text-brand-950 sm:p-8">
+          <div className="rounded-[18px] bg-brand-700 p-6 text-white sm:p-8">
             <Smartphone className="h-6 w-6" />
             <h2 className="mt-4 font-display text-[28px] font-extrabold uppercase leading-none sm:text-[36px]">Android APK</h2>
-            <p className="mt-3 text-[14px] leading-relaxed text-brand-950">
+            <p className="mt-3 text-[14px] leading-relaxed text-white">
               Debug-сборка для тестирования. Не опубликована в Google Play, устанавливается вручную.
             </p>
             <dl className="mt-5 grid grid-cols-3 gap-2 text-[11px]">
-              <div className="rounded-xl border border-brand-950/15 bg-brand-950/5 p-3">
-                <dt className="text-brand-950">Версия</dt><dd className="mt-1 font-semibold">1.0.0</dd>
+              <div className="rounded-xl border border-white/20 bg-white/10 p-3">
+                <dt className="text-white">Версия</dt><dd className="mt-1 font-semibold">1.0.0</dd>
               </div>
-              <div className="rounded-xl border border-brand-950/15 bg-brand-950/5 p-3">
-                <dt className="text-brand-950">Android</dt><dd className="mt-1 font-semibold">6.0+</dd>
+              <div className="rounded-xl border border-white/20 bg-white/10 p-3">
+                <dt className="text-white">Android</dt><dd className="mt-1 font-semibold">6.0+</dd>
               </div>
-              <div className="rounded-xl border border-brand-950/15 bg-brand-950/5 p-3">
-                <dt className="text-brand-950">Размер</dt><dd className="mt-1 font-semibold">4,5 МБ</dd>
+              <div className="rounded-xl border border-white/20 bg-white/10 p-3">
+                <dt className="text-white">Размер</dt><dd className="mt-1 font-semibold">4,5 МБ</dd>
               </div>
             </dl>
             <a
@@ -47,7 +47,7 @@ export default function AppPage() {
             >
               <Download className="h-4 w-4" /> Скачать APK
             </a>
-            <p className="mt-2 text-[10px] text-brand-950">SHA-256: 75a9c534…c82b161 · debug-подпись</p>
+            <p className="mt-2 text-[10px] text-white">SHA-256: 75a9c534…c82b161 · debug-подпись</p>
           </div>
 
           <div className="rounded-[18px] border border-line bg-[#F7F8F9] p-6">
@@ -78,7 +78,7 @@ export default function AppPage() {
             { icon: Smartphone, title: "Откройте приложение", text: "Найдите «Ирбис Март» на рабочем столе и войдите в аккаунт." },
           ].map((step, index) => (
             <div key={step.title} className="rounded-[18px] border border-line p-5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-brand-950">{index + 1}</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-[12px] font-bold text-white">{index + 1}</span>
               <step.icon className="mt-4 h-4 w-4 text-brand-900" />
               <p className="mt-1.5 text-[13px] font-bold">{step.title}</p>
               <p className="mt-1 text-[12px] leading-relaxed text-muted">{step.text}</p>

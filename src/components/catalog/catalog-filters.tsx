@@ -63,7 +63,7 @@ export function CatalogFilters({ categories, counts, activeCategory, total }: Pr
                 href="/catalog"
                 className={cn(
                   "flex h-12 items-center justify-between border-b border-line px-4 text-[13px] transition",
-                  !activeCategory ? "bg-brand-700 font-semibold text-brand-950" : "text-ink hover:bg-cream",
+                  !activeCategory ? "bg-brand-700 font-semibold text-white" : "text-ink hover:bg-cream",
                 )}
               >
                 <span className="flex items-center gap-2">
@@ -81,7 +81,7 @@ export function CatalogFilters({ categories, counts, activeCategory, total }: Pr
                     href={`/catalog/${category.slug}`}
                     className={cn(
                       "flex h-12 items-center justify-between border-b border-line px-4 text-[13px] transition",
-                      active ? "bg-brand-700 font-semibold text-brand-950" : "text-ink hover:bg-cream",
+                      active ? "bg-brand-700 font-semibold text-white" : "text-ink hover:bg-cream",
                     )}
                   >
                     <span className="flex items-center gap-1.5">
