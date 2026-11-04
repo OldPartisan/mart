@@ -26,7 +26,7 @@ const slides = [
   {
     title: "Ужин\nза 30\nминут",
     text: "Пицца-трио, роллы\nи готовые блюда",
-    image: "/images/figma/pizza-boxes.png",
+    image: "/images/figma/pizza-boxes-hero.webp",
     alt: "Пицца-трио в коробках",
     href: "/catalog/gotovaya-eda",
     label: "Готовая еда",
@@ -167,7 +167,7 @@ export function Hero() {
               priority={index === 0}
               fetchPriority={index === 0 ? "high" : "auto"}
               sizes="(min-width: 1024px) 640px, 100vw"
-              className={cn("animate-fade-up", index === 2 ? "object-contain p-6" : "object-cover")}
+              className={cn("animate-fade-up", index === 2 ? "object-contain p-4" : "object-cover")}
             />
           </div>
 

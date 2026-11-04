@@ -44,7 +44,7 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form onSubmit={submit} className="w-full">
+    <form onSubmit={submit} className="w-full max-w-[480px]">
       <div className={compact ? "flex flex-col gap-2" : "flex flex-col gap-2 sm:flex-row"}>
         <label htmlFor={compact ? "newsletter-compact" : "newsletter"} className="sr-only">
           Email для рассылки
@@ -56,18 +56,18 @@ export function NewsletterForm({ compact = false }: { compact?: boolean }) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Ваш email"
-          className="h-10 flex-1 rounded-lg border border-line bg-white px-3 text-[12px] text-ink placeholder:text-muted focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/10"
+          className="h-12 w-full flex-1 rounded-lg border border-line bg-white px-4 text-[14px] text-ink placeholder:text-muted focus:border-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-700/10"
         />
         <button
           type="submit"
           disabled={status === "loading"}
-          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-brand-700 px-4 text-[12px] font-semibold text-white transition hover:bg-brand-600 disabled:opacity-60 sm:w-auto"
+          className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand-700 px-5 text-[13px] font-semibold text-white transition hover:bg-brand-600 disabled:opacity-60 sm:w-auto"
         >
           {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
           Подписаться
         </button>
       </div>
-      <p className="mt-2 text-[9.5px] leading-relaxed text-muted">
+      <p className="mt-2 text-[11px] leading-relaxed text-muted">
         Нажимая «Подписаться», вы соглашаетесь с{" "}
         <Link href="/legal/privacy" className="underline underline-offset-2 hover:text-ink">
           политикой конфиденциальности

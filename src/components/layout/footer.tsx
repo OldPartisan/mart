@@ -135,7 +135,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-line pt-5">
-          <div className="grid gap-5 sm:grid-cols-[1fr_320px] sm:items-center">
+          <div className="grid gap-5 sm:grid-cols-[minmax(0,1fr)_380px] sm:items-center lg:grid-cols-[minmax(0,1fr)_440px]">
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted">
               <span>© 2026 ГК IRBIS. Супермаркет «Ирбис Март».</span>
               <Link href="/legal/privacy" className="hover:text-ink">Политика конфиденциальности</Link>

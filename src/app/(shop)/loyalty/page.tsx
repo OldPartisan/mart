@@ -101,7 +101,7 @@ export default function LoyaltyPage() {
                 { title: "Платите бонусами", text: "На оформлении включите «Списать бонусы» и выберите сумму до 50% заказа." },
               ].map((step, index) => (
                 <li key={step.title} className="flex gap-4">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-900 font-display text-sm font-bold text-cream">{index + 1}</span>
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-700 font-display text-sm font-bold text-white">{index + 1}</span>
                   <div>
                     <p className="font-display text-lg font-bold text-ink">{step.title}</p>
                     <p className="mt-1 text-[13px] leading-relaxed text-muted">{step.text}</p>
@@ -119,21 +119,21 @@ export default function LoyaltyPage() {
             </div>
           </div>
 
-          <div className="rounded-[2rem] bg-brand-900 p-6 text-cream sm:p-8">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent-300">Уровни</p>
+          <div className="rounded-[2rem] bg-brand-700 p-6 text-white sm:p-8">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white">Уровни</p>
             <h2 className="mt-2 font-display text-2xl font-bold">Растём вместе с вашими покупками</h2>
             <div className="mt-5 space-y-3">
               {LOYALTY_LEVELS.map((level) => (
-                <div key={level.id} className="rounded-2xl border border-cream/15 bg-cream/5 p-4">
+                <div key={level.id} className="rounded-2xl border border-white/25 bg-white/10 p-4">
                   <div className="flex items-center justify-between">
                     <p className="font-display text-base font-bold">{level.name}</p>
-                    <span className="badge bg-cream/10 text-accent-300">×{level.multiplier}</span>
+                    <span className="badge bg-white/15 text-white">×{level.multiplier}</span>
                   </div>
-                  <p className="mt-1 text-[11px] text-cream/55">от {formatPrice(level.threshold)} за 12 месяцев</p>
+                  <p className="mt-1 text-[11px] text-white/85">от {formatPrice(level.threshold)} за 12 месяцев</p>
                   <ul className="mt-2 space-y-1">
                     {level.perks.map((perk) => (
-                      <li key={perk} className="flex items-start gap-1.5 text-[11px] text-cream/70">
-                        <Check className="mt-0.5 h-3 w-3 shrink-0 text-accent-300" /> {perk}
+                      <li key={perk} className="flex items-start gap-1.5 text-[11px] text-white/90">
+                        <Check className="mt-0.5 h-3 w-3 shrink-0 text-white" /> {perk}
                       </li>
                     ))}
                   </ul>
