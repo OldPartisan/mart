@@ -75,15 +75,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         availability: inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
         seller: { "@type": "Organization", name: "Ирбис Март" },
       },
-      ...(productReviews.length
-        ? {
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: (productReviews.reduce((sum, review) => sum + review.rating, 0) / productReviews.length).toFixed(1),
-              reviewCount: productReviews.length,
-            },
-          }
-        : {}),
     },
     {
       "@context": "https://schema.org",

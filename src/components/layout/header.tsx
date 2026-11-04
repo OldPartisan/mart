@@ -26,7 +26,7 @@ export async function Header() {
       )}
 
       <div className="container-x">
-        <div className="flex items-center gap-2 py-3 sm:gap-3">
+        <div className="flex items-center gap-2 py-2 sm:gap-3 sm:py-2.5">
           <Logo />
           <div className="hidden lg:block">
             <CatalogMenu categories={categories} />
@@ -42,7 +42,7 @@ export async function Header() {
           </div>
         </div>
 
-        <div className="pb-3 md:hidden">
+        <div className="pb-2 md:hidden">
           <SearchBar />
         </div>
 

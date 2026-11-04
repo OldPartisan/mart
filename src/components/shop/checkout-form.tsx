@@ -52,6 +52,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
   const [bonusValue, setBonusValue] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState("");
+  const [step, setStep] = useState(1);
   const staticDemo = process.env.NEXT_PUBLIC_STATIC_DEMO === "1";
 
   useEffect(() => setMounted(true), []);
@@ -66,6 +67,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
     watch,
     setValue,
     setError,
+    trigger,
     formState: { errors },
   } = useForm<CheckoutFormInput>({
     resolver: zodResolver(checkoutFormSchema),
@@ -147,6 +149,25 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
     } finally {
       setPromoLoading(false);
     }
+  };
+
+  const goToStep = (next: number) => {
+    setStep(next);
+    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const nextContacts = async () => {
+    const valid = await trigger(["customerName", "phone", "email"]);
+    if (valid) goToStep(2);
+  };
+
+  const nextDelivery = async () => {
+    const valid = await trigger(["deliveryType", "deliveryZoneId", "addressText", "pickupDate", "pickupSlot"]);
+    if (!valid || deliveryError) {
+      if (deliveryError) toast.error(deliveryError);
+      return;
+    }
+    goToStep(3);
   };
 
   const onSubmit = handleSubmit(async (values) => {
@@ -270,10 +291,30 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
         )}
       </div>
 
+      <ol className="mt-6 grid grid-cols-3 gap-2" aria-label="Этапы оформления">
+        {[
+          { n: 1, label: "Контакты" },
+          { n: 2, label: "Получение" },
+          { n: 3, label: "Оплата" },
+        ].map((item) => (
+          <li key={item.n}>
+            <button
+              type="button"
+              onClick={() => goToStep(item.n)}
+              className={cn("flex min-h-11 w-full items-center gap-2 rounded-xl border px-3 text-[12px] font-semibold transition", step === item.n ? "border-brand-700 bg-brand-50 text-brand-900" : "border-line bg-white text-ink")}
+              aria-current={step === item.n ? "step" : undefined}
+            >
+              <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px]", step === item.n ? "bg-brand-700 text-white" : "bg-brand-100 text-brand-900")}>{item.n}</span>
+              {item.label}
+            </button>
+          </li>
+        ))}
+      </ol>
+
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_380px]">
         <div className="min-w-0 space-y-4">
           {/* Контакты */}
-          <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
+          <section id="checkout-contacts" className={cn("scroll-mt-24 rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 1 && "hidden")}>
             <div className="flex items-center gap-3">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">1</span>
               <h2 className="font-display text-lg font-bold">Контакты</h2>
@@ -281,7 +322,7 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
               <div className="sm:col-span-2">
                 <label htmlFor="customerName" className="label">Имя и фамилия</label>
-                <input id="customerName" {...register("customerName")} className="field" placeholder="Алия Габдуллина" autoComplete="name" />
+                <input id="customerName" {...register("customerName")} className="field" placeholder="Имя и фамилия" autoComplete="name" />
                 {errors.customerName && <p className="mt-1 text-[11px] text-red-600">{errors.customerName.message}</p>}
               </div>
               <div>
@@ -296,10 +337,13 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
               </div>
             </div>
             <p className="mt-3 text-[11px] text-muted">Пришлём подтверждение заказа и статус готовности.</p>
+            <div className="mt-5 flex justify-end">
+              <button type="button" onClick={nextContacts} className="btn-primary">Далее <ArrowRight className="h-4 w-4" /></button>
+            </div>
           </section>
 
           {/* Получение */}
-          <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
+          <section id="checkout-delivery" className={cn("scroll-mt-24 rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 2 && "hidden")}>
             <div className="flex items-center gap-3">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">2</span>
               <h2 className="font-display text-lg font-bold">Как получить</h2>
@@ -412,10 +456,14 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
                 </div>
               </div>
             )}
+            <div className="mt-5 flex justify-between gap-2">
+              <button type="button" onClick={() => goToStep(1)} className="btn-secondary"><ArrowLeft className="h-4 w-4" /> Назад</button>
+              <button type="button" onClick={nextDelivery} className="btn-primary">Далее <ArrowRight className="h-4 w-4" /></button>
+            </div>
           </section>
 
           {/* Оплата */}
-          <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
+          <section id="checkout-payment" className={cn("scroll-mt-24 rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 3 && "hidden")}>
             <div className="flex items-center gap-3">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">3</span>
               <h2 className="font-display text-lg font-bold">Оплата</h2>
@@ -450,9 +498,9 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
           </section>
 
           {/* Промокод и бонусы */}
-          <section className="rounded-3xl border border-line/80 bg-white p-5 sm:p-6">
+          <section className={cn("rounded-3xl border border-line/80 bg-white p-5 sm:p-6", step !== 3 && "hidden")}>
             <div className="flex items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-900 text-[12px] font-bold text-cream">4</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-50 text-brand-900"><Tag className="h-4 w-4" /></span>
               <h2 className="font-display text-lg font-bold">Скидки и бонусы</h2>
             </div>
 
@@ -613,10 +661,14 @@ export function CheckoutForm({ user, zones, pickupDays, deliveryEnabled }: Props
 
           {serverError && <p className="mt-3 rounded-xl bg-red-50 px-3 py-2 text-[11px] text-red-700">{serverError}</p>}
 
-          <button type="submit" disabled={submitting || Boolean(deliveryError)} className="btn-primary mt-4 w-full">
-            {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
-            {submitting ? "Создаём заказ…" : "Подтвердить заказ"}
-          </button>
+          {step === 3 ? (
+            <button type="submit" disabled={submitting || Boolean(deliveryError)} className="btn-primary mt-4 w-full">
+              {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+              {submitting ? "Создаём заказ…" : "Подтвердить заказ"}
+            </button>
+          ) : (
+            <p className="mt-4 rounded-xl bg-cream px-3 py-2 text-center text-[11px] text-muted">Шаг {step} из 3. Заполните данные и нажмите «Далее».</p>
+          )}
           <p className="mt-2 text-center text-[10px] leading-relaxed text-muted">
             Нажимая кнопку, вы подтверждаете заказ. Оплата — только после проверки суммы.
           </p>

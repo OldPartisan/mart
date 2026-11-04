@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Star } from "lucide-react";
 import { AddToCart } from "./add-to-cart";
 import { FavoriteButton } from "./favorite-button";
 import { PriceTag } from "./price-tag";
@@ -21,8 +20,7 @@ export function ProductCard({
 }) {
   const discount = discountPercent(product.price, product.oldPrice);
   const isStudioShot = Boolean(product.images[0]?.includes("/figma/"));
-  const rating = 4.5 + (product.popularity % 5) / 10;
-  const reviews = 40 + product.popularity * 2;
+  const availability = product.stock === 0 ? "Нет в наличии" : "В наличии";
 
   return (
     <article className={cn("group relative flex flex-col rounded-[18px] bg-white", className)}>
@@ -42,31 +40,13 @@ export function ProductCard({
         <div className="absolute right-3 top-3">
           <FavoriteButton slug={product.slug} name={product.name} />
         </div>
-        {product.isOwnProduction && (
-          <span className="absolute left-3 top-3 rounded bg-brand-700 px-1.5 py-1 text-[9px] font-bold uppercase tracking-wide text-white">
-            своё
-          </span>
-        )}
       </div>
 
       <div className="flex flex-1 flex-col px-4 pb-4 pt-3">
-        <div className="flex items-center justify-between gap-2 text-[13px] text-muted">
+        <div className="flex items-center justify-between gap-2 text-[12px] text-muted">
           <span className="min-w-0 flex-1 pr-1 leading-tight">{product.weight ?? product.unit}</span>
-          <span className="flex shrink-0 items-center gap-1">
-            <span className="hidden items-center gap-[1px] sm:flex">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <Star
-                  key={index}
-                  className={cn("h-3 w-3", index < Math.round(rating) ? "fill-yellow-400 text-yellow-400" : "text-line")}
-                  aria-hidden="true"
-                />
-              ))}
-            </span>
-            <span className="flex items-center gap-0.5 sm:hidden">
-              <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" aria-hidden="true" />
-              <span className="text-[11px] text-muted">{rating.toFixed(1)}</span>
-            </span>
-            <span className="text-[11px] text-muted sm:text-[12px]">({reviews})</span>
+          <span className={cn("shrink-0 font-medium", product.stock === 0 ? "text-accent-600" : "text-brand-900")}>
+            {availability}
           </span>
         </div>
 
@@ -75,7 +55,7 @@ export function ProductCard({
         )}
         <Link
           href={`/product/${product.slug}`}
-          className="mt-1 line-clamp-2 min-h-[34px] text-[14px] leading-[1.2] text-ink transition-colors hover:text-brand-900"
+          className="mt-1 line-clamp-2 min-h-[38px] text-[14px] leading-[1.25] text-ink transition-colors hover:text-brand-900"
         >
           {product.name}
         </Link>
@@ -92,7 +72,7 @@ export function ProductCard({
                 </span>
               </div>
             ) : null}
-            <PriceTag value={product.price} className="text-[26px] sm:text-[30px]" />
+            <PriceTag value={product.price} className="text-[28px] sm:text-[32px]" />
           </div>
           <div className="ml-auto shrink-0">
             <AddToCart product={{ ...product, stock: product.stock }} />

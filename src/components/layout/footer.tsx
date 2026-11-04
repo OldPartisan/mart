@@ -11,7 +11,7 @@ function Column({ title, links }: { title: string; links: Array<{ href: string; 
       <ul className="space-y-2">
         {links.map((link) => (
           <li key={link.href}>
-            <Link href={link.href} className="text-[13px] text-muted transition-colors hover:text-brand-900">
+            <Link href={link.href} className="inline-flex min-h-9 items-center text-[13px] text-muted transition-colors hover:text-brand-900">
               {link.label}
             </Link>
           </li>
@@ -45,7 +45,44 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="sm:hidden">
+            {[
+              { title: "Покупателям", links: [
+                { href: "/quality", label: "Система качества" },
+                { href: "/loyalty", label: "Программа лояльности" },
+                { href: "/promotions", label: "Акции" },
+                { href: "/about", label: "О нас" },
+                { href: "/favorites", label: "Избранное" },
+              ] },
+              { title: "Помощь", links: [
+                { href: "/delivery", label: "Доставка и оплата" },
+                { href: "/pickup", label: "Самовывоз" },
+                { href: "/contacts", label: "Контакты" },
+                { href: "/legal/privacy", label: "Правовая информация" },
+              ] },
+              { title: "Партнерам", links: [
+                { href: "/contacts", label: "Поставщикам" },
+                { href: "/contacts", label: "Помещения в аренду" },
+                { href: "/contacts", label: "Партнерская программа" },
+              ] },
+            ].map((group) => (
+              <details key={group.title} className="border-b border-line/70 py-1">
+                <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between text-[13px] font-semibold text-ink">
+                  {group.title}
+                  <span aria-hidden="true" className="text-muted">+</span>
+                </summary>
+                <ul className="space-y-1 pb-3">
+                  {group.links.map((link) => (
+                    <li key={link.label}>
+                      <Link href={link.href} className="flex min-h-10 items-center text-[13px] text-muted">{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            ))}
+          </div>
+
+          <div className="hidden gap-8 sm:grid sm:grid-cols-2 lg:grid-cols-4">
             <Column
               title="Партнерам"
               links={[
@@ -61,6 +98,7 @@ export function Footer() {
                 { href: "/loyalty", label: "Программа лояльности" },
                 { href: "/promotions", label: "Акции" },
                 { href: "/about", label: "О нас" },
+                { href: "/favorites", label: "Избранное" },
               ]}
             />
             <Column
@@ -98,7 +136,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-line pt-5">
           <div className="grid gap-5 sm:grid-cols-[1fr_320px] sm:items-center">
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[11px] text-muted">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[12px] text-muted">
               <span>© 2026 ГК IRBIS. Супермаркет «Ирбис Март».</span>
               <Link href="/legal/privacy" className="hover:text-ink">Политика конфиденциальности</Link>
               <Link href="/legal/terms" className="hover:text-ink">Пользовательское соглашение</Link>
