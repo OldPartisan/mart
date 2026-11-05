@@ -72,11 +72,9 @@ export function ProductCard({
                 </span>
               </div>
             ) : null}
-            <PriceTag value={product.price} className="text-[28px] sm:text-[32px]" />
+            <PriceTag value={product.price} className="text-[26px] sm:text-[30px]" />
           </div>
-          <div className="ml-auto shrink-0">
-            <AddToCart product={{ ...product, stock: product.stock }} />
-          </div>
+          <AddToCart product={{ ...product, stock: product.stock }} />
         </div>
       </div>
     </article>
