@@ -107,10 +107,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div>
           <div className="flex flex-wrap gap-1.5">
             {discount && <span className="badge bg-accent-500 text-white">−{discount}%</span>}
-            {product.isOwnProduction && <span className="badge bg-brand-700 text-white">Собственное производство</span>}
-            {product.isFarm && <span className="badge bg-accent-100 text-accent-700">Фермерское</span>}
-            {product.isNew && <span className="badge-outline">Новинка</span>}
-            {product.isHit && <span className="badge bg-ink text-white">Хит</span>}
+            {product.isOwnProduction ? (
+              <span className="badge bg-brand-700 text-white">Собственное производство</span>
+            ) : product.isFarm ? (
+              <span className="badge bg-accent-100 text-accent-700">Фермерское</span>
+            ) : product.isNew ? (
+              <span className="badge-outline">Новинка</span>
+            ) : product.isHit ? (
+              <span className="badge bg-ink text-white">Хит</span>
+            ) : null}
           </div>
 
           <h1 className="mt-4 font-display text-[28px] font-normal leading-tight tracking-[-0.02em] text-ink sm:text-[36px] text-balance">{product.name}</h1>
