@@ -14,6 +14,7 @@ import {
   type Order,
 } from "./schema";
 import * as schema from "./schema";
+import { buildDemoCatalog, demoCategories } from "./demo-catalog";
 
 type Db = PgliteDatabase<typeof schema>;
 
@@ -87,6 +88,7 @@ const categorySeed = [
     image: img("figma/p-pizza"),
     sortOrder: 9,
   },
+  ...demoCategories,
 ];
 
 /* ──────────────────────────────── Товары ───────────────────────────────── */
@@ -350,6 +352,14 @@ export async function seedDatabase(db: Db): Promise<void> {
       })),
     )
     .returning({ id: products.id, slug: products.slug, name: products.name, price: products.price, image: products.images });
+
+  const demoProducts = buildDemoCatalog().map((product, index) => ({
+    ...product,
+    categoryId: categoryIdBySlug.get(product.categorySlug)!,
+    createdAt: new Date(now - (productSeed.length + index) * 3_600_000),
+    updatedAt: new Date(now - (productSeed.length + index) * 3_600_000),
+  }));
+  await db.insert(products).values(demoProducts).onConflictDoNothing();
 
   await db.insert(promotions).values(promotionSeed.map((p) => ({ ...p, startsAt: daysFromNow(-7), endsAt: daysFromNow(60) })));
   await db.insert(reviews).values(reviewSeed);
