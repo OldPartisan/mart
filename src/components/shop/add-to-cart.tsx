@@ -99,7 +99,7 @@ export function AddToCart({ product, variant = "icon", className }: Props) {
     <div
       className={cn(
         "flex items-center gap-1 rounded-[9px] bg-brand-500 px-1 text-white",
-        variant === "full" ? "h-12 w-full justify-between px-2" : "h-11 w-full justify-between px-1.5",
+        variant === "full" ? "h-12 w-full justify-between px-2" : "h-11 w-full justify-between px-1.5 lg:h-12 lg:w-auto lg:justify-start lg:gap-1 lg:px-1",
         className,
       )}
       role="group"
