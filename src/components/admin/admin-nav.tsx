@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, LayoutDashboard, Package, FolderTree, ShoppingCart, Ticket, Users, FileText, Plug, LockKeyhole, Image as ImageIcon } from "lucide-react";
+import { ArrowUpRight, LayoutDashboard, Package, FolderTree, ShoppingCart, Ticket, Users, FileText, Plug, LockKeyhole, Image as ImageIcon, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const allRoles = ["ADMIN", "MANAGER", "MARKETER", "EDITOR"];
@@ -10,6 +10,7 @@ const links = [
   { href: "/admin", label: "Дашборд", icon: LayoutDashboard, exact: true, roles: ["ADMIN", "MANAGER"] },
   { href: "/admin/content", label: "Контент", icon: FileText, roles: allRoles },
   { href: "/admin/media", label: "Медиа", icon: ImageIcon, roles: allRoles },
+  { href: "/admin/marketing/rfm", label: "RFM-анализ", icon: BarChart3, roles: ["ADMIN", "MANAGER", "MARKETER"] },
   { href: "/admin/products", label: "Товары", icon: Package, roles: ["ADMIN", "MANAGER"] },
   { href: "/admin/categories", label: "Категории", icon: FolderTree, roles: ["ADMIN", "MANAGER"] },
   { href: "/admin/orders", label: "Заказы", icon: ShoppingCart, roles: ["ADMIN", "MANAGER"] },
