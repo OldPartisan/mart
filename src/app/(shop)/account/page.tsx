@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { ArrowRight, Gift, Package, Sparkles, TrendingUp } from "lucide-react";
 import { getCurrentUser } from "@/lib/auth";
 import { getBonusHistory, getTotalSpent, getUserOrders } from "@/lib/queries";
@@ -12,6 +13,8 @@ export const dynamic = "force-dynamic";
 
 export default async function AccountPage() {
   const user = (await getCurrentUser())!;
+  if (user.role === "ADMIN" || user.role === "MANAGER") redirect("/admin");
+  if (user.role === "MARKETER" || user.role === "EDITOR") redirect("/admin/content");
   const [orders, spent, bonusHistory] = await Promise.all([
     getUserOrders(user.id),
     getTotalSpent(user.id),

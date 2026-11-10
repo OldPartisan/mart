@@ -69,8 +69,8 @@ export function UserMenu({ user }: { user: HeaderUser }) {
             <Link href="/account/bonuses" onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[13px] font-medium text-ink hover:bg-cream">
               <Sparkles className="h-4 w-4 text-muted" /> Бонусы
             </Link>
-            {(user.role === "ADMIN" || user.role === "MANAGER") && (
-              <Link href="/admin" onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[13px] font-medium text-ink hover:bg-cream">
+            {user.role !== "CUSTOMER" && (
+              <Link href={user.role === "ADMIN" || user.role === "MANAGER" ? "/admin" : "/admin/content"} onClick={() => setOpen(false)} className="flex items-center gap-2.5 rounded-xl px-3 py-2 text-[13px] font-medium text-ink hover:bg-cream">
                 <LayoutDashboard className="h-4 w-4 text-muted" /> Админ-панель
               </Link>
             )}
