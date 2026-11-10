@@ -167,3 +167,22 @@ export async function restoreRevision(revisionId: string) {
   revalidatePath(`/admin/content/${revision.pageId}`);
   return { ok: true };
 }
+
+export async function schedulePage(input: { id: string; publishAt: string; unpublishAt?: string }) {
+  const user = await getCurrentUser();
+  if (!user || user.role !== "ADMIN") throw new Error("Планировать публикацию может только администратор");
+  const publishAt = new Date(input.publishAt);
+  if (Number.isNaN(publishAt.getTime())) throw new Error("Укажите дату публикации");
+  const unpublishAt = input.unpublishAt ? new Date(input.unpublishAt) : null;
+  if (unpublishAt && unpublishAt <= publishAt) throw new Error("Снятие должно быть позже публикации");
+  const db = await getDb();
+  const [page] = await db.select().from(pages).where(eq(pages.id, input.id)).limit(1);
+  if (!page) throw new Error("Страница не найдена");
+  const status = publishAt <= new Date() ? "PUBLISHED" : "SCHEDULED";
+  await db.update(pages).set({ status, publishAt, unpublishAt, publishedAt: status === "PUBLISHED" ? new Date() : page.publishedAt, updatedAt: new Date() }).where(eq(pages.id, input.id));
+  await db.insert(contentRevisions).values({ pageId: input.id, userId: user.id, snapshot: { scheduled: true, publishAt: publishAt.toISOString(), unpublishAt: unpublishAt?.toISOString() ?? null }, note: status === "PUBLISHED" ? "Опубликовано по расписанию" : "Запланирована публикация" });
+  revalidatePath("/admin/content");
+  revalidatePath(`/admin/content/${input.id}`);
+  revalidatePath(`/p/${page.slug}`);
+  return { ok: true, status };
+}

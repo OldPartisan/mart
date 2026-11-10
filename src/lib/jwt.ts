@@ -4,7 +4,7 @@ export type SessionPayload = {
   sub: string;
   email: string;
   name: string;
-  role: "CUSTOMER" | "MANAGER" | "ADMIN";
+  role: "CUSTOMER" | "MANAGER" | "ADMIN" | "MARKETER" | "EDITOR";
   type: "access" | "refresh";
 };
 

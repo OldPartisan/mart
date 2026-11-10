@@ -26,6 +26,8 @@ export default async function EditContentPage({ params }: { params: Promise<{ id
         seoTitle: page.seoTitle ?? "",
         seoDescription: page.seoDescription ?? "",
         ogImage: page.ogImage ?? "",
+        publishAt: page.publishAt?.toISOString() ?? "",
+        unpublishAt: page.unpublishAt?.toISOString() ?? "",
       }}
       blocks={blocks.map((block) => ({
         id: block.id,

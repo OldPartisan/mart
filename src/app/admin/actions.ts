@@ -235,7 +235,7 @@ export async function updateUserRole(formData: FormData): Promise<void> {
   const staff = await requireAdmin();
   if (staff.role !== "ADMIN") back("/admin/users", "Только администратор может менять роли", "error");
   const id = String(formData.get("id"));
-  const role = String(formData.get("role")) as "CUSTOMER" | "MANAGER" | "ADMIN";
+  const role = String(formData.get("role")) as "CUSTOMER" | "MANAGER" | "ADMIN" | "MARKETER" | "EDITOR";
   if (id === staff.id) back("/admin/users", "Нельзя изменить собственную роль", "error");
   const db = await getDb();
   await db.update(users).set({ role }).where(eq(users.id, id));

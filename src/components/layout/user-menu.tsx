@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { LayoutDashboard, LogOut, Package, Sparkles, User } from "lucide-react";
 
 
-export type HeaderUser = { name: string; email: string; role: "CUSTOMER" | "MANAGER" | "ADMIN" } | null;
+export type HeaderUser = { name: string; email: string; role: "CUSTOMER" | "MANAGER" | "ADMIN" | "MARKETER" | "EDITOR" } | null;
 
 export function UserMenu({ user }: { user: HeaderUser }) {
   const [open, setOpen] = useState(false);

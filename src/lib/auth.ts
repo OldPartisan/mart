@@ -77,7 +77,11 @@ export async function requireUser(): Promise<User> {
 }
 
 export function isStaff(user: Pick<User, "role"> | null): boolean {
-  return user?.role === "ADMIN" || user?.role === "MANAGER";
+  return user?.role === "ADMIN" || user?.role === "MANAGER" || user?.role === "MARKETER" || user?.role === "EDITOR";
+}
+
+export function isContentEditor(user: Pick<User, "role"> | null): boolean {
+  return user?.role === "ADMIN" || user?.role === "MANAGER" || user?.role === "MARKETER" || user?.role === "EDITOR";
 }
 
 export async function requireStaff(): Promise<User> {

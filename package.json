@@ -17,6 +17,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.937.0",
     "@electric-sql/pglite": "0.5.14",
     "@hookform/resolvers": "5.2.2",
     "@tiptap/extension-link": "2.11.5",

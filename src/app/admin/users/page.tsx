@@ -68,6 +68,8 @@ export default async function AdminUsersPage({
                           <option value="CUSTOMER">Клиент</option>
                           <option value="MANAGER">Менеджер</option>
                           <option value="ADMIN">Админ</option>
+                          <option value="MARKETER">Маркетолог</option>
+                          <option value="EDITOR">Редактор</option>
                         </select>
                         <button type="submit" className="text-[10px] font-semibold text-brand-900">OK</button>
                       </form>

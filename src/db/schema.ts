@@ -15,7 +15,7 @@ import {
 
 /* ───────────────────────────── Перечисления ───────────────────────────── */
 
-export const userRoleEnum = pgEnum("user_role", ["CUSTOMER", "MANAGER", "ADMIN"]);
+export const userRoleEnum = pgEnum("user_role", ["CUSTOMER", "MANAGER", "ADMIN", "MARKETER", "EDITOR"]);
 
 export const orderStatusEnum = pgEnum("order_status", [
   "NEW",
@@ -342,6 +342,8 @@ export const pages = pgTable(
     seoDescription: text("seo_description"),
     ogImage: text("og_image"),
     publishedAt: timestamp("published_at", { withTimezone: true }),
+    publishAt: timestamp("publish_at", { withTimezone: true }),
+    unpublishAt: timestamp("unpublish_at", { withTimezone: true }),
     createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
     approvedBy: uuid("approved_by").references(() => users.id, { onDelete: "set null" }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
@@ -375,6 +377,17 @@ export const contentRevisions = pgTable("content_revisions", {
   snapshot: jsonb("snapshot").$type<Record<string, unknown>>().notNull(),
   userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
   note: text("note"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const media = pgTable("media", {
+  id: uuid("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  key: text("key").notNull(),
+  url: text("url").notNull(),
+  alt: text("alt"),
+  mimeType: text("mime_type").notNull(),
+  size: integer("size").notNull().default(0),
+  uploadedBy: uuid("uploaded_by").references(() => users.id, { onDelete: "set null" }),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 

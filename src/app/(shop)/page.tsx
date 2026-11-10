@@ -14,6 +14,7 @@ import { getDb } from "@/db";
 import { contentBlocks, pages } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { CmsBlocks } from "@/components/cms/cms-blocks";
+import { processScheduledPages } from "@/lib/cms";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { absoluteImage } from "@/lib/seo";
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
+  await processScheduledPages();
   const db = await getDb();
   const [homePage] = await db.select().from(pages).where(eq(pages.slug, "home")).limit(1);
   const homeBlocks = homePage && homePage.status === "PUBLISHED"

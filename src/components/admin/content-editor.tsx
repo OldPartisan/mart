@@ -23,7 +23,7 @@ import { toast } from "sonner";
 import { CmsBlocks, type CmsBlock } from "@/components/cms/cms-blocks";
 import { ContentStatusBadge } from "@/components/admin/content-status";
 import { RichTextEditor } from "@/components/admin/rich-text-editor";
-import { publishPage, savePage } from "@/app/admin/content/actions";
+import { publishPage, savePage, schedulePage } from "@/app/admin/content/actions";
 import { cn } from "@/lib/utils";
 
 type Block = { id?: string; type: string; data: Record<string, unknown>; isVisible?: boolean };
@@ -36,6 +36,8 @@ type PageData = {
   seoTitle: string;
   seoDescription: string;
   ogImage: string;
+  publishAt: string;
+  unpublishAt: string;
 };
 
 const blockTemplates: Record<string, { label: string; data: Record<string, unknown> }> = {
@@ -58,6 +60,18 @@ function str(data: Record<string, unknown>, key: string): string {
   return typeof data[key] === "string" ? (data[key] as string) : "";
 }
 
+function toMoscowInput(iso: string): string {
+  return new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Moscow",
+    year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit",
+  }).format(new Date(iso)).replace(" ", "T");
+}
+
+function fromMoscowInput(value: string): string {
+  return new Date(`${value}:00+03:00`).toISOString();
+}
+
 function faqText(data: Record<string, unknown>): string {
   const items = Array.isArray(data.items) ? (data.items as Array<{ q?: string; a?: string }>) : [];
   return items.map((item) => `${item.q ?? ""}|${item.a ?? ""}`).join("\n");
@@ -71,6 +85,8 @@ export function ContentEditor({ page, blocks: initialBlocks, isAdmin }: { page: 
   const [device, setDevice] = useState<"mobile" | "tablet" | "desktop">("desktop");
   const [pending, startTransition] = useTransition();
   const [showSeo, setShowSeo] = useState(false);
+  const [publishAt, setPublishAt] = useState(page.publishAt ? toMoscowInput(page.publishAt) : "");
+  const [unpublishAt, setUnpublishAt] = useState(page.unpublishAt ? toMoscowInput(page.unpublishAt) : "");
   const selectedBlock = blocks[selected];
 
   const updatePage = (patch: Partial<PageData>) => setPageData((current) => ({ ...current, ...patch }));
@@ -127,6 +143,28 @@ export function ContentEditor({ page, blocks: initialBlocks, isAdmin }: { page: 
         await publishPage(pageData.id);
         updatePage({ status: "PUBLISHED" });
         toast.success("Страница опубликована");
+        router.refresh();
+      } catch (error) {
+        toast.error((error as Error).message);
+      }
+    });
+  };
+
+  const schedule = () => {
+    if (!publishAt) {
+      toast.error("Укажите дату и время публикации");
+      return;
+    }
+    startTransition(async () => {
+      try {
+        const result = await schedulePage({
+          id: pageData.id,
+          publishAt: fromMoscowInput(publishAt),
+          unpublishAt: unpublishAt ? fromMoscowInput(unpublishAt) : undefined,
+        });
+        updatePage({ status: result.status });
+        setPageData((current) => ({ ...current, publishAt: fromMoscowInput(publishAt), unpublishAt: unpublishAt ? fromMoscowInput(unpublishAt) : "" }));
+        toast.success(result.status === "PUBLISHED" ? "Страница опубликована" : "Публикация запланирована");
         router.refresh();
       } catch (error) {
         toast.error((error as Error).message);
@@ -270,6 +308,18 @@ export function ContentEditor({ page, blocks: initialBlocks, isAdmin }: { page: 
                 {selectedBlock.type === "image" && <label className="block text-[11px] font-semibold text-muted">Подпись<input value={str(selectedBlock.data, "caption")} onChange={(event) => updateData(selected, "caption", event.target.value)} className="field mt-1 h-10" /></label>}
                 {selectedBlock.type === "faq" && <label className="block text-[11px] font-semibold text-muted">Вопросы и ответы <span className="font-normal">(по одному на строку: вопрос|ответ)</span><textarea value={faqText(selectedBlock.data)} onChange={(event) => updateData(selected, "items", event.target.value.split("\n").map((line) => { const [q, a] = line.split("|"); return { q: q ?? "", a: a ?? "" }; }))} className="field-area mt-1 min-h-[100px]" /></label>}
               </>
+            )}
+            {isAdmin && (
+              <div className="mt-4 border-t border-line pt-3">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-muted">Публикация</p>
+                <label className="mt-2 block text-[10px] text-muted">Опубликовать (Москва)
+                  <input type="datetime-local" value={publishAt} onChange={(event) => setPublishAt(event.target.value)} className="field mt-1 h-9 text-[11px]" />
+                </label>
+                <label className="mt-2 block text-[10px] text-muted">Снять с публикации (опционально)
+                  <input type="datetime-local" value={unpublishAt} onChange={(event) => setUnpublishAt(event.target.value)} className="field mt-1 h-9 text-[11px]" />
+                </label>
+                <button type="button" onClick={schedule} disabled={pending} className="btn-secondary mt-2 h-9 w-full text-[11px]">Запланировать</button>
+              </div>
             )}
           </div>
         </div>

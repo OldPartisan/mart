@@ -28,11 +28,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             </span>
             <div className="min-w-0">
               <p className="truncate text-[12px] font-bold">{user.name}</p>
-              <p className="text-[10px] uppercase tracking-wider text-cream/45">{user.role === "ADMIN" ? "администратор" : "менеджер"}</p>
+              <p className="text-[10px] uppercase tracking-wider text-cream/45">{user.role === "ADMIN" ? "администратор" : user.role === "MANAGER" ? "менеджер" : user.role === "MARKETER" ? "маркетолог" : user.role === "EDITOR" ? "редактор" : "сотрудник"}</p>
             </div>
           </div>
         </div>
-        <AdminNav />
+        <AdminNav role={user.role} />
       </aside>
       <div className="min-w-0">{children}</div>
     </div>

@@ -1,8 +1,22 @@
-import { eq } from "drizzle-orm";
+import { and, eq, lte } from "drizzle-orm";
 import { getDb } from "@/db";
 import { contentBlocks, pages } from "@/db/schema";
 
+export async function processScheduledPages() {
+  const db = await getDb();
+  const now = new Date();
+  await db
+    .update(pages)
+    .set({ status: "PUBLISHED", publishedAt: now, updatedAt: now })
+    .where(and(eq(pages.status, "SCHEDULED"), lte(pages.publishAt, now)));
+  await db
+    .update(pages)
+    .set({ status: "ARCHIVED", updatedAt: now })
+    .where(and(eq(pages.status, "PUBLISHED"), lte(pages.unpublishAt, now)));
+}
+
 export async function getPublishedCmsPage(slug: string) {
+  await processScheduledPages();
   const db = await getDb();
   const [page] = await db.select().from(pages).where(eq(pages.slug, slug)).limit(1);
   if (!page || page.status !== "PUBLISHED") return null;

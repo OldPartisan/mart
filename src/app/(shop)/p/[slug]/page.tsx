@@ -5,10 +5,12 @@ import { getDb } from "@/db";
 import { contentBlocks, pages } from "@/db/schema";
 import { CmsBlocks } from "@/components/cms/cms-blocks";
 import { absoluteImage } from "@/lib/seo";
+import { processScheduledPages } from "@/lib/cms";
 
 type Props = { params: Promise<{ slug: string }> };
 
 async function getPage(slug: string) {
+  await processScheduledPages();
   const db = await getDb();
   const [page] = await db.select().from(pages).where(eq(pages.slug, slug)).limit(1);
   if (!page || page.status !== "PUBLISHED") return null;
