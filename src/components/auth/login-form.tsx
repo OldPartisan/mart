@@ -16,7 +16,7 @@ type LoginValues = z.infer<typeof loginSchema>;
 export function LoginForm() {
   const router = useRouter();
   const params = useSearchParams();
-  const next = params.get("next") ?? "/account";
+  const requestedNext = params.get("next");
   const [showPassword, setShowPassword] = useState(false);
   const [serverError, setServerError] = useState("");
 
@@ -39,7 +39,9 @@ export function LoginForm() {
       if (!response.ok) throw new Error(data.error ?? "Не удалось войти");
       track("login", { method: "email" });
       toast.success(`С возвращением, ${data.user.name.split(" ")[0]}!`);
-      router.push(next);
+      const role = data.user.role as "CUSTOMER" | "MANAGER" | "ADMIN" | "MARKETER" | "EDITOR";
+      const fallback = role === "CUSTOMER" ? "/account" : role === "ADMIN" || role === "MANAGER" ? "/admin" : "/admin/content";
+      router.push(requestedNext ?? fallback);
       router.refresh();
     } catch (error) {
       setServerError((error as Error).message);
