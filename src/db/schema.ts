@@ -327,3 +327,64 @@ export type OrderItem = typeof orderItems.$inferSelect;
 export type Promotion = typeof promotions.$inferSelect;
 export type Review = typeof reviews.$inferSelect;
 export type BonusTransaction = typeof bonusTransactions.$inferSelect;
+
+/* ─────────────────────────────── CMS ────────────────────────────────── */
+
+export const pages = pgTable(
+  "pages",
+  {
+    id: uuid("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    slug: text("slug").notNull(),
+    title: text("title").notNull(),
+    type: text("type").notNull().default("LANDING"),
+    status: text("status").notNull().default("DRAFT"),
+    seoTitle: text("seo_title"),
+    seoDescription: text("seo_description"),
+    ogImage: text("og_image"),
+    publishedAt: timestamp("published_at", { withTimezone: true }),
+    createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
+    approvedBy: uuid("approved_by").references(() => users.id, { onDelete: "set null" }),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [uniqueIndex("pages_slug_uq").on(t.slug), index("pages_status_idx").on(t.status)],
+);
+
+export const contentBlocks = pgTable(
+  "content_blocks",
+  {
+    id: uuid("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    pageId: uuid("page_id")
+      .notNull()
+      .references(() => pages.id, { onDelete: "cascade" }),
+    type: text("type").notNull(),
+    sortOrder: integer("sort_order").notNull().default(0),
+    data: jsonb("data").$type<Record<string, unknown>>().notNull().default(sql`'{}'::jsonb`),
+    isVisible: boolean("is_visible").notNull().default(true),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("content_blocks_page_idx").on(t.pageId, t.sortOrder)],
+);
+
+export const contentRevisions = pgTable("content_revisions", {
+  id: uuid("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  pageId: uuid("page_id")
+    .notNull()
+    .references(() => pages.id, { onDelete: "cascade" }),
+  snapshot: jsonb("snapshot").$type<Record<string, unknown>>().notNull(),
+  userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
+  note: text("note"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const appSettings = pgTable("app_settings", {
+  key: text("key").primaryKey(),
+  value: jsonb("value").$type<Record<string, unknown>>().notNull().default(sql`'{}'::jsonb`),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export type Page = typeof pages.$inferSelect;
+export type ContentBlock = typeof contentBlocks.$inferSelect;
+export type ContentRevision = typeof contentRevisions.$inferSelect;
+export type AppSetting = typeof appSettings.$inferSelect;

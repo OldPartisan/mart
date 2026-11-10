@@ -2,16 +2,18 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, LayoutDashboard, Package, FolderTree, ShoppingCart, Ticket, Users } from "lucide-react";
+import { ArrowUpRight, LayoutDashboard, Package, FolderTree, ShoppingCart, Ticket, Users, FileText, Plug } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const links = [
   { href: "/admin", label: "Дашборд", icon: LayoutDashboard, exact: true },
+  { href: "/admin/content", label: "Контент", icon: FileText },
   { href: "/admin/products", label: "Товары", icon: Package },
   { href: "/admin/categories", label: "Категории", icon: FolderTree },
   { href: "/admin/orders", label: "Заказы", icon: ShoppingCart },
   { href: "/admin/promos", label: "Промокоды", icon: Ticket },
   { href: "/admin/users", label: "Пользователи", icon: Users },
+  { href: "/admin/integration", label: "Интеграция 1С", icon: Plug },
 ];
 
 export function AdminNav() {

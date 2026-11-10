@@ -10,6 +10,10 @@ import { LoyaltyBlock } from "@/components/home/loyalty-block";
 import { ReviewsSection } from "@/components/home/reviews-section";
 import { MapBlock } from "@/components/home/map-block";
 import { getCategories, getProducts, getReviews } from "@/lib/queries";
+import { getDb } from "@/db";
+import { contentBlocks, pages } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import { CmsBlocks } from "@/components/cms/cms-blocks";
 import { site } from "@/lib/site";
 import { absoluteUrl } from "@/lib/utils";
 import { absoluteImage } from "@/lib/seo";
@@ -30,6 +34,13 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
+  const db = await getDb();
+  const [homePage] = await db.select().from(pages).where(eq(pages.slug, "home")).limit(1);
+  const homeBlocks = homePage && homePage.status === "PUBLISHED"
+    ? await db.select().from(contentBlocks).where(eq(contentBlocks.pageId, homePage.id)).orderBy(contentBlocks.sortOrder)
+    : [];
+  const hasCmsHero = homeBlocks.some((block) => block.type === "hero" && block.isVisible);
+
   const [categories, sale, ready, farm, reviews] = await Promise.all([
     getCategories(),
     getProducts({ sale: true, perPage: 4, sort: "popular" }),
@@ -91,7 +102,14 @@ export default async function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Hero />
+      {!hasCmsHero && <Hero />}
+      {homeBlocks.length > 0 && (
+        <section className="bg-white py-4 sm:py-6">
+          <div className="container-x">
+            <CmsBlocks blocks={homeBlocks.map((block) => ({ id: block.id, type: block.type, data: block.data, isVisible: block.isVisible, sortOrder: block.sortOrder }))} />
+          </div>
+        </section>
+      )}
       <CategoryRail />
       <Tiles />
       <ProductSection title="Скидки недели" href="/promotions" linkLabel="Все акции" products={sale.items.slice(0, 4)} />
