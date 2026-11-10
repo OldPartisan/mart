@@ -22,6 +22,7 @@ import {
 import { toast } from "sonner";
 import { CmsBlocks, type CmsBlock } from "@/components/cms/cms-blocks";
 import { ContentStatusBadge } from "@/components/admin/content-status";
+import { RichTextEditor } from "@/components/admin/rich-text-editor";
 import { publishPage, savePage } from "@/app/admin/content/actions";
 import { cn } from "@/lib/utils";
 
@@ -246,9 +247,13 @@ export function ContentEditor({ page, blocks: initialBlocks, isAdmin }: { page: 
                   <label className="block text-[11px] font-semibold text-muted">Надзаголовок<input value={str(selectedBlock.data, "eyebrow")} onChange={(event) => updateData(selected, "eyebrow", event.target.value)} className="field mt-1 h-10" /></label>
                 )}
                 <label className="block text-[11px] font-semibold text-muted">Заголовок<input value={str(selectedBlock.data, "title")} onChange={(event) => updateData(selected, "title", event.target.value)} className="field mt-1 h-10" /></label>
-                {selectedBlock.type !== "image" && (
+                {selectedBlock.type === "text" ? (
+                  <div className="block text-[11px] font-semibold text-muted">Текст
+                    <div className="mt-1"><RichTextEditor value={str(selectedBlock.data, "html") || str(selectedBlock.data, "text")} onChange={(html) => updateData(selected, "html", html)} /></div>
+                  </div>
+                ) : selectedBlock.type !== "image" ? (
                   <label className="block text-[11px] font-semibold text-muted">Текст<textarea value={str(selectedBlock.data, "text")} onChange={(event) => updateData(selected, "text", event.target.value)} className="field-area mt-1 min-h-[90px]" /></label>
-                )}
+                ) : null}
                 {(selectedBlock.type === "hero" || selectedBlock.type === "banner") && (
                   <>
                     <label className="block text-[11px] font-semibold text-muted">CTA<input value={str(selectedBlock.data, "ctaLabel")} onChange={(event) => updateData(selected, "ctaLabel", event.target.value)} className="field mt-1 h-10" /></label>

@@ -52,6 +52,7 @@ export function Footer() {
                 { href: "/loyalty", label: "Программа лояльности" },
                 { href: "/promotions", label: "Акции" },
                 { href: "/about", label: "О нас" },
+                { href: "/categories", label: "Категории" },
                 { href: "/favorites", label: "Избранное" },
               ] },
               { title: "Помощь", links: [
@@ -98,6 +99,7 @@ export function Footer() {
                 { href: "/loyalty", label: "Программа лояльности" },
                 { href: "/promotions", label: "Акции" },
                 { href: "/about", label: "О нас" },
+                { href: "/categories", label: "Категории" },
                 { href: "/favorites", label: "Избранное" },
               ]}
             />

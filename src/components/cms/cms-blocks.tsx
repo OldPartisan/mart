@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import sanitizeHtml from "sanitize-html";
 
 export type CmsBlockData = Record<string, unknown>;
 export type CmsBlock = {
@@ -91,10 +92,18 @@ export function CmsBlocks({ blocks, preview = false }: { blocks: CmsBlock[]; pre
           );
         }
 
+        const html = text(block.data, "html");
         return (
           <section key={block.id ?? index} className="rounded-[18px] border border-line bg-white p-6">
             <h2 className="font-display text-[30px] font-bold leading-tight">{text(block.data, "title")}</h2>
-            {text(block.data, "text") && <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-ink-soft">{text(block.data, "text")}</p>}
+            {html ? (
+              <div
+                className="prose-irbis mt-3 text-[15px] leading-relaxed text-ink-soft"
+                dangerouslySetInnerHTML={{ __html: sanitizeHtml(html, { allowedTags: ["p", "br", "strong", "em", "s", "ul", "ol", "li", "h2", "h3", "a", "blockquote"], allowedAttributes: { a: ["href", "target", "rel"] } }) }}
+              />
+            ) : text(block.data, "text") ? (
+              <p className="mt-3 whitespace-pre-line text-[15px] leading-relaxed text-ink-soft">{text(block.data, "text")}</p>
+            ) : null}
           </section>
         );
       })}

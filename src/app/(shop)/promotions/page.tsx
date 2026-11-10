@@ -6,27 +6,41 @@ import { getPromotions } from "@/lib/queries";
 import { PageHero } from "@/components/content/page-hero";
 import { formatDate } from "@/lib/utils";
 import { absoluteImage } from "@/lib/seo";
+import { getPublishedCmsPage, cmsHero } from "@/lib/cms";
+import { CmsBlocks } from "@/components/cms/cms-blocks";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: "Акции и скидки",
-  description: "Действующие акции «Ирбис Март»: скидки на собственную продукцию, фермерскую полку, комбо-наборы и готовую еду.",
-  alternates: { canonical: "/promotions" },
-  openGraph: { title: "Акции недели — Ирбис Март", description: "Скидки до 20% на своё производство и фермерские продукты.", url: "/promotions", images: [absoluteImage("/images/honey.jpg")] },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const cms = await getPublishedCmsPage("promotions");
+  return {
+    title: cms?.page.seoTitle ?? "Акции и скидки",
+    description: cms?.page.seoDescription ?? "Действующие акции «Ирбис Март»: скидки на собственную продукцию, фермерскую полку, комбо-наборы и готовую еду.",
+    alternates: { canonical: "/promotions" },
+    openGraph: { title: cms?.page.seoTitle ?? "Акции недели — Ирбис Март", description: cms?.page.seoDescription ?? "Скидки до 20% на своё производство и фермерские продукты.", url: "/promotions", images: [absoluteImage(cms?.page.ogImage ?? "/images/honey.jpg")] },
+  };
+}
 
 export default async function PromotionsPage() {
-  const promotions = await getPromotions();
+  const [promotions, cms] = await Promise.all([getPromotions(), getPublishedCmsPage("promotions")]);
+  const hero = cms ? cmsHero(cms.blocks.map((block) => ({ type: block.type, isVisible: block.isVisible, data: block.data }))) : null;
+  const extraBlocks = cms ? cms.blocks.filter((block) => block.type !== "hero").map((block) => ({ id: block.id, type: block.type, data: block.data, isVisible: block.isVisible, sortOrder: block.sortOrder })) : [];
 
   return (
     <>
       <PageHero
-        eyebrow="Акции"
-        title="Скидки, которые не прячутся в мелком шрифте"
-        description="Каждую неделю обновляем предложения на собственную продукцию, фермерскую полку и готовую еду. Условия — на странице акции, без звёздочек."
+        eyebrow={hero?.eyebrow || "Акции"}
+        title={hero?.title || "Скидки, которые не прячутся в мелком шрифте"}
+        description={hero?.description || "Каждую неделю обновляем предложения на собственную продукцию, фермерскую полку и готовую еду. Условия — на странице акции, без звёздочек."}
         crumbs={[{ label: "Акции" }]}
+        cta={hero?.ctaLabel ? { href: hero.ctaHref || "/catalog", label: hero.ctaLabel } : undefined}
       />
+
+      {extraBlocks.length > 0 && (
+        <section className="section pb-0">
+          <div className="container-x"><CmsBlocks blocks={extraBlocks} /></div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container-x grid gap-4 md:grid-cols-2">
