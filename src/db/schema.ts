@@ -391,6 +391,49 @@ export const media = pgTable("media", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+export const marketingContacts = pgTable(
+  "marketing_contacts",
+  {
+    id: uuid("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+    source: text("source").notNull().default("AZS"),
+    externalId: text("external_id"),
+    userId: uuid("user_id").references(() => users.id, { onDelete: "set null" }),
+    name: text("name"),
+    phone: text("phone"),
+    email: text("email"),
+    consentEmail: boolean("consent_email").notNull().default(false),
+    consentSms: boolean("consent_sms").notNull().default(false),
+    consentAt: timestamp("consent_at", { withTimezone: true }),
+    consentSource: text("consent_source"),
+    lastVisitAt: timestamp("last_visit_at", { withTimezone: true }),
+    visitsCount: integer("visits_count").notNull().default(0),
+    fuelSpend: integer("fuel_spend").notNull().default(0),
+    shopSpend: integer("shop_spend").notNull().default(0),
+    bonusBalance: integer("bonus_balance").notNull().default(0),
+    status: text("status").notNull().default("ACTIVE"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    index("marketing_contacts_external_idx").on(t.source, t.externalId),
+    index("marketing_contacts_phone_idx").on(t.phone),
+    index("marketing_contacts_email_idx").on(t.email),
+  ],
+);
+
+export const customerImportBatches = pgTable("customer_import_batches", {
+  id: uuid("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  source: text("source").notNull().default("AZS"),
+  fileName: text("file_name").notNull(),
+  totalRows: integer("total_rows").notNull().default(0),
+  importedRows: integer("imported_rows").notNull().default(0),
+  updatedRows: integer("updated_rows").notNull().default(0),
+  skippedRows: integer("skipped_rows").notNull().default(0),
+  errors: jsonb("errors").$type<Array<{ row: number; message: string }>>().notNull().default(sql`'[]'::jsonb`),
+  createdBy: uuid("created_by").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export const appSettings = pgTable("app_settings", {
   key: text("key").primaryKey(),
   value: jsonb("value").$type<Record<string, unknown>>().notNull().default(sql`'{}'::jsonb`),
@@ -401,3 +444,5 @@ export type Page = typeof pages.$inferSelect;
 export type ContentBlock = typeof contentBlocks.$inferSelect;
 export type ContentRevision = typeof contentRevisions.$inferSelect;
 export type AppSetting = typeof appSettings.$inferSelect;
+export type MarketingContact = typeof marketingContacts.$inferSelect;
+export type CustomerImportBatch = typeof customerImportBatches.$inferSelect;

@@ -12,6 +12,7 @@ export type RfmCustomer = {
   userId: string;
   name: string;
   email: string;
+  phone: string | null;
   lastOrderAt: Date;
   recencyDays: number;
   frequency: number;
@@ -83,14 +84,14 @@ export function segmentFor(r: number, f: number, m: number): RfmSegmentKey {
 }
 
 export function buildRfmReport(
-  rows: Array<{ userId: string; name: string; email: string; createdAt: Date; total: number }>,
+  rows: Array<{ userId: string; name: string; email: string; phone?: string | null; createdAt: Date; total: number }>,
   now = new Date(),
 ): { customers: RfmCustomer[]; segments: RfmSegment[]; totals: { customers: number; revenue: number; avgCheck: number; repeatRate: number; totalOrders: number } } {
-  const byUser = new Map<string, { userId: string; name: string; email: string; lastOrderAt: Date; frequency: number; monetary: number }>();
+  const byUser = new Map<string, { userId: string; name: string; email: string; phone: string | null; lastOrderAt: Date; frequency: number; monetary: number }>();
   for (const row of rows) {
     const current = byUser.get(row.userId);
     if (!current) {
-      byUser.set(row.userId, { userId: row.userId, name: row.name, email: row.email, lastOrderAt: row.createdAt, frequency: 1, monetary: row.total });
+      byUser.set(row.userId, { userId: row.userId, name: row.name, email: row.email, phone: row.phone ?? null, lastOrderAt: row.createdAt, frequency: 1, monetary: row.total });
     } else {
       current.frequency += 1;
       current.monetary += row.total;

@@ -11,6 +11,7 @@ export async function getRfmOrderRows(days?: number) {
       userId: users.id,
       name: users.name,
       email: users.email,
+      phone: users.phone,
       createdAt: orders.createdAt,
       total: orders.total,
     })

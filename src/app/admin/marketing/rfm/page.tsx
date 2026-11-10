@@ -53,9 +53,25 @@ export default async function RfmPage({
             Recency · Frequency · Monetary. Клиенты по давности, частоте и сумме покупок. Только оплаченные и не отменённые заказы.
           </p>
         </div>
-        <a href={`/api/admin/export/rfm?days=${periodDays ?? 0}`} className="btn-secondary btn-sm">
-          <Download className="h-3.5 w-3.5" /> CSV
-        </a>
+        <form action="/api/admin/export/rfm" method="get" className="flex flex-wrap items-center gap-2 rounded-2xl border border-line bg-white p-2">
+          <input type="hidden" name="days" value={periodDays ?? 0} />
+          {params.q && <input type="hidden" name="q" value={params.q} />}
+          <label className="flex items-center gap-1.5 text-[10px] font-semibold text-muted">
+            Сегмент
+            <select name="segment" defaultValue={segment ?? ""} className="h-8 rounded-lg border border-line bg-white px-2 text-[11px] text-ink">
+              <option value="">Все клиенты</option>
+              {report.segments.map((item) => <option key={item.key} value={item.key}>{item.label} ({item.count})</option>)}
+            </select>
+          </label>
+          <label className="flex items-center gap-1.5 text-[10px] font-semibold text-muted">
+            Формат
+            <select name="format" defaultValue="xls" className="h-8 rounded-lg border border-line bg-white px-2 text-[11px] text-ink">
+              <option value="xls">Excel (.xls)</option>
+              <option value="csv">CSV</option>
+            </select>
+          </label>
+          <button type="submit" className="btn-primary h-8 px-3 text-[11px]"><Download className="h-3.5 w-3.5" /> Скачать</button>
+        </form>
       </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
@@ -94,6 +110,8 @@ export default async function RfmPage({
           <button type="submit" className="btn-secondary btn-sm h-8">Найти</button>
         </form>
       </div>
+
+      <p className="mt-2 text-[10px] text-muted">Выгрузка учитывает выбранный период, сегмент и поиск. Excel-файл содержит листы «RFM клиенты» и «Сегменты».</p>
 
       <section className="mt-5">
         <div className="flex items-center justify-between">
@@ -153,6 +171,7 @@ export default async function RfmPage({
                   <td className="px-4 py-2.5">
                     <p className="font-semibold text-ink">{customer.name}</p>
                     <p className="text-[10px] text-muted">{customer.email}</p>
+                    {customer.phone && <p className="text-[10px] text-muted">{customer.phone}</p>}
                   </td>
                   {[customer.r, customer.f, customer.m].map((value, index) => (
                     <td key={index} className="px-3 py-2.5"><span className={cn("inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold", scoreTone(value))}>{value}</span></td>
