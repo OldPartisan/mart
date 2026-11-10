@@ -18,7 +18,7 @@ export function Logo({
       aria-label="Ирбис Март — на главную"
     >
       <Image
-        src="/images/figma/logo.png"
+        src={inverted ? "/images/figma/logo-white.png" : "/images/figma/logo.png"}
         alt="Ирбис Март"
         width={179}
         height={42}
@@ -26,7 +26,6 @@ export function Logo({
         className={cn(
           "w-auto object-contain transition-opacity group-hover:opacity-90",
           compact ? "h-7" : "h-[38px] sm:h-[42px]",
-          inverted && "rounded bg-white p-1",
         )}
       />
     </Link>
