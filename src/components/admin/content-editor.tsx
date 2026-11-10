@@ -150,6 +150,7 @@ export function ContentEditor({ page, blocks: initialBlocks, isAdmin }: { page: 
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2">
+          <Link href={`/admin/content/${pageData.id}/history`} className="btn-secondary h-10 text-[12px]">История</Link>
           <button type="button" onClick={() => setShowSeo((value) => !value)} className="btn-secondary h-10 text-[12px]">
             SEO
           </button>

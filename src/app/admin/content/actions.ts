@@ -119,3 +119,51 @@ export async function saveIntegrationSettings(value: Record<string, unknown>) {
   revalidatePath("/admin/integration");
   return { ok: true };
 }
+
+export async function restoreRevision(revisionId: string) {
+  const user = await requireStaff();
+  const db = await getDb();
+  const [revision] = await db.select().from(contentRevisions).where(eq(contentRevisions.id, revisionId)).limit(1);
+  if (!revision) throw new Error("Версия не найдена");
+  const snapshot = revision.snapshot as {
+    page?: { title?: string; slug?: string; type?: string; seoTitle?: string; seoDescription?: string; ogImage?: string };
+    blocks?: Array<{ type: string; data: Record<string, unknown>; isVisible?: boolean }>;
+  };
+  if (!snapshot.page || !Array.isArray(snapshot.blocks)) throw new Error("В этой версии нет данных страницы");
+
+  await db
+    .update(pages)
+    .set({
+      title: snapshot.page.title ?? "Без названия",
+      slug: snapshot.page.slug ?? `restored-${Date.now()}`,
+      type: allowedPageTypes.has(snapshot.page.type ?? "") ? snapshot.page.type! : "LANDING",
+      seoTitle: snapshot.page.seoTitle ?? null,
+      seoDescription: snapshot.page.seoDescription ?? null,
+      ogImage: snapshot.page.ogImage ?? null,
+      status: "DRAFT",
+      updatedAt: new Date(),
+    })
+    .where(eq(pages.id, revision.pageId));
+
+  await db.delete(contentBlocks).where(eq(contentBlocks.pageId, revision.pageId));
+  if (snapshot.blocks.length) {
+    await db.insert(contentBlocks).values(
+      snapshot.blocks.map((block, index) => ({
+        pageId: revision.pageId,
+        type: allowedTypes.has(block.type) ? block.type : "text",
+        data: block.data,
+        isVisible: block.isVisible !== false,
+        sortOrder: index,
+      })),
+    );
+  }
+  await db.insert(contentRevisions).values({
+    pageId: revision.pageId,
+    userId: user.id,
+    snapshot,
+    note: "Восстановлена версия",
+  });
+  revalidatePath("/admin/content");
+  revalidatePath(`/admin/content/${revision.pageId}`);
+  return { ok: true };
+}

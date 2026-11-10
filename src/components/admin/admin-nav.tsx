@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, LayoutDashboard, Package, FolderTree, ShoppingCart, Ticket, Users, FileText, Plug } from "lucide-react";
+import { ArrowUpRight, LayoutDashboard, Package, FolderTree, ShoppingCart, Ticket, Users, FileText, Plug, LockKeyhole } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -14,6 +14,7 @@ const links = [
   { href: "/admin/promos", label: "Промокоды", icon: Ticket },
   { href: "/admin/users", label: "Пользователи", icon: Users },
   { href: "/admin/integration", label: "Интеграция 1С", icon: Plug },
+  { href: "/admin/security", label: "Безопасность", icon: LockKeyhole },
 ];
 
 export function AdminNav() {
